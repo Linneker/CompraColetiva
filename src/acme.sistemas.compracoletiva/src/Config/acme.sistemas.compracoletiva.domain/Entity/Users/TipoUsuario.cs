@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace acme.sistemas.compracoletiva.domain.Users
+namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
     public class TipoUsuario : BaseEntity
     {

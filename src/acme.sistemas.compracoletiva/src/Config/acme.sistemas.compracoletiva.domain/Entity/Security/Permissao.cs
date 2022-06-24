@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace acme.sistemas.compracoletiva.domain.Security
+namespace acme.sistemas.compracoletiva.domain.Entity.Security
 {
     public class Permissao : IdentityRole<Guid>
     {

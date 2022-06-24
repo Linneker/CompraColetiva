@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace acme.sistemas.compracoletiva.domain.Utils
+namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class Arquivo : BaseEntity
     {

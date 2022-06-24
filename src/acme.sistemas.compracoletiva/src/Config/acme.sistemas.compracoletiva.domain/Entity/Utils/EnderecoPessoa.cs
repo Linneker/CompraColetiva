@@ -1,8 +1,7 @@
-﻿
-using acme.sistemas.compracoletiva.domain.Users;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Users;
 using System;
 
-namespace acme.sistemas.compracoletiva.domain.Utils
+namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class EnderecoPessoa : BaseEntity
     {

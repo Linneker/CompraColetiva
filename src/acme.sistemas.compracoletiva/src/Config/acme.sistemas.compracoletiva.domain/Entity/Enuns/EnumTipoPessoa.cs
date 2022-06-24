@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace acme.sistemas.compracoletiva.domain.Enuns
+namespace acme.sistemas.compracoletiva.domain.Entity.Enuns
 {
     public enum EnumTipoPessoa
     {

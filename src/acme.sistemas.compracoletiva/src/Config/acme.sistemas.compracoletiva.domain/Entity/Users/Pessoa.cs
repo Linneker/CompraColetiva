@@ -1,9 +1,9 @@
-﻿using acme.sistemas.compracoletiva.domain.Enuns;
-using acme.sistemas.compracoletiva.domain.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
+using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using System;
 using System.Collections.Generic;
 
-namespace acme.sistemas.compracoletiva.domain.Users
+namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
     public class Pessoa : BaseEntity
     {

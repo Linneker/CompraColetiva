@@ -1,6 +1,6 @@
 ﻿
 
-namespace acme.sistemas.compracoletiva.domain.Utils
+namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class Parametro : BaseEntity
     {

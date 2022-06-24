@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.domain.Users
+namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
     public class Usuario : IdentityUser<Guid>
     {

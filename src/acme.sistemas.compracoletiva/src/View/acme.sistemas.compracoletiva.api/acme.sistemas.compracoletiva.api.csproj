@@ -14,4 +14,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Config\acme.sistemas.compracoletiva.service\acme.sistemas.compracoletiva.service.csproj" />
+    <ProjectReference Include="..\..\Core\acme.sistemas.compracoletiva.core\acme.sistemas.compracoletiva.core.csproj" />
+    <ProjectReference Include="..\..\Core\acme.sistemas.compracoletiva.di\acme.sistemas.compracoletiva.di.csproj" />
+  </ItemGroup>
+
 </Project>

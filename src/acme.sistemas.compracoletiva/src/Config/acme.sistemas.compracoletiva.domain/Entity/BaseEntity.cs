@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace acme.sistemas.compracoletiva.domain
+namespace acme.sistemas.compracoletiva.domain.Entity
 {
     [NotMapped]
     public  class BaseEntity

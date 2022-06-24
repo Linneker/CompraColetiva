@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace acme.sistemas.compracoletiva.domain.Security
+namespace acme.sistemas.compracoletiva.domain.Entity.Security
 {
     [NotMapped]
     public class TokenConfigurations
