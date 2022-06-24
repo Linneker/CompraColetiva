@@ -1,5 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Base;
-using acme.sistemas.compracoletiva.domain.Enuns;
+﻿using acme.sistemas.compracoletiva.domain.Enuns;
 using acme.sistemas.compracoletiva.domain.Utils;
 using System;
 using System.Collections.Generic;
