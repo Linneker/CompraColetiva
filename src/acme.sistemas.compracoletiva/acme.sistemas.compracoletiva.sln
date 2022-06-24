@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acme.sistemas.compracoletiv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acme.sistemas.compracoletiva.repository.test", "test\Infra\acme.sistemas.compracoletiva.repository.test\acme.sistemas.compracoletiva.repository.test.csproj", "{998AB25A-4980-48DA-B45D-64E1C6FF2AB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acme.sistemas.compracoletiva.di", "src\Core\acme.sistemas.compracoletiva.di\acme.sistemas.compracoletiva.di.csproj", "{D8DBAB5A-9F2B-434C-82BD-A5791C9F8E78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,10 @@ Global
 		{998AB25A-4980-48DA-B45D-64E1C6FF2AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{998AB25A-4980-48DA-B45D-64E1C6FF2AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{998AB25A-4980-48DA-B45D-64E1C6FF2AB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DBAB5A-9F2B-434C-82BD-A5791C9F8E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DBAB5A-9F2B-434C-82BD-A5791C9F8E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DBAB5A-9F2B-434C-82BD-A5791C9F8E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DBAB5A-9F2B-434C-82BD-A5791C9F8E78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{3EC763BE-68FB-4E44-AE1E-42C59248E873} = {874A7A92-8042-4E58-9119-41B9A5D0C621}
 		{9D284AC4-362B-4A56-A144-B3E7656C4FB0} = {692E5969-D92A-4B6D-9233-F60010F93651}
 		{998AB25A-4980-48DA-B45D-64E1C6FF2AB3} = {692E5969-D92A-4B6D-9233-F60010F93651}
+		{D8DBAB5A-9F2B-434C-82BD-A5791C9F8E78} = {2D5E2031-50DC-4FB9-B590-E9701089C453}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5481008A-6942-4933-AF28-FB8FE46310F9}
