@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Interfaces;
+using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,6 @@ namespace acme.sistemas.compracoletiva.service
         public void AddMultiple(IEnumerable<TEntity> entities) => _baseRepository.AddMultiple(entities);
 
         public Task AddMultipleAsync(IEnumerable<TEntity> entities)=> _baseRepository.AddMultipleAsync(entities);
-
-        public void Dispose() => _baseRepository.Dispose();
 
         public IQueryable<TEntity> GetAll() => _baseRepository.GetAll();
 

@@ -2,6 +2,7 @@
 using acme.sistemas.compracoletiva.core.Helpers;
 using acme.sistemas.compracoletiva.core.Interfaces.User;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.domain.Interfaces.Repository.User;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 
