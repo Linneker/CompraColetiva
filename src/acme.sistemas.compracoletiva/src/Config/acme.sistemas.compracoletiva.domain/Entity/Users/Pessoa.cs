@@ -20,8 +20,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         
         public virtual ICollection<Usuario> Usuarios { get; set; }
         public virtual ICollection<EnderecoPessoa> EnderecoPessoas { get; set; } = new HashSet<EnderecoPessoa>();
-        
-        public Pessoa() { }
+
+        public void SetEnderecoPessoas(ICollection<EnderecoPessoa> enderecosPessoas) =>
+            EnderecoPessoas = enderecosPessoas;
+
+        public void AddEnderecoPessoa(EnderecoPessoa enderecosPessoa) =>
+            EnderecoPessoas.Add(enderecosPessoa);
+        protected Pessoa() { }
         public Pessoa(string nome, string nomeFantasia, string email, string celular, string telefone, DateTime? dataNascimento, EnumTipoPessoa tipoPessoa, string cpf, string cnpj, string inscricaoMunicipal)
         {
             Nome = nome;

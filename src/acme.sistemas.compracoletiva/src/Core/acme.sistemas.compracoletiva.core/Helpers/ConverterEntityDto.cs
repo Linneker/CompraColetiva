@@ -28,21 +28,20 @@ namespace acme.sistemas.compracoletiva.core.Helpers
 
         public static Pessoa ParaPessoa(this PessoaDto pessoa)
         {
-            Pessoa pessoaDto = new Pessoa()
-            {
-                Celular = pessoa.Celular,
-                CNPJ = pessoa.CNPJ,
-                CPF = pessoa.CPF,
-                DataNascimento = pessoa.DataNascimento,
-                Email = pessoa.Email,
-                EnderecoPessoas = pessoa.EnderecoPessoas.ParaEnderecosPessoas(),
-                InscricaoMunicipal = pessoa.InscricaoMunicipal,
-                Nome = pessoa.Nome,
-                NomeFantasia = pessoa.NomeFantasia,
-                Telefone = pessoa.Telefone,
-                TipoPessoa = pessoa.TipoPessoa
+            Pessoa pessoaDto = new Pessoa(
+                celular: pessoa.Celular,
+                cnpj: pessoa.CNPJ,
+                cpf: pessoa.CPF,
+                dataNascimento: pessoa.DataNascimento,
+                email: pessoa.Email,
+                inscricaoMunicipal: pessoa.InscricaoMunicipal,
+                nome: pessoa.Nome,
+                nomeFantasia: pessoa.NomeFantasia,
+                telefone: pessoa.Telefone,
+                tipoPessoa: pessoa.TipoPessoa
+            );
+            pessoaDto.SetEnderecoPessoas(pessoa.EnderecoPessoas.ParaEnderecosPessoas());
 
-            };
             return pessoaDto;
         }
 
