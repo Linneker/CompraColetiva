@@ -1,4 +1,6 @@
-﻿using System;
+﻿using acme.sistemas.compracoletiva.domain.Entity;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Interfaces.Repository
 {
-    public interface IBaseRepository<TEntity> where TEntity : class
+    public interface IBaseRepository<TEntity> where TEntity : IAggregateRoot
     {
         Task AddAsync(TEntity entity);
         void Add(TEntity entity);
@@ -16,11 +18,11 @@ namespace acme.sistemas.compracoletiva.domain.Interfaces.Repository
         void RemoveMultiple(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
         void UpdateMultiple(IEnumerable<TEntity> entities);
-        Task<TEntity> GetByIdAsync(Guid id);
-        TEntity GetById(Guid id);
-        IQueryable<TEntity> GetAll();
-        Task<IQueryable<TEntity>> GetAllAsync();
-        List<TEntity> GetList();
-        Task<List<TEntity>> GetListAsync();
+        Task<Entity> GetByIdAsync<Entity>(Guid id) where Entity : BaseEntity;
+        Entity GetById<Entity>(Guid id) where Entity : BaseEntity;
+        IQueryable<Entity> GetAll<Entity>() where Entity : BaseEntity;
+        Task<IQueryable<Entity>> GetAllAsync<Entity>() where Entity : BaseEntity;
+        List<Entity> GetList<Entity>() where Entity : BaseEntity;
+        Task<List<Entity>> GetListAsync<Entity>() where Entity : BaseEntity;
     }
 }

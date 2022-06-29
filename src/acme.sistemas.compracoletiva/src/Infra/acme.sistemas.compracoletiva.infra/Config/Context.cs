@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Security;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
+using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using acme.sistemas.compracoletiva.infra.Map.Users;
@@ -24,6 +25,7 @@ namespace acme.sistemas.compracoletiva.infra.Config
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
 
+        public DbSet<Produto> Produto { get; set; }
         public DbSet<Arquivo> Arquivos { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<EnderecoPessoa> EnderecosPessoa { get; set; }

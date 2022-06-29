@@ -1,9 +1,10 @@
 ﻿
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using System.Collections.Generic;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
-    public class Endereco : BaseEntity
+    public class Endereco : BaseEntity, IAggregateRoot
     {
         public Endereco()
         {

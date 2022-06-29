@@ -1,5 +1,6 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils;
+using acme.sistemas.compracoletiva.infra.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,8 @@ namespace acme.sistemas.compracoletiva.repository.Utils
 {
     public class EnderecoRepository : BaseRepository<Endereco>, IEnderecoRepository
     {
-        private readonly IEnderecoRepository _enderecoRepository;
-
-        public EnderecoRepository(IEnderecoRepository enderecoRepository) : base(enderecoRepository)
+        public EnderecoRepository(Context db) : base(db)
         {
-            _enderecoRepository = enderecoRepository;
         }
     }
 }

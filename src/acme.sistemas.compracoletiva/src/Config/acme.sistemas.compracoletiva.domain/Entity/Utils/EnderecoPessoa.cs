@@ -1,9 +1,10 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using System;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
-    public class EnderecoPessoa : BaseEntity
+    public class EnderecoPessoa : BaseEntity, IAggregateRoot
     {
         public int Numero { get; set; }
         public string Complemento { get; set; }

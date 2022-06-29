@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Config\acme.sistemas.compracoletiva.domain\acme.sistemas.compracoletiva.domain.csproj" />
     <ProjectReference Include="..\..\Core\acme.sistemas.compracoletiva.core\acme.sistemas.compracoletiva.core.csproj" />
+    <ProjectReference Include="..\acme.sistemas.compracoletiva.infra\acme.sistemas.compracoletiva.infra.csproj" />
   </ItemGroup>
 
 </Project>

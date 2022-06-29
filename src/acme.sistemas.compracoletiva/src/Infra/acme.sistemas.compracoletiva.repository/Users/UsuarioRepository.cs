@@ -1,5 +1,6 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.User;
+using acme.sistemas.compracoletiva.infra.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,8 @@ namespace acme.sistemas.compracoletiva.repository.Users
 {
     public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
     {
-        private readonly IUsuarioRepository _usuarioRepository;
-
-        public UsuarioRepository(IUsuarioRepository usuarioRepository) : base(usuarioRepository)
+        public UsuarioRepository(Context db) : base(db)
         {
-            _usuarioRepository = usuarioRepository;
         }
     }
 }

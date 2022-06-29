@@ -1,11 +1,12 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using System;
 using System.Collections.Generic;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
-    public class Pessoa : BaseEntity
+    public class Pessoa : BaseEntity, IAggregateRoot
     {
         public string Nome { get; set; }
         public string NomeFantasia { get; set; }
