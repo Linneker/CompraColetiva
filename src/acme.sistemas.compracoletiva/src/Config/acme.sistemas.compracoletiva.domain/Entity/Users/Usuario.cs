@@ -10,6 +10,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
     public class Usuario : IdentityUser<Guid>, IAggregateRoot
     {
+        
         public DateTime DataCriacao { get; set; }
         public DateTime DataModificacao { get; set; }
         public bool Ativo { get; set; }

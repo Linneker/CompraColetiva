@@ -1,7 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity;
-using acme.sistemas.compracoletiva.domain.Entity.Product;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
-using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -11,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.infra.Map.Products
+namespace acme.sistemas.compracoletiva.infra.Map.Utils
 {
-    public class ProdutoMap : IEntityTypeConfiguration<Produto>
+    public class EmailMap : IEntityTypeConfiguration<Email>
     {
-        public void Configure(EntityTypeBuilder<Produto> builder)
+        public void Configure(EntityTypeBuilder<Email> builder)
         {
             builder.ToTable("Produto");
             builder.HasKey(t => t.Id);
@@ -28,12 +25,16 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
 
-
-            builder.Property(_=>_.Nome).HasPrecision(500).IsRequired();
-            builder.Property(_=>_.ValorCompra).HasPrecision(20,2).IsRequired();
-            builder.Property(_=>_.ValorVenda).HasPrecision(20, 2).IsRequired();
-            builder.Property(_=>_.Quantidade).HasPrecision(20).IsRequired();
-            builder.Property(_=>_.TicketMinimo).HasPrecision(20).IsRequired();
+            builder.HasMany(t => t.EnvioEmails).WithMany(t => t.EmailsCopias).UsingEntity<Dictionary<string, object>>("EmailCopias",
+                t => t.HasOne<Email>().WithMany().HasForeignKey("EmailId"),
+                t => t.HasOne<EnvioEmail>().WithMany().HasForeignKey("EnvioEmailId"),
+                t =>
+                {
+                    t.Property<Guid>("Id");
+                    t.HasKey("Id");
+                    t.Property<Guid>("EmailId");
+                    t.Property<Guid>("EnvioEmailId");
+                });
         }
     }
 }
