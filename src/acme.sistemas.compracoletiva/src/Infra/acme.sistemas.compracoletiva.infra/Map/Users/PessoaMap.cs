@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace acme.sistemas.compracoletiva.infra.Map.Users
 {
     public class PessoaMap : IEntityTypeConfiguration<Pessoa>
-    {
+    {   
         public void Configure(EntityTypeBuilder<Pessoa> builder)
         {
             builder.ToTable("Pessoa");

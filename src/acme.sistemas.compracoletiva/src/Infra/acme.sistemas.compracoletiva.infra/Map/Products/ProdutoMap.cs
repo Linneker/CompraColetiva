@@ -29,11 +29,11 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
 
 
 
-            builder.Property(_=>_.Nome).HasMaxLength(500).IsRequired();
-            builder.Property(_=>_.ValorCompra).HasMaxLength(30).IsRequired();
-            builder.Property(_=>_.ValorVenda).HasMaxLength(30).IsRequired();
-            builder.Property(_=>_.Quantidade).HasMaxLength(40).IsRequired();
-            builder.Property(_=>_.TicketMedio).HasMaxLength(60).IsRequired();
+            builder.Property(_=>_.Nome).HasPrecision(500).IsRequired();
+            builder.Property(_=>_.ValorCompra).HasPrecision(20,2).IsRequired();
+            builder.Property(_=>_.ValorVenda).HasPrecision(20, 2).IsRequired();
+            builder.Property(_=>_.Quantidade).HasPrecision(20).IsRequired();
+            builder.Property(_=>_.TicketMedio).HasPrecision(20).IsRequired();
         }
     }
 }
