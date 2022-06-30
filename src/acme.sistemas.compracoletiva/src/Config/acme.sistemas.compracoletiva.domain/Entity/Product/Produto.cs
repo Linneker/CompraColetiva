@@ -13,12 +13,12 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         {
 
         }
-        public Produto(string nome, decimal valorCompra, decimal valorVenda, int prazo, int ticketMedio, decimal valorUnitario)
+        public Produto(string nome, decimal valorCompra, decimal valorVenda, int prazo, int ticketMinimo, decimal valorUnitario)
         {
             Nome = nome;
             ValorCompra = valorCompra;
             ValorVenda = valorVenda;
-            TicketMinimo = ticketMedio;
+            TicketMinimo = ticketMinimo;
             Prazo = prazo;
             ValorUnitario = valorUnitario;
         }
