@@ -14,6 +14,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         }
 
         public string Nome { get; private set; }
+        
 
 
 

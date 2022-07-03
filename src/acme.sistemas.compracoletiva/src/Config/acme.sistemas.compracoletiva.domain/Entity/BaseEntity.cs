@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace acme.sistemas.compracoletiva.domain.Entity
 {
     [NotMapped]
-    public  class BaseEntity
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
         public DateTime DataCriacao { get; set; }
@@ -18,6 +18,16 @@ namespace acme.sistemas.compracoletiva.domain.Entity
             Id = Guid.NewGuid();
             Ativo = true;
             DataCriacao = DateTime.Now;
+        }
+
+        protected BaseEntity(Guid id, DateTime dataCriacao, bool ativo, Guid? usuarioCriacaoId, Guid? usuarioModificacaoId)
+        {
+            Id = id;
+            DataCriacao = dataCriacao;
+            DataModificacao = DateTime.Now;
+            Ativo = ativo;
+            UsuarioCriacaoId = usuarioCriacaoId;
+            UsuarioModificacaoId = usuarioModificacaoId;
         }
 
         public virtual void Ativar() => SetAtivo(true);

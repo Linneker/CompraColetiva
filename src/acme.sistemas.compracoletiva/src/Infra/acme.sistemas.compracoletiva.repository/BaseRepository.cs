@@ -37,7 +37,6 @@ namespace acme.sistemas.compracoletiva.repository
 
         public async Task<IQueryable<Entity>> GetAllAsync<Entity>() where Entity : BaseEntity
         {
-
             var dbSet = _db.Set<Entity>();
             var result = dbSet.AsQueryable<Entity>();
             return await Task.FromResult(result);

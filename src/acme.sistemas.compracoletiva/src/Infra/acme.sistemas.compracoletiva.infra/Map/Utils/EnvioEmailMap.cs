@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.infra.Map.Utils
 {
-    public class EmailMap : IEntityTypeConfiguration<Email>
+    public class EnvioEmailMap : IEntityTypeConfiguration<EnvioEmail>
     {
-        public void Configure(EntityTypeBuilder<Email> builder)
+        public void Configure(EntityTypeBuilder<EnvioEmail> builder)
         {
-            builder.ToTable("Email");
+            builder.ToTable("EnvioEmail");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
@@ -25,17 +25,11 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
 
-            builder.HasMany(t => t.EnvioEmails).WithMany(t => t.EmailsCopias).UsingEntity<Dictionary<string, object>>("EmailCopias",              
-                t =>
-                {
-                    t.Property<Guid>("Id");
-                    t.HasKey("Id");
-                    t.Property<Guid>("EmailId");
-                    t.Property<Guid>("EnvioEmailId");
+            builder.Property(t => t.Corpo);
+            builder.Property(t => t.Titulo).HasMaxLength(100);
 
-                    t.HasOne<EnvioEmail>().WithMany().HasForeignKey("EnvioEmailId");
-                    t.HasOne<Email>().WithMany().HasForeignKey("EmailId");
-                });
+            builder.HasOne(t => t.Remetente).WithMany(t=>t.EnvioEmails).HasForeignKey(t=>t.RemetenteId);
+
         }
     }
 }
