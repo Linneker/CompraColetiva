@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
+using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using System;

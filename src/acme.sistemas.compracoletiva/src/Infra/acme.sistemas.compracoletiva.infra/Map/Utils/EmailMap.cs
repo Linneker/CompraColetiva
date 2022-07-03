@@ -2,11 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.infra.Map.Utils
 {
@@ -14,7 +9,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
     {
         public void Configure(EntityTypeBuilder<Email> builder)
         {
-            builder.ToTable("Produto");
+            builder.ToTable("Email");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
@@ -25,16 +20,18 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
 
-            builder.HasMany(t => t.EnvioEmails).WithMany(t => t.EmailsCopias).UsingEntity<Dictionary<string, object>>("EmailCopias",
-                t => t.HasOne<Email>().WithMany().HasForeignKey("EmailId"),
-                t => t.HasOne<EnvioEmail>().WithMany().HasForeignKey("EnvioEmailId"),
+            builder.HasMany(t => t.EnvioEmailsCopias).WithMany(t => t.EmailsCopias).UsingEntity<Dictionary<string, object>>("EmailCopias",
                 t =>
                 {
                     t.Property<Guid>("Id");
                     t.HasKey("Id");
                     t.Property<Guid>("EmailId");
                     t.Property<Guid>("EnvioEmailId");
-                });
+
+                    t.HasOne<Email>().WithMany().HasForeignKey("EmailId");
+                    t.HasOne<EnvioEmail>().WithMany().HasForeignKey("EnvioEmailId");
+                }
+               );
         }
     }
 }

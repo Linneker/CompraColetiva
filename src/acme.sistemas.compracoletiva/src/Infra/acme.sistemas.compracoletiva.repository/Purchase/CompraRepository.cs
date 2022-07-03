@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
+using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Purchase;
 using acme.sistemas.compracoletiva.infra.Config;
 using System;

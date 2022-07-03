@@ -7,5 +7,9 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Interfaces.Repository.User
 {
-    public interface IUsuarioRepository : IBaseRepository<Usuario> { }
+    public interface IUsuarioRepository : IBaseRepository<Usuario>
+    {
+        Task<IQueryable<Usuario>> GetUsuariosJoinPessoaEndereco();
+        Task<Usuario> GetUsuariosJoinPessoaEnderecoJoinPermissaoByLogin(string login);
+    }
 }
