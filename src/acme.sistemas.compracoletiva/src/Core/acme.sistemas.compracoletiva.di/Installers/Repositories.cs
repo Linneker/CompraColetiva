@@ -1,7 +1,9 @@
 ﻿using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
+using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Location;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.User;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils;
 using acme.sistemas.compracoletiva.repository;
+using acme.sistemas.compracoletiva.repository.Location;
 using acme.sistemas.compracoletiva.repository.Users;
 using acme.sistemas.compracoletiva.repository.Utils;
 using Microsoft.Extensions.DependencyInjection;

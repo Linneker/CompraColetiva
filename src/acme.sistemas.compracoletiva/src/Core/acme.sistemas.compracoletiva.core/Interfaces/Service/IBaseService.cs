@@ -22,7 +22,7 @@ namespace acme.sistemas.compracoletiva.core.Interfaces.Service
         Entity GetById<TEntityRecover, Entity>(Guid id) where TEntityRecover : class where Entity : BaseEntity;
         IQueryable<Entity> GetAll<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
         Task<IQueryable<Entity>> GetAllAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
-        List<Entity> GetList<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
+        List<Entity> GetListAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
         Task<List<Entity>> GetListAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
     }
 }

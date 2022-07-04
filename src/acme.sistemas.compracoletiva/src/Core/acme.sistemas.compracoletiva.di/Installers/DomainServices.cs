@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Interfaces.Service;
+using acme.sistemas.compracoletiva.core.Interfaces.Service.Location;
 using acme.sistemas.compracoletiva.core.Interfaces.Service.User;
 using acme.sistemas.compracoletiva.core.Interfaces.Service.Utils;
 using acme.sistemas.compracoletiva.service.Service;

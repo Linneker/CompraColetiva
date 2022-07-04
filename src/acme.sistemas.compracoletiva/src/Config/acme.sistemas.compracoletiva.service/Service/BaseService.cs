@@ -31,7 +31,7 @@ namespace acme.sistemas.compracoletiva.service.Service
 
         public async Task<Entity> GetByIdAsync<TEntityRecover, Entity>(Guid id) where TEntityRecover : class where Entity : BaseEntity => (await _baseRepository.GetByIdAsync<Entity>(id));
 
-        public List<Entity> GetList<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity => _baseRepository.GetList<Entity>();
+        public List<Entity> GetListAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity => _baseRepository.GetList<Entity>();
 
 
         public async Task<List<Entity>> GetListAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity => await _baseRepository.GetListAsync<Entity>();
