@@ -2,11 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.infra.Map.Utils
 {
@@ -25,7 +20,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
 
-            builder.HasMany(t => t.EnvioEmails).WithMany(t => t.EmailsCopias).UsingEntity<Dictionary<string, object>>("EmailCopias",              
+            builder.HasMany(t => t.EnvioEmailsCopias).WithMany(t => t.EmailsCopias).UsingEntity<Dictionary<string, object>>("EmailCopias",
                 t =>
                 {
                     t.Property<Guid>("Id");
@@ -33,9 +28,10 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
                     t.Property<Guid>("EmailId");
                     t.Property<Guid>("EnvioEmailId");
 
-                    t.HasOne<EnvioEmail>().WithMany().HasForeignKey("EnvioEmailId");
                     t.HasOne<Email>().WithMany().HasForeignKey("EmailId");
-                });
+                    t.HasOne<EnvioEmail>().WithMany().HasForeignKey("EnvioEmailId");
+                }
+               );
         }
     }
 }

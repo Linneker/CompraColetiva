@@ -8,12 +8,24 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class EmailConfiguracaoEmail : BaseEntity
     {
+        public EmailConfiguracaoEmail(string senha)
+        {
+            Senha = senha;
+        }
+
+        protected EmailConfiguracaoEmail()
+        {
+        }
+
         public string Senha { get; private set; }
         public Guid EmailEnvioId { get; private set; }
-        public Guid EmailEnviadorId { get; private set; }
+        public Guid EmailRemetenteId { get; private set; }
         public Guid ConfiguracaoEmailId { get; private set; }
+       
         public Email EmailEnvio { get; private set; }
-        public Email EmailEnviador { get; private set; }
+        
+        public Email EmailRemetente { get; private set; }
+
         public ConfiguracaoEmail ConfiguracaoEmail { get; private set; }
     }
 }

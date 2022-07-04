@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Location;
+using acme.sistemas.compracoletiva.domain.Entity.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
@@ -15,9 +16,7 @@ namespace acme.sistemas.compracoletiva.infra.Config
 {
     public class Context : IdentityDbContext<Usuario, Permissao, Guid, UserClaim, PermissaoUsuario, UserLogin, PermissaoClaim, UserToken>
     {
-        public Context()
-        {
-        }
+       
         public Context(DbContextOptions<Context> dbContextOptions) : base(dbContextOptions)
         {
         }

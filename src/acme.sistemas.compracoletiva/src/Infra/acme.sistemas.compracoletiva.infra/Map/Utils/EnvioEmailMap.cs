@@ -24,12 +24,10 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
-
-            builder.Property(t => t.Corpo);
             builder.Property(t => t.Titulo).HasMaxLength(100);
+            builder.Property(t => t.Corpo).HasMaxLength(500);
 
-            builder.HasOne(t => t.Remetente).WithMany(t=>t.EnvioEmails).HasForeignKey(t=>t.RemetenteId);
-
+            builder.HasOne(t => t.Destinatario).WithOne(t => t.DestinatiroEmail).HasForeignKey<EnvioEmail>(t => t.DestinatarioId);
         }
     }
 }
