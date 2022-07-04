@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
-    public class Pagamento : BaseEntity, IAggregateRoot
+    public class Reserva : BaseEntity, IAggregateRoot
     {
-        protected Pagamento()
+        protected Reserva()
         {
 
         }
 
-        /* public Pagamento()
-         {
-
-         }*/
-        
         public int Prazo { get; private set; }
     }
 }

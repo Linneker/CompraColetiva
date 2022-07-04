@@ -1,5 +1,6 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
@@ -20,6 +21,10 @@ namespace acme.sistemas.compracoletiva.infra.Config
         public Context(DbContextOptions<Context> dbContextOptions) : base(dbContextOptions)
         {
         }
+
+        public DbSet<UnidadeMedidaCompra> UnidadeMedidaCompra { get; set; }
+        public DbSet<Reserva> Reserva { get; set; }
+        public DbSet<Oferta> Oferta { get; set; }
         public DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
