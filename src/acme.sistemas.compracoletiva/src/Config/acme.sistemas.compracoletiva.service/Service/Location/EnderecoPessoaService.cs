@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Location
         private readonly IMapper _mapper;
 
         public EnderecoPessoaService(IEnderecoPessoaRepository enderecoPessoaRepository,
-            IMapper mapper) : base(enderecoPessoaRepository, mapper)
+            IMapper mapper) : base(enderecoPessoaRepository)
         {
             _enderecoPessoaRepository = enderecoPessoaRepository;
             _mapper = mapper;

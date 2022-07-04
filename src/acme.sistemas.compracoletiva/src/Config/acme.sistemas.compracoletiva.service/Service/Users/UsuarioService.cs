@@ -18,7 +18,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Users
         public UsuarioService(IUsuarioRepository baseRepository,
             SignInManager<Usuario> signInManager,
             UserManager<Usuario> userManager,
-            IMapper mapper) : base(baseRepository, mapper)
+            IMapper mapper) : base(baseRepository)
         {
             _baseRepository = baseRepository;
             _signInManager = signInManager;

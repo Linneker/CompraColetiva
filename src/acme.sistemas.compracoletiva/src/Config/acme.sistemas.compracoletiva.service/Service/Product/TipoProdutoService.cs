@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Product
         private readonly IMapper _mapper;
 
         public TipoProdutoService(ITipoProdutoRepository tipoProdutoRepository,
-            IMapper mapper) : base(tipoProdutoRepository, mapper)
+            IMapper mapper) : base(tipoProdutoRepository)
         {
             _tipoProdutoRepository = tipoProdutoRepository;
             _mapper = mapper;

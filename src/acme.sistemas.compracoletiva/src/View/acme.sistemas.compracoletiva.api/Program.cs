@@ -1,5 +1,7 @@
 using NLog.Web;
 using acme.sistemas.compracoletiva.api;
+using Microsoft.AspNetCore.Builder;
+
 ///Applicação
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,13 +9,30 @@ var builder = WebApplication.CreateBuilder(args);
 var logger = NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
 logger.Debug("Inicio");
 
-var staurtup = new Startup(builder.Configuration);
-staurtup.ConfigureServices(builder.Services);
 
+if (builder.Environment.IsEnvironment("Testing"))
+{
+    var startup = new StartupApiTeste(builder.Configuration);
+    startup.ConfigureServices(builder.Services);
 
-var app = builder.Build();
+    builder.Logging.AddJsonConsole();
+    var app = builder.Build();
 
-staurtup.Configure(app, app.Environment, Startup.loggerFactory);
+    startup.Configure(app, app.Environment, Startup.loggerFactory);
 
-app.Run();
+    app.Run();
+}
+else
+{
+    var startup = new Startup(builder.Configuration);
+    startup.ConfigureServices(builder.Services);
+
+    builder.Logging.AddJsonConsole();
+    var app = builder.Build();
+
+    startup.Configure(app, app.Environment, Startup.loggerFactory);
+
+    app.Run();
+}
 logger.Debug("Fim");
+public partial class Program { }

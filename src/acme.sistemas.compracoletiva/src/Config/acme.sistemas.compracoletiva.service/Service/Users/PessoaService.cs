@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Users
         private readonly IMapper _mapper;
 
         public PessoaService(IPessoaRepository pessoaRepository,
-            IMapper mapper) : base(pessoaRepository, mapper)
+            IMapper mapper) : base(pessoaRepository)
         {
             _pessoaRepository = pessoaRepository;
             _mapper = mapper;

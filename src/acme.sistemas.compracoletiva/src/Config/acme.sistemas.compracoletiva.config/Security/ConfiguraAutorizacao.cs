@@ -4,11 +4,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.config.Security
 {
@@ -21,7 +16,7 @@ namespace acme.sistemas.compracoletiva.config.Security
             CriptografiaAssincrona criptografiaAssincrona = new CriptografiaAssincrona();
             SigningConfigurations setings = new SigningConfigurations();
             services.AddSingleton(setings);
-            
+
             services.AddAuthentication(authOptions =>
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -38,7 +33,7 @@ namespace acme.sistemas.compracoletiva.config.Security
                     ValidateAudience = true,
                     ValidAudiences = configuracaoToken.AutenticacoesSistemas.Select(t => t.ValidoEm).ToList(),
                     ValidIssuers = configuracaoToken.AutenticacoesSistemas.Select(t => t.SistemaEmissao).ToList(),
-                    ClockSkew = TimeSpan.FromHours(configuracaoToken.Expiracao.HasValue ? configuracaoToken.Expiracao.Value : 2) 
+                    ClockSkew = TimeSpan.FromHours(configuracaoToken.Expiracao.HasValue ? configuracaoToken.Expiracao.Value : 2)
                 };
                 t.Validate();
             });

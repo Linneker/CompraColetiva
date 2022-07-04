@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\acme.sistemas.compracoletiva.core\acme.sistemas.compracoletiva.core.csproj" />
-    <ProjectReference Include="..\acme.sistemas.compracoletiva.domain\acme.sistemas.compracoletiva.domain.csproj" />
     <ProjectReference Include="..\acme.sistemas.compracoletiva.service\acme.sistemas.compracoletiva.service.csproj" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Users
         private readonly IMapper _mapper;
 
         public TipoUsuarioService(ITipoUsuarioRepository tipoUsuarioRepository,
-            IMapper mapper) : base(tipoUsuarioRepository, mapper)
+            IMapper mapper) : base(tipoUsuarioRepository)
         {
             _tipoUsuarioRepository = tipoUsuarioRepository;
             _mapper = mapper;

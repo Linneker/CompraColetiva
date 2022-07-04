@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Config\acme.sistemas.compracoletiva.domain\acme.sistemas.compracoletiva.domain.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Config\acme.sistemas.compracoletiva.service\acme.sistemas.compracoletiva.service.csproj" />
-    <ProjectReference Include="..\..\Infra\acme.sistemas.compracoletiva.repository\acme.sistemas.compracoletiva.repository.csproj" />
+    <ProjectReference Include="..\acme.sistemas.compracoletiva.core\acme.sistemas.compracoletiva.core.csproj" />
   </ItemGroup>
 
 </Project>

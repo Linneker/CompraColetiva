@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Utils
         private readonly IMapper _mapper;
 
         public ArquivoService(IArquivoRepository arquivoRepository,
-            IMapper mapper) : base(arquivoRepository, mapper)
+            IMapper mapper) : base(arquivoRepository)
         {
             _arquivoRepository = arquivoRepository;
             _mapper = mapper;

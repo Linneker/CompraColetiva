@@ -18,12 +18,12 @@ namespace acme.sistemas.compracoletiva.service.Works.Util
 
         public Task DoWork()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{DateTime.Now}");
+            return Task.CompletedTask;
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Utils
         private readonly IMapper _mapper;
 
         public ParametroService(IParametroRepository parametroRepository,
-            IMapper mapper) : base(parametroRepository, mapper)
+            IMapper mapper) : base(parametroRepository)
         {
             _parametroRepository = parametroRepository;
         }

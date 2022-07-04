@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Package
         private readonly IMapper _mapper;
 
         public PacoteService(IPacoteRepository produtoRepository,
-            IMapper mapper) : base(produtoRepository, mapper)
+            IMapper mapper) : base(produtoRepository)
         {
             _pacoteRepository = produtoRepository;
         }
