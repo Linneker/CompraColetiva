@@ -11,13 +11,13 @@ using Xunit;
 namespace acme.sistemas.compracoletiva.api.teste.Fixture
 {
     [CollectionDefinition(nameof(IntegrationApiTesteFixtureCollection))]
-    public class IntegrationApiTesteFixtureCollection : ICollectionFixture<IntegrationTesteFixture<StartupApiTeste>>
+    public class IntegrationApiTesteFixtureCollection : ICollectionFixture<IntegrationTesteFixture>
     {
 
     }
-    public class IntegrationTesteFixture<TStartup> : IDisposable where TStartup : class
+    public class IntegrationTesteFixture : IDisposable 
     {
-        public readonly CompraColetivoFactory<TStartup> Factory;
+        public readonly CompraColetivoFactory Factory;
         public HttpClient Client;
 
         public IntegrationTesteFixture()
@@ -25,7 +25,7 @@ namespace acme.sistemas.compracoletiva.api.teste.Fixture
             var clientOptions = new WebApplicationFactoryClientOptions() { 
                 
             };
-            Factory = new CompraColetivoFactory<TStartup>();
+            Factory = new CompraColetivoFactory();
             Client = Factory.CreateClient(clientOptions);
         }
 

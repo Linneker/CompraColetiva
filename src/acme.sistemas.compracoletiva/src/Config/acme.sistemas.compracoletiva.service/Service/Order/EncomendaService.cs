@@ -12,7 +12,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Order
 
 
         public EncomendaService(IEncomendaRepository encomendaRepository,
-            IMapper mapper) : base(encomendaRepository, mapper)
+            IMapper mapper) : base(encomendaRepository)
         {
             _encomendaRepository = encomendaRepository;
             _mapper = mapper;

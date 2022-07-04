@@ -1,12 +1,16 @@
-﻿using acme.sistemas.compracoletiva.infra.Config;
+﻿using acme.sistemas.compracoletiva.config.Security;
+using acme.sistemas.compracoletiva.di;
+using acme.sistemas.compracoletiva.domain.Entity.Security;
+using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.infra.Config;
+using acme.sistemas.compracoletiva.service.Works.Util;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
 using System.IO.Compression;
 using System.Text.Json.Serialization;
-using FluentValidation.AspNetCore;
-using Microsoft.OpenApi.Models;
-using acme.sistemas.compracoletiva.service.Works.Util;
 
 namespace acme.sistemas.compracoletiva.api
 {
@@ -44,11 +48,19 @@ namespace acme.sistemas.compracoletiva.api
             {
                 options.UseSqlServer(Configuration.GetConnectionString("CompraColetiva"), _ => _.MigrationsAssembly("acme.sistemas.compracoletiva.infra"));
             });
+            services.InstallDependencies();
+            var tokenConfigurations = new ConfiguracaoToken();
+            new ConfigureFromConfigurationOptions<ConfiguracaoToken>(Configuration.GetSection("ConfiguracaoToken")).Configure(tokenConfigurations);
+            services.ConfigurarToken(tokenConfigurations);
+
+            services.AddDefaultIdentity<Usuario>(t =>
+            {
+                t.SignIn.RequireConfirmedAccount = true;
+                t.SignIn.RequireConfirmedEmail = true;
+            }).AddRoles<Permissao>().
+           AddEntityFrameworkStores<Context>();
 
             services.AddHostedService<EmailWorkerServico>();
-
-            // Add services to the container.
-            //services.RegistrarDependencia();
 
             services.AddControllers()
                 /*.AddFluentValidation(_ => {
@@ -95,9 +107,10 @@ namespace acme.sistemas.compracoletiva.api
             });
 
         }
+
         public void Configure(WebApplication app, IWebHostEnvironment env, ILoggerFactory logger)
         {
-            if (app.Environment.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
