@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using System.Collections.Generic;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
-    public class TipoUsuario : BaseEntity
+    public class TipoUsuario : BaseEntity, IAggregateRoot
     {
         public string Nome { get; set; }
 

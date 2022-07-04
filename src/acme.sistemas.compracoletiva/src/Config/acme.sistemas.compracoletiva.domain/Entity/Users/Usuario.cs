@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
-    public class Usuario : IdentityUser<Guid>
+    public class Usuario : IdentityUser<Guid>, IAggregateRoot
     {
+        
         public DateTime DataCriacao { get; set; }
         public DateTime DataModificacao { get; set; }
         public bool Ativo { get; set; }

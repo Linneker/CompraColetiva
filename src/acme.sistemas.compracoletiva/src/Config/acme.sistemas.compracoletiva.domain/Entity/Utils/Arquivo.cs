@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using System.Collections.Generic;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
-    public class Arquivo : BaseEntity
+    public class Arquivo : BaseEntity, IAggregateRoot
     {
         public string NomeExibicao { get; set; }
         public string NomeSalvo { get; set; }

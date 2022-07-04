@@ -1,4 +1,8 @@
-﻿using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
+﻿using acme.sistemas.compracoletiva.domain.Entity;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
+using acme.sistemas.compracoletiva.infra.Config;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,47 +11,58 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.repository
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : IAggregateRoot
     {
-        private readonly IBaseRepository<TEntity> _baseRepository;
-         public BaseRepository(IBaseRepository<TEntity> baseRepository)
-         {
-            _baseRepository = baseRepository;
-         }
+        protected readonly Context _db;
 
-        public void Add(TEntity entity) => _baseRepository.Add(entity);
+        public BaseRepository(Context db)
+        {
+            _db = db;
+        }
 
-        public Task AddAsync(TEntity entity) => _baseRepository.AddAsync(entity);
+        public void Add(TEntity entity) => _db.Add(entity);
 
-        public void AddMultiple(IEnumerable<TEntity> entities) => _baseRepository.AddMultiple(entities);
+        public async Task AddAsync(TEntity entity) => await _db.AddAsync(entity);
 
-        public Task AddMultipleAsync(IEnumerable<TEntity> entities) => _baseRepository.AddMultipleAsync(entities);
+        public void AddMultiple(IEnumerable<TEntity> entities) => _db.AddRange(entities);
 
-        public IQueryable<TEntity> GetAll() => _baseRepository.GetAll();
+        public Task AddMultipleAsync(IEnumerable<TEntity> entities) => _db.AddRangeAsync(entities);
 
-        public Task<IQueryable<TEntity>> GetAllAsync() => _baseRepository.GetAllAsync();
+        public IQueryable<Entity> GetAll<Entity>() where Entity : BaseEntity
+        {
+            var dbSet = _db.Set<Entity>();
+            var result = dbSet.AsQueryable<Entity>();
+            return (result);
+        }
 
-        public TEntity GetById(Guid id) => _baseRepository.GetById(id);
+        public async Task<IQueryable<Entity>> GetAllAsync<Entity>() where Entity : BaseEntity
+        {
+            var dbSet = _db.Set<Entity>();
+            var result = dbSet.AsQueryable<Entity>();
+            return await Task.FromResult(result);
+        }
 
-        public Task<TEntity> GetByIdAsync(Guid id) => _baseRepository.GetByIdAsync(id);
+        public Entity GetById<Entity>(Guid id) where Entity : BaseEntity => _db.Set<Entity>().Where(t => t.Id.Equals(id)).FirstOrDefault();
 
-        public List<TEntity> GetList() => _baseRepository.GetList();
+        public async Task<Entity> GetByIdAsync<Entity>(Guid id) where Entity : BaseEntity => await _db.Set<Entity>().Where(t => t.Id.Equals(id)).FirstOrDefaultAsync();
+
+        public List<Entity> GetList<Entity>() where Entity : BaseEntity => GetAll<Entity>().ToList();
 
 
-        public Task<List<TEntity>> GetListAsync() => _baseRepository.GetListAsync();
+        public Task<List<Entity>> GetListAsync<Entity>() where Entity : BaseEntity => _db.Set<Entity>().ToListAsync();
 
-        public void Remove(TEntity entity) => _baseRepository.Remove(entity);
-        
+        public void Remove(TEntity entity) => _db.Remove(entity);
 
-        public void RemoveMultiple(IEnumerable<TEntity> entities) => _baseRepository.RemoveMultiple(entities);
-        
 
-        public void Update(TEntity entity) => _baseRepository.Update(entity);
-        
+        public void RemoveMultiple(IEnumerable<TEntity> entities) => _db.RemoveRange(entities);
 
-        public void UpdateMultiple(IEnumerable<TEntity> entities) => _baseRepository.UpdateMultiple(entities);
-        
+
+        public void Update(TEntity entity) => _db.Update(entity);
+
+
+        public void UpdateMultiple(IEnumerable<TEntity> entities) => _db.UpdateRange(entities);
+
     }
-        
-        
+
+
 }

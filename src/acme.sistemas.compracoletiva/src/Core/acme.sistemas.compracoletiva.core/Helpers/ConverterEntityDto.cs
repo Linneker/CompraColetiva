@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Dtos.Users;
+using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
 
@@ -14,7 +15,7 @@ namespace acme.sistemas.compracoletiva.core.Helpers
                 CNPJ = pessoa.CNPJ,
                 CPF = pessoa.CPF,
                 DataNascimento = pessoa.DataNascimento,
-                Email = pessoa.Email,
+                Email = pessoa.Email.Nome,
                 EnderecoPessoas = pessoa.EnderecoPessoas.ParaEnderecosPessoasDto(),
                 InscricaoMunicipal = pessoa.InscricaoMunicipal,
                 Nome = pessoa.Nome,
@@ -33,7 +34,6 @@ namespace acme.sistemas.compracoletiva.core.Helpers
                 cnpj: pessoa.CNPJ,
                 cpf: pessoa.CPF,
                 dataNascimento: pessoa.DataNascimento,
-                email: pessoa.Email,
                 inscricaoMunicipal: pessoa.InscricaoMunicipal,
                 nome: pessoa.Nome,
                 nomeFantasia: pessoa.NomeFantasia,
@@ -41,7 +41,7 @@ namespace acme.sistemas.compracoletiva.core.Helpers
                 tipoPessoa: pessoa.TipoPessoa
             );
             pessoaDto.SetEnderecoPessoas(pessoa.EnderecoPessoas.ParaEnderecosPessoas());
-
+            pessoaDto.SetEmail(new Email(pessoa.Email));
             return pessoaDto;
         }
 

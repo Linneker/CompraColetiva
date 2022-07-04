@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Config\acme.sistemas.compracoletiva.service\acme.sistemas.compracoletiva.service.csproj" />
+    <ProjectReference Include="..\acme.sistemas.compracoletiva.core\acme.sistemas.compracoletiva.core.csproj" />
+  </ItemGroup>
+
 </Project>

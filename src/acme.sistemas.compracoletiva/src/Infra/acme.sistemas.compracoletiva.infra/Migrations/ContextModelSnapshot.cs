@@ -22,6 +22,383 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Location.Endereco", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Pais")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Rua")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Endereco", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Location.EnderecoPessoa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Complemento")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<Guid?>("EnederecoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Latitude")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Longitude")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PessoaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EnederecoId");
+
+                    b.HasIndex("PessoaId");
+
+                    b.ToTable("EnderecoPessoa", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Produto", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasPrecision(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<int>("Prazo")
+                        .HasPrecision(20)
+                        .HasColumnType("int");
+
+                    b.Property<int>("TicketMinimo")
+                        .HasPrecision(20)
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("TipoProdutoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("ValorCompra")
+                        .HasPrecision(20, 2)
+                        .HasColumnType("decimal(20,2)");
+
+                    b.Property<decimal>("ValorUnitario")
+                        .HasPrecision(20, 2)
+                        .HasColumnType("decimal(20,2)");
+
+                    b.Property<decimal>("ValorVenda")
+                        .HasPrecision(20, 2)
+                        .HasColumnType("decimal(20,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TipoProdutoId");
+
+                    b.ToTable("Produto", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoProduto", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Sales.Compra", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Produto")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasPrecision(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<int>("Quantidade")
+                        .HasPrecision(20)
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Valor")
+                        .HasPrecision(20)
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Compra", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Sales.Encomenda", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<Guid>("CompraId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<Guid>("PessoaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProdutoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Encomenda", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.SalesInternal.Pacote", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<Guid>("Codigo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<int>("Preco")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pacote", (string)null);
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Security.ConfiguracaoToken", b =>
                 {
                     b.Property<Guid>("Id")
@@ -42,12 +419,12 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime>("DataModificacao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<int?>("Expiracao")
                         .ValueGeneratedOnAdd()
@@ -82,12 +459,12 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime>("DataModificacao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("SistemaEmissao")
                         .IsRequired()
@@ -424,11 +801,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Property<DateTime?>("DataNascimento")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(126)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(126)");
+                    b.Property<Guid>("EmailId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("InscricaoMunicipal")
                         .IsRequired()
@@ -464,6 +838,9 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EmailId")
+                        .IsUnique();
 
                     b.ToTable("Pessoa", (string)null);
                 });
@@ -645,12 +1022,12 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime>("DataModificacao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Extensao")
                         .IsRequired()
@@ -687,7 +1064,7 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.ToTable("Arquivo", (string)null);
                 });
 
-            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Endereco", b =>
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.ConfiguracaoEmail", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -698,110 +1075,34 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<string>("Bairro")
+                    b.Property<string>("ConfigSet")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Cep")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Cidade")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime>("DataModificacao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<string>("Estado")
+                    b.Property<string>("Host")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(100)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(100)");
 
-                    b.Property<string>("Pais")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Rua")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<Guid?>("UsuarioCriacaoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("UsuarioModificacaoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Endereco", (string)null);
-                });
-
-            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.EnderecoPessoa", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("Ativo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("Complemento")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
-
-                    b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
-
-                    b.Property<Guid?>("EnederecoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Latitude")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Longitude")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
-
-                    b.Property<int>("Numero")
+                    b.Property<int>("Porta")
+                        .HasPrecision(10)
                         .HasColumnType("int");
 
-                    b.Property<Guid>("PessoaId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<bool>("Ssl")
+                        .HasColumnType("bit");
 
                     b.Property<Guid?>("UsuarioCriacaoId")
                         .HasColumnType("uniqueidentifier");
@@ -811,11 +1112,150 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EnederecoId");
+                    b.ToTable("ConfiguracaoEmail", (string)null);
+                });
 
-                    b.HasIndex("PessoaId");
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.ToTable("EnderecoPessoa", (string)null);
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Email", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.EmailConfiguracaoEmail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<Guid>("ConfiguracaoEmailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<Guid>("EmailEnvioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmailRemetenteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConfiguracaoEmailId");
+
+                    b.HasIndex("EmailEnvioId")
+                        .IsUnique();
+
+                    b.HasIndex("EmailRemetenteId")
+                        .IsUnique();
+
+                    b.ToTable("EmailConfiguracaoEmail", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.EnvioEmail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Corpo")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<Guid>("DestinatarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DestinatarioId")
+                        .IsUnique();
+
+                    b.ToTable("EnvioEmail", (string)null);
                 });
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Parametro", b =>
@@ -832,12 +1272,12 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<DateTime>("DataModificacao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("NOW()");
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
@@ -866,6 +1306,53 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Parametro", (string)null);
+                });
+
+            modelBuilder.Entity("EmailCopias", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EnvioEmailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmailId");
+
+                    b.HasIndex("EnvioEmailId");
+
+                    b.ToTable("EmailCopias");
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Location.EnderecoPessoa", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Location.Endereco", "Endereco")
+                        .WithMany("EnderecoPessoas")
+                        .HasForeignKey("EnederecoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Users.Pessoa", "Pessoa")
+                        .WithMany("EnderecoPessoas")
+                        .HasForeignKey("PessoaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Endereco");
+
+                    b.Navigation("Pessoa");
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Produto", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", null)
+                        .WithMany("Produtos")
+                        .HasForeignKey("TipoProdutoId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Security.ConfiguracaoTokenSistema", b =>
@@ -930,6 +1417,17 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Users.Pessoa", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", "Email")
+                        .WithOne("Pessoa")
+                        .HasForeignKey("acme.sistemas.compracoletiva.domain.Entity.Users.Pessoa", "EmailId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Email");
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Users.Usuario", b =>
                 {
                     b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Users.Pessoa", "Pessoa")
@@ -949,22 +1447,67 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Navigation("TipoUsuario");
                 });
 
-            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.EnderecoPessoa", b =>
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.EmailConfiguracaoEmail", b =>
                 {
-                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Endereco", "Endereco")
-                        .WithMany("EnderecoPessoas")
-                        .HasForeignKey("EnederecoId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Users.Pessoa", "Pessoa")
-                        .WithMany("EnderecoPessoas")
-                        .HasForeignKey("PessoaId")
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.ConfiguracaoEmail", "ConfiguracaoEmail")
+                        .WithMany("EmailConfiguracaoEmail")
+                        .HasForeignKey("ConfiguracaoEmailId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Endereco");
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", "EmailEnvio")
+                        .WithOne("EmailConfiguracaoEmailEnvioEmail")
+                        .HasForeignKey("acme.sistemas.compracoletiva.domain.Entity.Utils.EmailConfiguracaoEmail", "EmailEnvioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.Navigation("Pessoa");
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", "EmailRemetente")
+                        .WithOne("EmailConfiguracaoEmailRemetente")
+                        .HasForeignKey("acme.sistemas.compracoletiva.domain.Entity.Utils.EmailConfiguracaoEmail", "EmailRemetenteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ConfiguracaoEmail");
+
+                    b.Navigation("EmailEnvio");
+
+                    b.Navigation("EmailRemetente");
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.EnvioEmail", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", "Destinatario")
+                        .WithOne("DestinatiroEmail")
+                        .HasForeignKey("acme.sistemas.compracoletiva.domain.Entity.Utils.EnvioEmail", "DestinatarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Destinatario");
+                });
+
+            modelBuilder.Entity("EmailCopias", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", null)
+                        .WithMany()
+                        .HasForeignKey("EmailId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.EnvioEmail", null)
+                        .WithMany()
+                        .HasForeignKey("EnvioEmailId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Location.Endereco", b =>
+                {
+                    b.Navigation("EnderecoPessoas");
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Security.ConfiguracaoToken", b =>
@@ -984,9 +1527,24 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Navigation("Usuarios");
                 });
 
-            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Endereco", b =>
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.ConfiguracaoEmail", b =>
                 {
-                    b.Navigation("EnderecoPessoas");
+                    b.Navigation("EmailConfiguracaoEmail");
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", b =>
+                {
+                    b.Navigation("DestinatiroEmail")
+                        .IsRequired();
+
+                    b.Navigation("EmailConfiguracaoEmailEnvioEmail")
+                        .IsRequired();
+
+                    b.Navigation("EmailConfiguracaoEmailRemetente")
+                        .IsRequired();
+
+                    b.Navigation("Pessoa")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

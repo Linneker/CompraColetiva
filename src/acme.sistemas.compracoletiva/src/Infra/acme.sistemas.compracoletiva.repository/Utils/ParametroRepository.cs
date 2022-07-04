@@ -1,5 +1,7 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils;
+using acme.sistemas.compracoletiva.infra.Config;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,14 @@ namespace acme.sistemas.compracoletiva.repository.Utils
 {
     public class ParametroRepository : BaseRepository<Parametro>, IParametroRepository
     {
-        private readonly IParametroRepository _parametroRepository;
-
-        public ParametroRepository(IParametroRepository parametroRepository): base(parametroRepository)
+        public ParametroRepository(Context db) : base(db)
         {
-            _parametroRepository = parametroRepository;
+        }
+
+        public async Task<Parametro> GetParametroByNome(string nome)
+        {
+            var parametro = await _db.Parametros.FirstOrDefaultAsync(p => p.Nome == nome);
+            return parametro;
         }
     }
 }

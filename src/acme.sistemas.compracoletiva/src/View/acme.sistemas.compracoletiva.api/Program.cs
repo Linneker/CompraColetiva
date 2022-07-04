@@ -1,59 +1,38 @@
+using NLog.Web;
+using acme.sistemas.compracoletiva.api;
+using Microsoft.AspNetCore.Builder;
+
 ///Applicação
-using acme.sistemas.compracoletiva.core.Security;
-using acme.sistemas.compracoletiva.domain.Entity.Security;
-using acme.sistemas.compracoletiva.domain.Entity.Users;
-using acme.sistemas.compracoletiva.infra.Config;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var logger = NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
+logger.Debug("Inicio");
 
-builder.Services.AddDbContext<Context>(options =>
+
+if (builder.Environment.IsEnvironment("Testing"))
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CompraColetiva"), _ => _.MigrationsAssembly("EProcessos.Infra"));
-});
+    var startup = new StartupApiTeste(builder.Configuration);
+    startup.ConfigureServices(builder.Services);
 
+    builder.Logging.AddJsonConsole();
+    var app = builder.Build();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    startup.Configure(app, app.Environment, Startup.loggerFactory);
 
-var tokenConfigurations = new ConfiguracaoToken();
-new ConfigureFromConfigurationOptions<ConfiguracaoToken>(
-    builder.Configuration.GetSection("ConfiguracaoToken"))
-        .Configure(tokenConfigurations);
-builder.Services.AddSingleton(tokenConfigurations);
-
-builder.Services.ConfigurarToken(tokenConfigurations);
-
-//builder.Services.AddDefaultIdentity<Usuario>(t =>
-//{
-//    t.SignIn.RequireConfirmedAccount = true;
-//    t.SignIn.RequireConfirmedEmail = true;
-//}).AddRoles<Permissao>().AddEntityFrameworkStores<Context>();
-
-///Builder
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EProcessos.Api v1"));
+    app.Run();
 }
+else
+{
+    var startup = new Startup(builder.Configuration);
+    startup.ConfigureServices(builder.Services);
 
-app.UseHttpsRedirection();
-app.UseRouting();
+    builder.Logging.AddJsonConsole();
+    var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
+    startup.Configure(app, app.Environment, Startup.loggerFactory);
 
-app.MapControllers();
-
-app.Run();
+    app.Run();
+}
+logger.Debug("Fim");
+public partial class Program { }

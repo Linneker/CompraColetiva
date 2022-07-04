@@ -22,7 +22,6 @@ namespace acme.sistemas.compracoletiva.infra.Map.Users
 
             builder.Property(_ => _.Nome).HasMaxLength(500).IsRequired();
             builder.Property(_ => _.NomeFantasia).HasMaxLength(500);
-            builder.Property(_ => _.Email).IsRequired().HasMaxLength(126);
             builder.Property(_ => _.Celular).IsRequired().HasMaxLength(20);
             builder.Property(_ => _.Telefone).HasMaxLength(20);
             builder.Property(_ => _.DataNascimento);
@@ -30,6 +29,8 @@ namespace acme.sistemas.compracoletiva.infra.Map.Users
             builder.Property(_ => _.CPF).HasMaxLength(11);
             builder.Property(_ => _.CNPJ).HasMaxLength(14);
             builder.Property(_ => _.InscricaoMunicipal).HasMaxLength(20);
+
+            builder.HasOne(t => t.Email).WithOne(t => t.Pessoa).HasForeignKey<Pessoa>(t => t.EmailId);
         }
     }
 }
