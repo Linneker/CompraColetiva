@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.domain.Entity.SalesInternal
+namespace acme.sistemas.compracoletiva.domain.Entity.Package
 {
     public class Pacote : BaseEntity, IAggregateRoot
     {

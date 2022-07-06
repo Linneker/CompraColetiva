@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.service.Service.Utils
 {
-    public class EmailService : BaseService<Email>, IEmailService
+    public class EnvioEmailService : BaseService<EnvioEmail>, IEnvioEmailService
     {
-        private readonly IEmailRepository _emailRepository;
+        private readonly IEnvioEmailRepository _envioEmailRepository;
         private readonly IMapper _mapper;
 
-        public EmailService(IEmailRepository emailRepository,
-            IMapper mapper) : base(emailRepository)
+        public EnvioEmailService(IEnvioEmailRepository envioEmailRepository,
+            IMapper mapper) : base(envioEmailRepository)
         {
-            _emailRepository = emailRepository;
+            _envioEmailRepository = envioEmailRepository;
             _mapper = mapper;
         }
     }

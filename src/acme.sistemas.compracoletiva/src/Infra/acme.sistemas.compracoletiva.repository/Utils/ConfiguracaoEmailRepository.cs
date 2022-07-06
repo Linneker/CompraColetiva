@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.repository.Utils
 {
-    public class EmailRepository : BaseRepository<Email>, IEmailRepository
+    public class ConfiguracaoEmailRepository : BaseRepository<ConfiguracaoEmail>, IConfiguracaoEmailRepository
     {
-        public EmailRepository(Context db) : base(db)
+        public ConfiguracaoEmailRepository(Context db) : base(db)
         {
         }
     }

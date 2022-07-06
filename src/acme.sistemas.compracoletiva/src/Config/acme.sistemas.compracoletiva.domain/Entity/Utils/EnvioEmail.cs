@@ -1,4 +1,5 @@
-﻿using System;
+﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
-    public class EnvioEmail : BaseEntity
+    public class EnvioEmail : BaseEntity , IAggregateRoot
     {
         protected EnvioEmail()
         {

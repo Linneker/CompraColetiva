@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.core.Interfaces.Service.Sales
 {
-    public interface IUnidadeMedidaCompra : IBaseService<UnidadeMedidaCompra>
+    public interface IUnidadeMedidaCompraService : IBaseService<UnidadeMedidaCompra>
     {
     }
 }

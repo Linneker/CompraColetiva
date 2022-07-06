@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils
+namespace acme.sistemas.compracoletiva.core.Interfaces.Service.Utils
 {
-    public interface IEmailRepository : IBaseRepository<Email>
+    public interface IEnvioEmailService : IBaseService<EnvioEmail>
     {
     }
 }
