@@ -1,7 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Product;
-using acme.sistemas.compracoletiva.domain.Entity;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Product;
 using AutoMapper;
 using System;
@@ -12,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.service.Service.Product
 {
-    public class ProdutoService : BaseService<Produto>, IProdutoService
+    public class ProdutoUsuarioService : BaseService<ProdutoUsuario> , IProdutoUsuarioService
     {
-        private readonly IProdutoRepository _produtoRepository;
+        private readonly IProdutoUsuarioRepository _produtoUsuarioRepository;
         private readonly IMapper _mapper;
 
-        public ProdutoService(IProdutoRepository produtoRepository, IMapper mapper) :base (produtoRepository)
+        public ProdutoUsuarioService(IProdutoUsuarioRepository produtoUsuarioRepository, IMapper mapper) : base(produtoUsuarioRepository)
         {
-            _produtoRepository = produtoRepository;
+            _produtoUsuarioRepository = produtoUsuarioRepository;
             _mapper = mapper;
         }
     }

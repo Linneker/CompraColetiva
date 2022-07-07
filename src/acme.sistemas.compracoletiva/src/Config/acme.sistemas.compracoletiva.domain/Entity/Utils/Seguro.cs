@@ -14,9 +14,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         }
 
-        /*public Seguro()
-        {
-
-        }*/
+        public string Nome { get; private set; }
+        public string Empresa { get; private set; }
+        public decimal Taxa { get; private set; }
     }
 }

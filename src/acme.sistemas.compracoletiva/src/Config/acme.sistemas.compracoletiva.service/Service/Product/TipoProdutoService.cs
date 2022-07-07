@@ -1,6 +1,6 @@
 ﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
-using acme.sistemas.compracoletiva.domain.Interfaces.Repository.ProductType;
+using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Product;
 using AutoMapper;
 
 namespace acme.sistemas.compracoletiva.service.Service.Product

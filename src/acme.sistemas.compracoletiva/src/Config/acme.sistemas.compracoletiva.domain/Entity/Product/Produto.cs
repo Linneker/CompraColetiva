@@ -13,7 +13,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         {
 
         }
-        public Produto(string nome, decimal valorCompra, decimal valorVenda, int prazo, int ticketMinimo, decimal valorUnitario)
+        public Produto(string nome, decimal valorCompra, decimal valorVenda, int prazo, int ticketMinimo, decimal valorUnitario,
+            int quantidade, int quantidadeTotalDisponivel)
         {
             Nome = nome;
             ValorCompra = valorCompra;
@@ -21,6 +22,9 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
             TicketMinimo = ticketMinimo;
             Prazo = prazo;
             ValorUnitario = valorUnitario;
+            QuantidadeTotalDisponivel = quantidadeTotalDisponivel;
+            Quantidade = quantidade;
+
         }
 
 
@@ -30,6 +34,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public int Prazo { get; private set; }
         public int TicketMinimo { get; private set; }
         public decimal ValorUnitario { get; private set; }
+        public int Quantidade { get; private set; }
+        public int QuantidadeTotalDisponivel { get; private set; }
+        public TipoProduto TipoProduto { get; private set; }
+        public Guid TipoProdutoId { get; private set; }
+
     }
     
 }

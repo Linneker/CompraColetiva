@@ -9,5 +9,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
 {
     public class ProdutoUsuario : BaseEntity, IAggregateRoot
     {
+        protected ProdutoUsuario()
+        {
+
+        }
+
+        public string Nome { get; private set; }
+        public Guid ProdutoId { get; private set; }
+        public DateTime Prazo { get; private set; }
     }
 }
