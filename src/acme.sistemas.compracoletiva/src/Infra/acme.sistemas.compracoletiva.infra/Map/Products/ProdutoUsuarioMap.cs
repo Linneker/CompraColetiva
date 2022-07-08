@@ -26,7 +26,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
 
             builder.Property(t => t.Nome).IsRequired().HasMaxLength(500);
             builder.Property(t => t.ProdutoId).IsRequired();
-            builder.Property(t => t.Prazo).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
+            builder.Property(t => t.Prazo).IsRequired();
         }
     }
 }

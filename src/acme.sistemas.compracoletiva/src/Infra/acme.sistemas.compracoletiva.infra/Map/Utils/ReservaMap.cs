@@ -23,6 +23,13 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.UsuarioCriacaoId);
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
+
+            builder.Property(t => t.Prazo).IsRequired();
+            builder.Property(t => t.UsuarioId).HasMaxLength(500).IsRequired();
+            builder.Property(t => t.Quantidade).HasPrecision(20).IsRequired();
+            builder.Property(t => t.Produto).IsRequired();
+            builder.Property(t => t.Expiracao).IsRequired();
+            builder.Property(t => t.ProdutoId).IsRequired();
         }
     }
 }

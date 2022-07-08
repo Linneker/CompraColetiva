@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.SalesInternal;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Package;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -24,6 +24,13 @@ namespace acme.sistemas.compracoletiva.infra.Map.SalesInternal
             builder.Property(t => t.UsuarioCriacaoId);
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
+
+
+
+            builder.Property(t => t.Nome).HasMaxLength(500).IsRequired();
+            builder.Property(t => t.Descricao).HasMaxLength(500).IsRequired();
+            builder.Property(t => t.Codigo).IsRequired();
+            builder.Property(t => t.Preco).HasPrecision(20).IsRequired();
         }
     }
 }

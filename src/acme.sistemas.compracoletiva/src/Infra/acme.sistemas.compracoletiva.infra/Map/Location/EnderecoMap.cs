@@ -21,6 +21,16 @@ namespace acme.sistemas.compracoletiva.infra.Map.Location
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
 
+
+            builder.Property(t => t.Cep).HasMaxLength(15).IsRequired();
+            builder.HasIndex(t => t.Cep).IsUnique(true);
+            builder.Property(t => t.Pais).HasMaxLength(300).IsRequired();
+            builder.Property(t => t.Estado).HasMaxLength(230);
+            builder.Property(t => t.Cidade).HasMaxLength(230).IsRequired();
+            builder.Property(t => t.Bairro).HasMaxLength(230).IsRequired();
+            builder.Property(t => t.Rua).HasMaxLength(230).IsRequired();
+
+
         }
     }
 }
