@@ -1,5 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Package;
-using acme.sistemas.compracoletiva.domain.Entity.SalesInternal;
+using acme.sistemas.compracoletiva.domain.Entity.Package;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

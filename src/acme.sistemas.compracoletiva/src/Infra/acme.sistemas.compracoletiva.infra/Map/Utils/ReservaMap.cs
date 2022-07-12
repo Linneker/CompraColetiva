@@ -14,7 +14,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
     {
         public void Configure(EntityTypeBuilder<Reserva> builder)
         {
-            builder.ToTable("Produto");
+            builder.ToTable("Reserva");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
@@ -25,11 +25,10 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
             builder.Property(t => t.Prazo).IsRequired();
-            builder.Property(t => t.UsuarioId).HasMaxLength(500).IsRequired();
             builder.Property(t => t.Quantidade).HasPrecision(20).IsRequired();
-            builder.Property(t => t.Produto).IsRequired();
             builder.Property(t => t.Expiracao).IsRequired();
-            builder.Property(t => t.ProdutoId).IsRequired();
+            builder.HasOne(t => t.Usuario).WithMany(t => t.ListaDeReserva).HasForeignKey(t => t.UsuarioId);
+            builder.HasOne(t => t.Produto).WithMany(t => t.ListaDeReserva).HasForeignKey(t => t.ProdutoId);
         }
     }
 }

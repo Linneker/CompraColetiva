@@ -14,7 +14,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
     {
         public void Configure(EntityTypeBuilder<ProdutoUsuario> builder)
         {
-            builder.ToTable("Produto");
+            builder.ToTable("ProdutoUsuario");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");

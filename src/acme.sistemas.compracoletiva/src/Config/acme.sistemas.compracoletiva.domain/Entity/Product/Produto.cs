@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public int QuantidadeTotalDisponivel { get; private set; }
         public TipoProduto TipoProduto { get; private set; }
         public Guid TipoProdutoId { get; private set; }
+        public virtual ICollection<Reserva> ListaDeReserva { get; private set; } = new HashSet<Reserva>();
 
     }
     

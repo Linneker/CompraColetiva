@@ -1,7 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Utils;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.service.Service.Email;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Utils

@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Purchase;
+﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Sales;
 using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Sales;
 using AutoMapper;
@@ -11,7 +11,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Purchase
         private readonly IMapper _mapper;
 
         public CompraService(ICompraRepository compraRepository,
-            IMapper mapper) : base(compraRepository, mapper)
+            IMapper mapper) : base(compraRepository)
         {
             _compraRepository = compraRepository;
             _mapper = mapper;

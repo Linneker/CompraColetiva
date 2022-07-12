@@ -1,4 +1,7 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Location;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
+using acme.sistemas.compracoletiva.domain.Entity.Location;
+using acme.sistemas.compracoletiva.domain.Entity.Notifications;
+using acme.sistemas.compracoletiva.domain.Entity.Package;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
@@ -22,18 +25,42 @@ namespace acme.sistemas.compracoletiva.infra.Config
         {
         }
 
+        public DbSet<Endereco> Enderecos { get; private set; }
+        public DbSet<EnderecoPessoa> EnderecosPessoas { get; private set; }
+
+        public DbSet<BaseNotification> BaseNotifictions { get; private set; }
+        public DbSet<Notification> Notifications { get; private set; }
+
+        public DbSet<Pacote> Pacotes { get; private set; }
+
+        public DbSet<Oferta> Ofertas { get; private set; }
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<ProdutoUsuario> ProdutoUsuarios { get; set; }
+        public DbSet<TipoProduto> TipoProdutos { get; set; }
+
+
+        public DbSet<Compra> Compras { get; private set; }
+        public DbSet<Encomenda> Encomendas { get; private set; }
         public DbSet<UnidadeMedidaCompra> UnidadeMedidaCompra { get; set; }
-        public DbSet<Reserva> Reserva { get; set; }
-        public DbSet<Oferta> Oferta { get; set; }
+    
+        
         public DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
 
-        public DbSet<Produto> Produto { get; set; }
+        
+        public DbSet<Seguro> Seguros { get; private set; }
+        public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<Notificacao> Notificacaos { get; private set; }
+        public DbSet<Pagamento> Pagamentos { get; private set; }
         public DbSet<Arquivo> Arquivos { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<EnderecoPessoa> EnderecosPessoa { get; set; }
         public DbSet<Parametro> Parametros { get; set; }
+
+
+        public DbSet<Email> Emails { get; private set; }
+        public DbSet<EnvioEmail> EnvioEmails { get; private set; }
+        public DbSet<EmailConfiguracaoEmail> EmailConfiguracaoEmails { get; private set; }
 
         public DbSet<ConfiguracaoToken> ConfiguracaoTokens { get; set; }
         public DbSet<ConfiguracaoTokenSistema> ConfiguracaoTokenSistemas { get; set; }
@@ -83,6 +110,7 @@ namespace acme.sistemas.compracoletiva.infra.Config
             modelBuilder.Entity<PermissaoUsuario>().ToTable("UserPermissao").HasKey(t => t.Id);
             modelBuilder.Entity<UserLogin>().ToTable("UserLogin").HasKey(t => t.Id);
             modelBuilder.Entity<UserToken>().ToTable("UserToken").HasKey(t => t.Id);
+
 
             base.OnModelCreating(modelBuilder);
         }
