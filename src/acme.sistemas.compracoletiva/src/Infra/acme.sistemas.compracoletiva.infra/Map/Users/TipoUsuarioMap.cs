@@ -14,13 +14,13 @@ namespace acme.sistemas.compracoletiva.infra.Map.Users
 
             builder.HasKey(t => t.Id);
 
-            builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
-            builder.Property(t => t.DataModificacao).IsRequired().ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("GETDATE()")
+            builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("NOW()");
+            builder.Property(t => t.DataModificacao).IsRequired().ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("NOW()")
                 .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Save);
             builder.Property(t => t.UsuarioCriacaoId);
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
-            //builder.Property(t => t.ConcurrencyToken).IsRowVersion().ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("GETDATE()")
+            //builder.Property(t => t.ConcurrencyToken).IsRowVersion().ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("NOW()")
             //    .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Save); ;
 
 
