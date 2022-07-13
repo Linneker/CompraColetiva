@@ -11,7 +11,7 @@ using acme.sistemas.compracoletiva.infra.Config;
 namespace acme.sistemas.compracoletiva.infra.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220713001858_PrimeiroMigration")]
+    [Migration("20220713003934_PrimeiroMigration")]
     partial class PrimeiroMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,14 +51,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(230)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Estado")
                         .IsRequired()
@@ -110,14 +106,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(256)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid?>("EnederecoId")
                         .HasColumnType("char(36)");
@@ -170,14 +162,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
@@ -224,17 +212,13 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(300)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataInicio")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataTermino")
                         .HasColumnType("datetime(6)");
@@ -296,14 +280,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -366,14 +346,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -410,14 +386,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
@@ -456,14 +428,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Produto")
                         .IsRequired()
@@ -506,14 +474,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("PessoaId")
                         .HasColumnType("char(36)");
@@ -544,14 +508,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
@@ -594,14 +554,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("Expiracao")
                         .ValueGeneratedOnAdd()
@@ -634,14 +590,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("SistemaEmissao")
                         .IsRequired()
@@ -961,14 +913,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("DataNascimento")
                         .HasColumnType("datetime(6)");
@@ -1029,14 +977,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -1077,14 +1021,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(256)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -1196,14 +1136,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(256)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Extensao")
                         .IsRequired()
@@ -1258,14 +1194,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Host")
                         .IsRequired()
@@ -1303,14 +1235,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -1344,14 +1272,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("EmailEnvioId")
                         .HasColumnType("char(36)");
@@ -1402,14 +1326,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("varchar(500)");
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("DestinatarioId")
                         .HasColumnType("char(36)");
@@ -1446,14 +1366,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Key")
                         .IsRequired()
@@ -1490,17 +1406,13 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataEmQueDinheiroCaiNaConta")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataPagamento")
                         .HasColumnType("datetime(6)");
@@ -1552,14 +1464,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
@@ -1602,14 +1510,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("Expiracao")
                         .HasColumnType("datetime(6)");
@@ -1654,14 +1558,10 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasDefaultValue(true);
 
                     b.Property<DateTime>("DataCriacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("DataModificacao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("NOW()");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Empresa")
                         .IsRequired()

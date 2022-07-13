@@ -28,8 +28,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Hash = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -72,8 +72,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Valor = table.Column<int>(type: "int", precision: 20, nullable: false),
                     Produto = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, precision: 20, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -95,8 +95,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Porta = table.Column<int>(type: "int", precision: 10, nullable: false),
                     Ssl = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -115,8 +115,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     AccessKey = table.Column<string>(type: "varchar(1000)", unicode: false, maxLength: 1000, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Expiracao = table.Column<int>(type: "int", nullable: true, defaultValue: 2),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -134,8 +134,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Nome = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -154,8 +154,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     PessoaId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     CompraId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     ProdutoId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -183,8 +183,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Rua = table.Column<string>(type: "varchar(230)", unicode: false, maxLength: 230, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -204,8 +204,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Value = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -227,8 +227,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Codigo = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Preco = table.Column<int>(type: "int", precision: 20, nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -253,8 +253,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     DataPrevistaPagamento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     DataVencimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UsuarioId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -276,8 +276,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Descricao = table.Column<string>(type: "varchar(512)", unicode: false, maxLength: 512, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -297,8 +297,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ProdutoId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Prazo = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -319,8 +319,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Empresa = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Taxa = table.Column<decimal>(type: "decimal(18,4)", precision: 18, scale: 4, nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -340,8 +340,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Descricao = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, precision: 500, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -359,8 +359,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Nome = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -380,8 +380,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Descricao = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -431,8 +431,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     ValidoEm = table.Column<string>(type: "varchar(256)", unicode: false, maxLength: 256, nullable: false, defaultValue: "2")
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     AutenticacaoId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -459,8 +459,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     EmailEnvioId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     EmailRemetenteId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     ConfiguracaoEmailId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -499,8 +499,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Corpo = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     DestinatarioId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -539,8 +539,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     InscricaoMunicipal = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -572,8 +572,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     QuantidadeTotalDisponivel = table.Column<int>(type: "int", nullable: false),
                     TipoProdutoId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -621,8 +621,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -690,8 +690,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     PessoaId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     EnederecoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -857,8 +857,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     ValorProduto = table.Column<decimal>(type: "decimal(20,2)", precision: 20, scale: 2, nullable: false),
                     ValorComDesconto = table.Column<decimal>(type: "decimal(20,2)", precision: 20, scale: 2, nullable: false),
                     QuantidadeOfertaDisponivel = table.Column<int>(type: "int", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
@@ -885,8 +885,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     Quantidade = table.Column<int>(type: "int", precision: 20, nullable: false),
                     Expiracao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ProdutoId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
-                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "NOW()"),
+                    DataCriacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    DataModificacao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Ativo = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     UsuarioCriacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     UsuarioModificacaoId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
