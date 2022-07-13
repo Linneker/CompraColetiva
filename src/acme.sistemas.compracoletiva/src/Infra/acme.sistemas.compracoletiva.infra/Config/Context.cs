@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
+﻿using acme.sistemas.compracoletiva.core.Base;
 using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Entity.Notifications;
 using acme.sistemas.compracoletiva.domain.Entity.Package;
@@ -7,20 +7,14 @@ using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.infra.Map.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.infra.Config
 {
     public class Context : IdentityDbContext<Usuario, Permissao, Guid, UserClaim, PermissaoUsuario, UserLogin, PermissaoClaim, UserToken>
     {
-       
+
         public Context(DbContextOptions<Context> dbContextOptions) : base(dbContextOptions)
         {
         }
@@ -42,13 +36,13 @@ namespace acme.sistemas.compracoletiva.infra.Config
         public DbSet<Compra> Compras { get; private set; }
         public DbSet<Encomenda> Encomendas { get; private set; }
         public DbSet<UnidadeMedidaCompra> UnidadeMedidaCompra { get; set; }
-    
-        
+
+
         public DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
 
-        
+
         public DbSet<Seguro> Seguros { get; private set; }
         public DbSet<Reserva> Reservas { get; set; }
         public DbSet<Notificacao> Notificacaos { get; private set; }
@@ -73,7 +67,12 @@ namespace acme.sistemas.compracoletiva.infra.Config
         public override DbSet<UserClaim> UserClaims { get; set; }
         public override DbSet<UserLogin> UserLogins { get; set; }
         public override DbSet<UserToken> UserTokens { get; set; }
-       
+
+        public async Task<bool> Commit()
+        {
+           return await this.SaveChangesAsync() > 0;
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(Context).Assembly);

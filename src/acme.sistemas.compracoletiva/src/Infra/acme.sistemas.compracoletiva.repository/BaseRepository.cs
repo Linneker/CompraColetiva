@@ -1,13 +1,7 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.core.Base;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
 using acme.sistemas.compracoletiva.infra.Config;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.repository
 {
@@ -20,6 +14,8 @@ namespace acme.sistemas.compracoletiva.repository
             _db = db;
         }
 
+        public Task<bool> UnitOfWork => _db.Commit();
+
         public void Add(TEntity entity) => _db.Add(entity);
 
         public async Task AddAsync(TEntity entity) => await _db.AddAsync(entity);
@@ -28,7 +24,7 @@ namespace acme.sistemas.compracoletiva.repository
 
         public Task AddMultipleAsync(IEnumerable<TEntity> entities) => _db.AddRangeAsync(entities);
 
-        public IQueryable<Entity> GetAll<Entity>() where Entity : BaseEntity
+        public virtual IQueryable<Entity> GetAll<Entity>() where Entity : BaseEntity
         {
             var dbSet = _db.Set<Entity>();
             var result = dbSet.AsQueryable<Entity>();

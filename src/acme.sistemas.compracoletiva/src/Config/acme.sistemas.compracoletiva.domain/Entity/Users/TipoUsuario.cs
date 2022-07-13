@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.core.Base;
 using System.Collections.Generic;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Users

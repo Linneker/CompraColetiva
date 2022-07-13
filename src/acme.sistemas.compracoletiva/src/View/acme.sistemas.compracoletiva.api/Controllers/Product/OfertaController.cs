@@ -1,6 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Product;
-using acme.sistemas.compracoletiva.domain.Entity.Product;
-using Microsoft.AspNetCore.Http;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Product;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Product
@@ -11,7 +10,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
     {
         private readonly IOfertaService _ofertaService;
 
-        public OfertaController (IOfertaService ofertaService) : base(ofertaService)
+        public OfertaController(IOfertaService ofertaService) : base(ofertaService)
         {
             _ofertaService = ofertaService;
         }

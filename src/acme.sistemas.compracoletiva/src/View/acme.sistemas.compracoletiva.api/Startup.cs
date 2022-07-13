@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.config.Security;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.config.Security;
 using acme.sistemas.compracoletiva.di;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
@@ -60,6 +61,7 @@ namespace acme.sistemas.compracoletiva.api
             }).AddRoles<Permissao>().
            AddEntityFrameworkStores<Context>();
 
+            services.AddTransient<UnitOfWorkFilter>();
             services.AddHostedService<EmailWorkerServico>();
 
             services.AddControllers()

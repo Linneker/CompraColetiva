@@ -22,6 +22,7 @@ namespace acme.sistemas.compracoletiva.di.Installers
             serviceCollection.AddTransient<IEnderecoRepository, EnderecoRepository>();
             serviceCollection.AddTransient<IArquivoRepository, ArquivoRepository>();
             serviceCollection.AddTransient<IParametroRepository, ParametroRepository>();
+            serviceCollection.AddTransient<ITipoUsuarioRepository, TipoUsuarioRepository>();
 
             // serviceCollection.AddTransient<IConfiguracaoTokenRepository, ConfiguracaoTokenRepository>();
 

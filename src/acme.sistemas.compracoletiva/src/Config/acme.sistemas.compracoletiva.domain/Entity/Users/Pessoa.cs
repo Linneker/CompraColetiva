@@ -1,9 +1,9 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
-using acme.sistemas.compracoletiva.domain.Entity.Location;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using acme.sistemas.compracoletiva.core.Base;
 using System;
 using System.Collections.Generic;
+using acme.sistemas.compracoletiva.core.Enuns;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {

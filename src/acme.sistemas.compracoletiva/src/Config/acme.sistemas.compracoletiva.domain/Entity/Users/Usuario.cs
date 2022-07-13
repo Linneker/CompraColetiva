@@ -1,6 +1,6 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using acme.sistemas.compracoletiva.core.Base;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

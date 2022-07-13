@@ -1,5 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Utils;
-using acme.sistemas.compracoletiva.domain.Entity.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Utils
@@ -10,7 +10,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
     {
         private readonly IEmailService _emailService;
 
-        public EmailController (IEmailService emailService) : base(emailService)
+        public EmailController(IEmailService emailService) : base(emailService)
         {
             _emailService = emailService;
         }

@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Worker.Util;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Worker.Util;
 
 namespace acme.sistemas.compracoletiva.service.Works.Util
 {

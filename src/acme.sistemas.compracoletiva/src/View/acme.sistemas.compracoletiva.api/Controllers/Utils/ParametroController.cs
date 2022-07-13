@@ -1,6 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Utils;
-using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using Microsoft.AspNetCore.Http;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Utils
@@ -11,7 +10,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
     {
         private readonly IParametroService _parametroService;
 
-        public ParametroController(IParametroService parametroService) : base (parametroService)
+        public ParametroController(IParametroService parametroService) : base(parametroService)
         {
             _parametroService = parametroService;
         }
@@ -20,8 +19,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
         {
             try
             {
-                _parametroService.GetAll<Parametro,Parametro>();
-                return Ok();
+                var parametros = _parametroService.GetAll<Parametro, Parametro>();
+                return Ok(parametros);
             }
             catch (Exception e)
             {

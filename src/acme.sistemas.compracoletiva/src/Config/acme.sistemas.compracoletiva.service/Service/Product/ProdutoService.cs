@@ -1,7 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Product;
-using acme.sistemas.compracoletiva.domain.Entity;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Service.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Product;
 using AutoMapper;
 using System;

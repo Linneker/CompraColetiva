@@ -1,14 +1,10 @@
 ﻿using acme.sistemas.compracoletiva.api.teste.Fixture;
 using acme.sistemas.compracoletiva.core.Dtos.Security;
 using acme.sistemas.compracoletiva.core.Dtos.Users;
-using acme.sistemas.compracoletiva.domain.Entity.Enuns;
-using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.core.Enuns;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -23,8 +19,8 @@ namespace acme.sistemas.compracoletiva.api.teste.Test
             _integrationTesteFixture = integrationTesteFixture;
         }
 
-        [Fact(DisplayName ="Cadastro de Usuario")]
-        [Trait("Usuario","Integração Usuario")]
+        [Fact(DisplayName = "Cadastro de Usuario")]
+        [Trait("Usuario", "Integração Usuario")]
         public async Task Usuario_RealizaCadastro_DeveExecutarComSucesso()
         {
             //Arrange
@@ -76,7 +72,7 @@ namespace acme.sistemas.compracoletiva.api.teste.Test
                     }
                 }
             };
- 
+
 
             //Act
             var post = await _integrationTesteFixture.Client.PostAsJsonAsync("api/Usuario/Registrar", pessoa);

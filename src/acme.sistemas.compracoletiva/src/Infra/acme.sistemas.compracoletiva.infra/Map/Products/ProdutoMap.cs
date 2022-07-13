@@ -1,15 +1,7 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity;
-using acme.sistemas.compracoletiva.domain.Entity.Product;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
-using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.infra.Map.Products
 {

@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.User;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Service.User;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.User;
 using AutoMapper;

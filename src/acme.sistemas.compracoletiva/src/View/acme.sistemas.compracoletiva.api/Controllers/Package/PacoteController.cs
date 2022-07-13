@@ -1,6 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Package;
-using acme.sistemas.compracoletiva.domain.Entity.Package;
-using Microsoft.AspNetCore.Http;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Package;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Package;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Package
