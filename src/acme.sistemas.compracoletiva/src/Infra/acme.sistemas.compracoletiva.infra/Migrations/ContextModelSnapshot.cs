@@ -35,21 +35,21 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
                     b.Property<string>("Bairro")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(230)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(230)");
 
                     b.Property<string>("Cep")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(15)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(15)");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(230)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(230)");
 
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
@@ -63,21 +63,21 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
                     b.Property<string>("Estado")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(230)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(230)");
 
                     b.Property<string>("Pais")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(300)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(300)");
 
                     b.Property<string>("Rua")
                         .IsRequired()
-                        .HasMaxLength(256)
+                        .HasMaxLength(230)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(230)");
 
                     b.Property<Guid?>("UsuarioCriacaoId")
                         .HasColumnType("uniqueidentifier");
@@ -86,6 +86,9 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Cep")
+                        .IsUnique();
 
                     b.ToTable("Endereco", (string)null);
                 });
@@ -153,6 +156,135 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.ToTable("EnderecoPessoa", (string)null);
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Package.Pacote", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<Guid>("Codigo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<int>("Preco")
+                        .HasPrecision(20)
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pacote", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Oferta", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Condicao")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(300)");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataTermino")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("PalavraChavePesquisa")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<int>("QuantidadeOfertaDisponivel")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(300)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("ValorComDesconto")
+                        .HasPrecision(20, 2)
+                        .HasColumnType("decimal(20,2)");
+
+                    b.Property<decimal>("ValorProduto")
+                        .HasPrecision(20, 2)
+                        .HasColumnType("decimal(20,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Oferta", (string)null);
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Produto", b =>
                 {
                     b.Property<Guid>("Id")
@@ -185,11 +317,17 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasPrecision(20)
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantidadeTotalDisponivel")
+                        .HasColumnType("int");
+
                     b.Property<int>("TicketMinimo")
                         .HasPrecision(20)
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("TipoProdutoId")
+                    b.Property<Guid>("TipoProdutoId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("UsuarioCriacaoId")
@@ -217,6 +355,50 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.ToTable("Produto", (string)null);
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.ProdutoUsuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<DateTime>("Prazo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProdutoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProdutoUsuario", (string)null);
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", b =>
                 {
                     b.Property<Guid>("Id")
@@ -241,12 +423,14 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasMaxLength(256)
+                        .HasPrecision(500)
                         .IsUnicode(false)
                         .HasColumnType("varchar(256)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(256)
+                        .HasPrecision(500)
                         .IsUnicode(false)
                         .HasColumnType("varchar(256)");
 
@@ -349,7 +533,7 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.ToTable("Encomenda", (string)null);
                 });
 
-            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.SalesInternal.Pacote", b =>
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Sales.UnidadeMedidaCompra", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -359,9 +543,6 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
-
-                    b.Property<Guid>("Codigo")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DataCriacao")
                         .ValueGeneratedOnAdd()
@@ -385,9 +566,6 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Preco")
-                        .HasColumnType("int");
-
                     b.Property<Guid?>("UsuarioCriacaoId")
                         .HasColumnType("uniqueidentifier");
 
@@ -396,7 +574,7 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pacote", (string)null);
+                    b.ToTable("UnidadeMedidaCompra", (string)null);
                 });
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Security.ConfiguracaoToken", b =>
@@ -674,14 +852,14 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Security.UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(256)
+                        .HasMaxLength(128)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(256)
+                        .HasMaxLength(128)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
@@ -722,14 +900,14 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(256)
+                        .HasMaxLength(128)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(256)
+                        .HasMaxLength(128)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
@@ -941,6 +1119,9 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(256)");
 
+                    b.Property<Guid?>("NotificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("PasswordHash")
                         .HasMaxLength(256)
                         .IsUnicode(false)
@@ -994,6 +1175,8 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("NotificacaoId");
 
                     b.HasIndex("PessoaId");
 
@@ -1258,6 +1441,120 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.ToTable("EnvioEmail", (string)null);
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Notificacao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notificacao", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Pagamento", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataEmQueDinheiroCaiNaConta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataPagamento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataPrevistaPagamento")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataVencimento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("NomePagador")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("ValorAReceber")
+                        .HasPrecision(18, 4)
+                        .HasColumnType("decimal(18,4)");
+
+                    b.Property<decimal>("ValorRecebido")
+                        .HasPrecision(18, 4)
+                        .HasColumnType("decimal(18,4)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pagamento", (string)null);
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Parametro", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1308,6 +1605,106 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.ToTable("Parametro", (string)null);
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Reserva", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("Expiracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Prazo")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProdutoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantidade")
+                        .HasPrecision(20)
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Reserva", (string)null);
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Seguro", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("DataCriacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DataModificacao")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Empresa")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<decimal>("Taxa")
+                        .HasPrecision(18, 4)
+                        .HasColumnType("decimal(18,4)");
+
+                    b.Property<Guid?>("UsuarioCriacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsuarioModificacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Seguro", (string)null);
+                });
+
             modelBuilder.Entity("EmailCopias", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1347,12 +1744,26 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Navigation("Pessoa");
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Oferta", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Users.Usuario", "Usuario")
+                        .WithMany("ListaDeOferta")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Produto", b =>
                 {
-                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", null)
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", "TipoProduto")
                         .WithMany("Produtos")
                         .HasForeignKey("TipoProdutoId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("TipoProduto");
                 });
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Security.ConfiguracaoTokenSistema", b =>
@@ -1430,6 +1841,11 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Users.Usuario", b =>
                 {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Notificacao", null)
+                        .WithMany("Usuarios")
+                        .HasForeignKey("NotificacaoId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Users.Pessoa", "Pessoa")
                         .WithMany("Usuarios")
                         .HasForeignKey("PessoaId")
@@ -1485,6 +1901,25 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Navigation("Destinatario");
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Reserva", b =>
+                {
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Product.Produto", "Produto")
+                        .WithMany("ListaDeReserva")
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Users.Usuario", "Usuario")
+                        .WithMany("ListaDeReserva")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Produto");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("EmailCopias", b =>
                 {
                     b.HasOne("acme.sistemas.compracoletiva.domain.Entity.Utils.Email", null)
@@ -1503,6 +1938,11 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Location.Endereco", b =>
                 {
                     b.Navigation("EnderecoPessoas");
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.Produto", b =>
+                {
+                    b.Navigation("ListaDeReserva");
                 });
 
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Product.TipoProduto", b =>
@@ -1527,6 +1967,13 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
                     b.Navigation("Usuarios");
                 });
 
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Users.Usuario", b =>
+                {
+                    b.Navigation("ListaDeOferta");
+
+                    b.Navigation("ListaDeReserva");
+                });
+
             modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.ConfiguracaoEmail", b =>
                 {
                     b.Navigation("EmailConfiguracaoEmail");
@@ -1545,6 +1992,11 @@ namespace acme.sistemas.compracoletiva.infra.Migrations
 
                     b.Navigation("Pessoa")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("acme.sistemas.compracoletiva.domain.Entity.Utils.Notificacao", b =>
+                {
+                    b.Navigation("Usuarios");
                 });
 #pragma warning restore 612, 618
         }

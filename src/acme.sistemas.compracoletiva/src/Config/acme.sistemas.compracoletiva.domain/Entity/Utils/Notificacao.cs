@@ -22,7 +22,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         }
 
         public Notificacao(Guid id, DateTime dataCriacao, bool ativo, Guid? usuarioCriacaoId, Guid? usuarioModificacaoId, string key, string value)
-            : base( id, dataCriacao, ativo, usuarioCriacaoId, usuarioModificacaoId)
+            : base(id, dataCriacao, ativo, usuarioCriacaoId, usuarioModificacaoId)
         {
             Key = key;
             Value = value;
@@ -33,7 +33,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         public virtual ICollection<Usuario> Usuarios { get; private set; } = new HashSet<Usuario>();
 
 
-        public void SetUsuarios(ICollection<Usuario>  usuarios) => Usuarios = usuarios;
-        public void AddUsuario(Usuario  usuario) => Usuarios.Add(usuario);
+        public void SetUsuarios(ICollection<Usuario> usuarios) => Usuarios = usuarios;
+        public void AddUsuario(Usuario usuario) => Usuarios.Add(usuario);
     }
 }

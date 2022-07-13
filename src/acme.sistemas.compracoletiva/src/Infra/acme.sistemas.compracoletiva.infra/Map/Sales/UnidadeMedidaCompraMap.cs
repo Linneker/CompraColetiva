@@ -14,7 +14,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Sales
     {
         public void Configure(EntityTypeBuilder<UnidadeMedidaCompra> builder)
         {
-            builder.ToTable("Encomenda");
+            builder.ToTable("UnidadeMedidaCompra");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");

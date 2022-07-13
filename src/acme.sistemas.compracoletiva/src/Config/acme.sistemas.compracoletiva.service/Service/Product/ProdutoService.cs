@@ -1,5 +1,9 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity;
+﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Product;
+using acme.sistemas.compracoletiva.domain.Entity;
+using acme.sistemas.compracoletiva.domain.Entity.Product;
 using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Product;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +12,15 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.service.Service.Product
 {
-    public class ProdutoService : BaseEntity, IAggregateRoot
+    public class ProdutoService : BaseService<Produto>, IProdutoService
     {
-        protected ProdutoService()
-        {
+        private readonly IProdutoRepository _produtoRepository;
+        private readonly IMapper _mapper;
 
-        }
-        public ProdutoService(string nome, decimal valorCompra, decimal valorVenda, int quantidade, int ticketMedio)
+        public ProdutoService(IProdutoRepository produtoRepository, IMapper mapper) :base (produtoRepository)
         {
-            Nome = nome;
-            ValorCompra = valorCompra;
-            ValorVenda = valorVenda;
-            TicketMedio = ticketMedio;
-            Quantidade = quantidade;
+            _produtoRepository = produtoRepository;
+            _mapper = mapper;
         }
-        public string Nome { get; private set; }
-        public decimal ValorCompra { get; private set; }
-        public decimal ValorVenda { get; private set; }
-        public int Quantidade { get; private set; }
-        public int TicketMedio { get; private set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
+using acme.sistemas.compracoletiva.domain.Entity.Utils;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public bool Ativo { get; set; }
         public Guid? UsuarioCriacaoId { get; set; }
         public Guid? UsuarioModificacaoId { get; set; }
+        public ICollection<Oferta> ListaDeOferta { get; private set; } = new HashSet<Oferta>();
+        public ICollection<Reserva> ListaDeReserva { get; private set; } = new HashSet<Reserva>();
 
         public Guid PessoaId { get; set; }
         public Guid TipoUsuarioId { get; set; }

@@ -1,4 +1,6 @@
-﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Product;
+using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,15 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         }
 
-        public int Prazo { get; private set; }
+        public DateTime Prazo { get; private set; }
+        public Guid UsuarioId { get; private set; }
+        public int Quantidade { get; private set; }
+        public virtual Produto Produto { get; private set; }
+        public DateTime Expiracao { get; private set; }
+        public Guid ProdutoId { get; private set; }
+        public virtual Usuario Usuario { get; private set; }
+         
+
+
     }
 }

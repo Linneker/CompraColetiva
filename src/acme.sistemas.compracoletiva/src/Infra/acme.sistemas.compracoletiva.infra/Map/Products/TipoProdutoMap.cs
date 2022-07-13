@@ -28,6 +28,10 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
 
 
 
+            builder.Property(t => t.Nome).HasPrecision(500).IsRequired();
+            builder.Property(t => t.Descricao).HasPrecision(500).IsRequired();
+
+
         }
     }
 }

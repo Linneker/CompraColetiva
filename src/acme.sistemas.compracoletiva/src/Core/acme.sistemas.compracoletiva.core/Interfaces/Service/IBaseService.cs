@@ -18,11 +18,11 @@ namespace acme.sistemas.compracoletiva.core.Interfaces.Service
         void RemoveMultiple(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
         void UpdateMultiple(IEnumerable<TEntity> entities);
-        Task<Entity> GetByIdAsync<TEntityRecover, Entity>(Guid id) where TEntityRecover : class where Entity : BaseEntity;
+        Task<Entity> GetByIdAsync<TEntityRecover, Entity>(Guid id) where TEntityRecover : IAggregateRoot where Entity : BaseEntity;
         Entity GetById<TEntityRecover, Entity>(Guid id) where TEntityRecover : class where Entity : BaseEntity;
         IQueryable<Entity> GetAll<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
         Task<IQueryable<Entity>> GetAllAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
-        List<Entity> GetList<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
+
         Task<List<Entity>> GetListAsync<TEntityRecover, Entity>() where TEntityRecover : class where Entity : BaseEntity;
     }
 }
