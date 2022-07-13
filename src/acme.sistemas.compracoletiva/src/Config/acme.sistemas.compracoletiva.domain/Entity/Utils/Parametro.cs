@@ -1,6 +1,6 @@
 ﻿
 
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+using acme.sistemas.compracoletiva.core.Base;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {

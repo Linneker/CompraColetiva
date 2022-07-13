@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Config\acme.sistemas.compracoletiva.domain\acme.sistemas.compracoletiva.domain.csproj" />
-  </ItemGroup>
-
 </Project>

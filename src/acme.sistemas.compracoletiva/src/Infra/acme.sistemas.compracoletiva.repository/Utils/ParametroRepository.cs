@@ -21,5 +21,10 @@ namespace acme.sistemas.compracoletiva.repository.Utils
             var parametro = await _db.Parametros.FirstOrDefaultAsync(p => p.Nome == nome);
             return parametro;
         }
+
+        public  async Task<IEnumerable<Parametro>> GetAllParametro()
+        {
+            return await _db.Parametros.ToListAsync();
+        }
     }
 }

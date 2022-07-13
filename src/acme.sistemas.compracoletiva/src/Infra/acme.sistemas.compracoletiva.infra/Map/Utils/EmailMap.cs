@@ -12,8 +12,8 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.ToTable("Email");
             builder.HasKey(t => t.Id);
 
-            builder.Property(t => t.DataCriacao).IsRequired().ValueGeneratedOnAdd().HasDefaultValueSql("GETDATE()");
-            builder.Property(t => t.DataModificacao).IsRequired().ValueGeneratedOnAddOrUpdate().HasDefaultValueSql("GETDATE()")
+            builder.Property(t => t.DataCriacao).IsRequired();
+            builder.Property(t => t.DataModificacao).IsRequired()
                 .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Save);
             builder.Property(t => t.UsuarioCriacaoId);
             builder.Property(t => t.UsuarioModificacaoId);

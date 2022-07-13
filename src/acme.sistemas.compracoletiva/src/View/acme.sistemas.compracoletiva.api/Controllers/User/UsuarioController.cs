@@ -1,9 +1,9 @@
 ﻿using acme.sistemas.compracoletiva.config.Security;
 using acme.sistemas.compracoletiva.core.Dtos.Users;
 using acme.sistemas.compracoletiva.core.Helpers;
-using acme.sistemas.compracoletiva.core.Interfaces.Service.User;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

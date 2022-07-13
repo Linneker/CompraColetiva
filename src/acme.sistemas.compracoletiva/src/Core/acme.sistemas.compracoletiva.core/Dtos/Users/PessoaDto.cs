@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Enuns;
+﻿using acme.sistemas.compracoletiva.core.Enuns;
 
 namespace acme.sistemas.compracoletiva.core.Dtos.Users
 {

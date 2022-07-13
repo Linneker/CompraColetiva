@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.core.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,8 +1,7 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service;
-using acme.sistemas.compracoletiva.domain.Entity;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Service;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository;
 using AutoMapper;
+using acme.sistemas.compracoletiva.core.Base;
 
 namespace acme.sistemas.compracoletiva.service.Service
 {
@@ -15,6 +14,7 @@ namespace acme.sistemas.compracoletiva.service.Service
             _baseRepository = baseRepository;
         }
 
+        public  Task<bool> UnitOfWork {  get =>  _baseRepository.UnitOfWork; }
         public void Add(TEntity entity) => _baseRepository.Add(entity);
 
         public Task AddAsync(TEntity entity) => _baseRepository.AddAsync(entity);

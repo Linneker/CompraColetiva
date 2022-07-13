@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Location;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Service.Location;
 using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Location;
 using AutoMapper;

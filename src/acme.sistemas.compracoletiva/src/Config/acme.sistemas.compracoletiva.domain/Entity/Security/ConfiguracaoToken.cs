@@ -1,4 +1,6 @@
-﻿namespace acme.sistemas.compracoletiva.domain.Entity.Security
+﻿using acme.sistemas.compracoletiva.core.Base;
+
+namespace acme.sistemas.compracoletiva.domain.Entity.Security
 {
     public class ConfiguracaoToken : BaseEntity
     {

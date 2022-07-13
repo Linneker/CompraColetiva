@@ -1,9 +1,6 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service;
-using acme.sistemas.compracoletiva.domain.Entity;
-using acme.sistemas.compracoletiva.domain.Interfaces.Aggregate;
-using acme.sistemas.compracoletiva.infra.Config;
-using acme.sistemas.compracoletiva.service.Service;
-using Microsoft.AspNetCore.Http;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.core.Base;
+using acme.sistemas.compracoletiva.service.Interfaces.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers
@@ -19,7 +16,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
             _baseService = baseService;
         }
 
-
+        [UnitOfWorkFilter]
         [HttpPost]
         public async Task<IActionResult> AddAsync(TEntity baseService)
         {
@@ -35,9 +32,9 @@ namespace acme.sistemas.compracoletiva.api.Controllers
             }
         }
 
-
+        [UnitOfWorkFilter]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Remove<Entity>(TEntity entity) where Entity : BaseEntity
+        public async Task<IActionResult> Remove(TEntity entity)
         {
 
             try
@@ -51,7 +48,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, e);
             }
         }
-
+        [UnitOfWorkFilter]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, TEntity entity)
         {

@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.config.Security;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.config.Security;
 using acme.sistemas.compracoletiva.di;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
@@ -39,15 +40,15 @@ namespace acme.sistemas.compracoletiva.api
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
 
 
-            //services.AddDbContext<Context>(op => op.UseMySql(Configuration.GetConnectionString("MySqlLocal"), serverVersion)
-            //.UseLoggerFactory(loggerFactory)
-            //    .EnableSensitiveDataLogging()
-            //    .EnableDetailedErrors());
+            services.AddDbContext<Context>(op => op.UseMySql(Configuration.GetConnectionString("CompraColetiva"), serverVersion)
+            .UseLoggerFactory(loggerFactory)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors());
 
-            services.AddDbContext<Context>(options =>
+            /*services.AddDbContext<Context>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("CompraColetiva"), _ => _.MigrationsAssembly("acme.sistemas.compracoletiva.infra"));
-            });
+            });*/
             services.InstallDependencies();
             var tokenConfigurations = new ConfiguracaoToken();
             new ConfigureFromConfigurationOptions<ConfiguracaoToken>(Configuration.GetSection("ConfiguracaoToken")).Configure(tokenConfigurations);
@@ -60,6 +61,7 @@ namespace acme.sistemas.compracoletiva.api
             }).AddRoles<Permissao>().
            AddEntityFrameworkStores<Context>();
 
+            services.AddTransient<UnitOfWorkFilter>();
             services.AddHostedService<EmailWorkerServico>();
 
             services.AddControllers()

@@ -1,11 +1,11 @@
-﻿using acme.sistemas.compracoletiva.core.Dtos.Users;
-using acme.sistemas.compracoletiva.core.Helpers;
-using acme.sistemas.compracoletiva.core.Interfaces.Service.User;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Service.User;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.User;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using acme.sistemas.compracoletiva.core.Dtos.Users;
+using acme.sistemas.compracoletiva.core.Helpers;
 
 namespace acme.sistemas.compracoletiva.service.Service.Users
 {

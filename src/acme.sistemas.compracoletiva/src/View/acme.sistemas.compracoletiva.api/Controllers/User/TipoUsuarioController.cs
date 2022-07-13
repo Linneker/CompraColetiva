@@ -1,6 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.User;
-using acme.sistemas.compracoletiva.domain.Entity.Users;
-using Microsoft.AspNetCore.Http;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Users;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.User

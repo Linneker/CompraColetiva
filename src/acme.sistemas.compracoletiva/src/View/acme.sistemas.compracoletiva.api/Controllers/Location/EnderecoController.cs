@@ -1,6 +1,5 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service.Location;
-using acme.sistemas.compracoletiva.domain.Entity.Location;
-using Microsoft.AspNetCore.Http;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Location;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Location;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Location

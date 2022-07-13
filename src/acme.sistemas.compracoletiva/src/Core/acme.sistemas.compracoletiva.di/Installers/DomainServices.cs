@@ -1,7 +1,7 @@
-﻿using acme.sistemas.compracoletiva.core.Interfaces.Service;
-using acme.sistemas.compracoletiva.core.Interfaces.Service.Location;
-using acme.sistemas.compracoletiva.core.Interfaces.Service.User;
-using acme.sistemas.compracoletiva.core.Interfaces.Service.Utils;
+﻿using acme.sistemas.compracoletiva.service.Interfaces.Service;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Location;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.User;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Utils;
 using acme.sistemas.compracoletiva.service.Service;
 using acme.sistemas.compracoletiva.service.Service.Location;
 using acme.sistemas.compracoletiva.service.Service.Users;
@@ -21,6 +21,7 @@ namespace acme.sistemas.compracoletiva.di.Installers
             serviceCollection.AddTransient<IEnderecoService, EnderecoService>();
             serviceCollection.AddTransient<IArquivoService, ArquivoService>();
             serviceCollection.AddTransient<IParametroService, ParametroService>();
+            serviceCollection.AddTransient<ITipoUsuarioService, TipoUsuarioService>();
 
             //serviceCollection.AddTransient<IConfiguracaoTokenServices, ConfiguracaoTokenServices>();
             return serviceCollection;

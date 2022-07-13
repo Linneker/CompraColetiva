@@ -10,5 +10,6 @@ namespace acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils
     public interface IParametroRepository : IBaseRepository<Parametro>
     {
         Task<Parametro> GetParametroByNome(string nome);
+        Task<IEnumerable<Parametro>> GetAllParametro();
     }
 }
