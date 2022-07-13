@@ -7,7 +7,7 @@ namespace acme.sistemas.compracoletiva.api.teste.Config
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            builder.UseEnvironment("Testing");
+            //builder.UseEnvironment("Testing");
             //builder.ConfigureServices(services =>
             //{
             //    var descriptor = services.SingleOrDefault(

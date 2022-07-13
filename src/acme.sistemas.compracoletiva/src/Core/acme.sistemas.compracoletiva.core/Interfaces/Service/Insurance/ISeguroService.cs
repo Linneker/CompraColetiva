@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.core.Interfaces.Insurance
+namespace acme.sistemas.compracoletiva.core.Interfaces.Service.Insurance
 {
     public interface ISeguroService : IBaseService<Seguro>
     {

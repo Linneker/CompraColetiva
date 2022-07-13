@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.core.Interfaces.Notification
+namespace acme.sistemas.compracoletiva.core.Interfaces.Service.Notification
 {
     public interface INotificacaoService : IBaseService<Notificacao>
     {

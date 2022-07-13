@@ -14,7 +14,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Purchase
         private readonly IUnidadeMedidaCompraRepository _unidadeMedidaCompraRepository;
         private readonly IMapper _mapper;
 
-        public UnidadeMedidaCompraService(IUnidadeMedidaCompraRepository unidadeMedidaCompraRepository, IMapper mapper) : base(unidadeMedidaCompraRepository, mapper)
+        public UnidadeMedidaCompraService(IUnidadeMedidaCompraRepository unidadeMedidaCompraRepository, IMapper mapper) : base(unidadeMedidaCompraRepository)
         {
             _unidadeMedidaCompraRepository = unidadeMedidaCompraRepository;
             _mapper = mapper;
