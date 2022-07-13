@@ -51,8 +51,10 @@ namespace acme.sistemas.compracoletiva.api
             });*/
             services.InstallDependencies();
             var tokenConfigurations = new ConfiguracaoToken();
-            new ConfigureFromConfigurationOptions<ConfiguracaoToken>(Configuration.GetSection("ConfiguracaoToken")).Configure(tokenConfigurations);
-            services.ConfigurarToken(tokenConfigurations);
+            new ConfigureFromConfigurationOptions<ConfiguracaoToken>(
+                Configuration.GetSection("ConfiguracaoToken"))
+                    .Configure(tokenConfigurations);
+            services.AddSingleton(tokenConfigurations);
 
             services.AddDefaultIdentity<Usuario>(t =>
             {

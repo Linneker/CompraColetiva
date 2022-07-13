@@ -2,6 +2,7 @@
 using acme.sistemas.compracoletiva.core.Dtos.Security;
 using acme.sistemas.compracoletiva.core.Dtos.Users;
 using acme.sistemas.compracoletiva.core.Enuns;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Json;
@@ -70,9 +71,10 @@ namespace acme.sistemas.compracoletiva.api.teste.Test
                             Numero = 2
                         }
                     }
-                }
+                },
+                TipoUsuarioId = Guid.Parse("c81f66d2-16bd-48a6-b93e-20ee7ee41fd9")
             };
-
+            var convert = JsonConvert.SerializeObject(pessoa);
 
             //Act
             var post = await _integrationTesteFixture.Client.PostAsJsonAsync("api/Usuario/Registrar", pessoa);
