@@ -13,6 +13,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         public string Host { get; set; }
         public int Porta { get; set; }
         public bool Ssl { get; set; }
-        public virtual ICollection<EmailConfiguracaoEmail> EmailConfiguracaoEmail { get; private set; }
+        public virtual ICollection<EmailConfiguracaoEmail> EmailConfiguracaoEmail { get; set; }
     }
 }

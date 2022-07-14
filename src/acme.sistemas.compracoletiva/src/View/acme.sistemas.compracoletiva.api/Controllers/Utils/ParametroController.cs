@@ -14,7 +14,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
         {
             _parametroService = parametroService;
         }
-        [HttpGet]
+       /* [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -27,6 +27,6 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
 
                 return StatusCode(StatusCodes.Status500InternalServerError, e); ;
             }
-        }
+        }*/
     }
 }

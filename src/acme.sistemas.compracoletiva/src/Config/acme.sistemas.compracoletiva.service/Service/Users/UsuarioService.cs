@@ -9,7 +9,7 @@ using acme.sistemas.compracoletiva.core.Helpers;
 
 namespace acme.sistemas.compracoletiva.service.Service.Users
 {
-    public class UsuarioService : BaseService<Usuario>, IUsuarioService
+    public class UsuarioService :  IUsuarioService
     {
         private readonly IUsuarioRepository _baseRepository;
         private readonly SignInManager<Usuario> _signInManager;
@@ -18,7 +18,7 @@ namespace acme.sistemas.compracoletiva.service.Service.Users
         public UsuarioService(IUsuarioRepository baseRepository,
             SignInManager<Usuario> signInManager,
             UserManager<Usuario> userManager,
-            IMapper mapper) : base(baseRepository)
+            IMapper mapper) 
         {
             _baseRepository = baseRepository;
             _signInManager = signInManager;

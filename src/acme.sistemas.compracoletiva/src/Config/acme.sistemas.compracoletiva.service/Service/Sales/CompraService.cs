@@ -3,7 +3,7 @@ using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Sales;
 using AutoMapper;
 
-namespace acme.sistemas.compracoletiva.service.Service.Purchase
+namespace acme.sistemas.compracoletiva.service.Service.Sales
 {
     public class CompraService : BaseService<Compra>, ICompraService
     {

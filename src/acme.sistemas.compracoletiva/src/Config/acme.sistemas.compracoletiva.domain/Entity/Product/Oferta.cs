@@ -15,16 +15,18 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
 
         }
 
-        public string Titulo { get; private set; }
-        public Usuario Usuario { get; private set; }
-        public Guid UsuarioId { get; private set; }
-        public string Descricao { get; private set; }
-        public string Condicao { get; private set; }
-        public string PalavraChavePesquisa { get; private set; }
-        public DateTime DataInicio { get; private set; }
-        public DateTime DataTermino { get; private set; }
-        public decimal ValorProduto { get; private set; }
-        public decimal ValorComDesconto { get; private set; }
-        public int QuantidadeOfertaDisponivel { get; private set; }
+        public string Titulo { get; set; }
+        public Usuario Usuario { get; set; }
+        public Guid UsuarioId { get; set; }
+        public string Descricao { get; set; }
+        public string Condicao { get; set; }
+        public string PalavraChavePesquisa { get; set; }
+        public DateTime DataInicio { get; set; }
+        public DateTime DataTermino { get; set; }
+        public decimal ValorProduto { get; set; }
+        public decimal ValorComDesconto { get; set; }
+        public int QuantidadeOfertaDisponivel { get; set; }
+        public bool Fornecedor { get; set; }
+        public bool Comprador { get; set; }
     }
 }

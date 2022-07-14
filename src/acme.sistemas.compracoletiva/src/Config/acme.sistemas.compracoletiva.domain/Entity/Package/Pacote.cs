@@ -24,9 +24,9 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Package
         }
 
 
-        public string Nome { get; private set; }
-        public string Descricao { get; private set; }
-        public Guid Codigo { get; private set; }
-        public int Preco { get; private set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public Guid Codigo { get; set; }
+        public int Preco { get; set; }
     }
 }

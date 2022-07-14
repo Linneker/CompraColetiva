@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.repository.Utils
 {
-    public class NotificationRepository : BaseRepository<Notificacao>, INotificacaoRepository
+    public class NotificacaoRepository : BaseRepository<Notificacao>, INotificacaoRepository
     {
-        public NotificationRepository(Context db) : base(db)
+        public NotificacaoRepository(Context db) : base(db)
         {
         }
     }

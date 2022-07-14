@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Interfaces.Repository
 {
-    public interface IBaseRepository<TEntity> where TEntity : IAggregateRoot
+    public interface IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         Task AddAsync(TEntity entity);
         void Add(TEntity entity);

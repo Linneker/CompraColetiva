@@ -6,16 +6,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace acme.sistemas.compracoletiva.service.Service.Utils
 {
     public class PagamentoService : BaseService<Pagamento>, IPagamentoService
     {
         private readonly IPagamentoRepository _pagamentoRepository;
+        private readonly IMapper mapper;
 
-        public PagamentoService(IPagamentoRepository pagamentoRepository) : base(pagamentoRepository)
+        public PagamentoService(IPagamentoRepository pagamentoRepository, IMapper mapper) : base(pagamentoRepository)
         {
             _pagamentoRepository = pagamentoRepository;
+            this.mapper = mapper;
         }
     }
 }

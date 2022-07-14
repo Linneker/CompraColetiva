@@ -22,8 +22,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
             Produtos = produtos;
         }
 
-        public string Nome { get; private set; }
-        public string Descricao { get; private set; }
-        public ICollection<Produto> Produtos { get; private set; } = new HashSet<Produto>();
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public ICollection<Produto> Produtos { get; set; } = new HashSet<Produto>();
     }
 }

@@ -9,7 +9,7 @@ using acme.sistemas.compracoletiva.core.Dtos.Users;
 
 namespace acme.sistemas.compracoletiva.service.Interfaces.Service.User
 {
-    public interface IUsuarioService: IBaseService<Usuario>
+    public interface IUsuarioService
     {
         Task<IdentityResult> Cadastrar(RegistroUsuarioDto registroUsuario, string privateKey);
         Task<IQueryable<Usuario>> GetUsuariosJoinPessoaEndereco();

@@ -18,8 +18,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public bool Ativo { get; set; }
         public Guid? UsuarioCriacaoId { get; set; }
         public Guid? UsuarioModificacaoId { get; set; }
-        public ICollection<Oferta> ListaDeOferta { get; private set; } = new HashSet<Oferta>();
-        public ICollection<Reserva> ListaDeReserva { get; private set; } = new HashSet<Reserva>();
+        public ICollection<Oferta> ListaDeOferta { get; set; } = new HashSet<Oferta>();
+        public ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
 
         public Guid PessoaId { get; set; }
         public Guid TipoUsuarioId { get; set; }

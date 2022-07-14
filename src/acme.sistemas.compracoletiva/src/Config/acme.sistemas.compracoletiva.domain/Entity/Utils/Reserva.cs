@@ -16,13 +16,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         }
 
-        public DateTime Prazo { get; private set; }
-        public Guid UsuarioId { get; private set; }
-        public int Quantidade { get; private set; }
-        public virtual Produto Produto { get; private set; }
-        public DateTime Expiracao { get; private set; }
-        public Guid ProdutoId { get; private set; }
-        public virtual Usuario Usuario { get; private set; }
+        public DateTime Prazo { get; set; }
+        public Guid UsuarioId { get; set; }
+        public int Quantidade { get; set; }
+        public virtual Produto Produto { get; set; }
+        public DateTime Expiracao { get; set; }
+        public Guid ProdutoId { get; set; }
+        public virtual Usuario Usuario { get; set; }
          
 
 

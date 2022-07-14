@@ -1,5 +1,6 @@
 ﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Sales;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Sales;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.service.Service.Sales
 {
-    public class UnidadeMedidaCompraService : BaseService<UnidadeMedidaCompra>
+    public class UnidadeMedidaCompraService : BaseService<UnidadeMedidaCompra>, IUnidadeMedidaCompraService
     {
         private readonly IUnidadeMedidaCompraRepository _unidadeMedidaCompraRepository;
         private readonly IMapper _mapper;

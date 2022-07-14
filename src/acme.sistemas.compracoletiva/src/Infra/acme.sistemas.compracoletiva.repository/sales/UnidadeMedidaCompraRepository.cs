@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.repository.Purchase
+namespace acme.sistemas.compracoletiva.repository.Sales
 {
     public class UnidadeMedidaCompraRepository : BaseRepository<UnidadeMedidaCompra>, IUnidadeMedidaCompraRepository
     {
