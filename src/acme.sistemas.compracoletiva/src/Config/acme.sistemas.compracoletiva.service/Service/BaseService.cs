@@ -5,7 +5,7 @@ using acme.sistemas.compracoletiva.core.Base;
 
 namespace acme.sistemas.compracoletiva.service.Service
 {
-    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : IAggregateRoot
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {
         private readonly IBaseRepository<TEntity> _baseRepository;
 

@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.repository.Users
 {
-    public class UsuarioRepository : BaseRepository<Usuario>, IUsuarioRepository
+    public class UsuarioRepository :  IUsuarioRepository
     {
-        public UsuarioRepository(Context db) : base(db)
+        private readonly Context _db;
+        public UsuarioRepository(Context db) 
         {
+            _db = db;
         }
         public Task<IQueryable<Usuario>> GetUsuariosJoinPessoaEndereco()
         {

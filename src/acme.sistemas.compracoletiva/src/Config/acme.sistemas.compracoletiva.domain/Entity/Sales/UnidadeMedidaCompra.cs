@@ -14,8 +14,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 
         }
 
-        public string Nome { get; private set; }
-        public string Descricao { get; private set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
 
     }
 }

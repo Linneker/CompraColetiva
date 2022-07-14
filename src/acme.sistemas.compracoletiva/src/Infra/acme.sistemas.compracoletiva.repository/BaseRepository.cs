@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace acme.sistemas.compracoletiva.repository
 {
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : IAggregateRoot
+    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly Context _db;
 

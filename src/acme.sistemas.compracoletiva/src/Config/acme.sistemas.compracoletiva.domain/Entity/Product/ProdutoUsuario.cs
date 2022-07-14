@@ -14,8 +14,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
 
         }
 
-        public string Nome { get; private set; }
-        public Guid ProdutoId { get; private set; }
-        public DateTime Prazo { get; private set; }
+        public string Nome { get; set; }
+        public Guid ProdutoId { get; set; }
+        public DateTime Prazo { get; set; }
     }
 }

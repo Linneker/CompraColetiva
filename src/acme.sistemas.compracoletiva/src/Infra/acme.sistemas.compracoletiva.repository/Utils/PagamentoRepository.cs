@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.repository.Utils
 {
-    internal class PagamentoRepository : BaseRepository<Pagamento>, IPagamentoRepository
+    public class PagamentoRepository : BaseRepository<Pagamento>, IPagamentoRepository
     {
         public PagamentoRepository(Context db) : base(db)
         {

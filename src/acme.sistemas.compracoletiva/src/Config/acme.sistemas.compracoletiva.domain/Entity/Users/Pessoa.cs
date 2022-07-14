@@ -19,7 +19,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public string CPF { get; set; }
         public string CNPJ { get; set; }
         public string InscricaoMunicipal { get; set; }
-        public virtual Email Email { get; private set; }
+        public virtual Email Email { get; set; }
 
 
         public virtual ICollection<Usuario> Usuarios { get; set; }

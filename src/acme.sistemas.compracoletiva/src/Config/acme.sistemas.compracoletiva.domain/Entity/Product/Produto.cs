@@ -29,17 +29,17 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         }
 
 
-        public string Nome { get; private set; }
-        public decimal ValorCompra { get; private set; }
-        public decimal ValorVenda { get; private set; }
-        public int Prazo { get; private set; }
-        public int TicketMinimo { get; private set; }
-        public decimal ValorUnitario { get; private set; }
-        public int Quantidade { get; private set; }
-        public int QuantidadeTotalDisponivel { get; private set; }
-        public TipoProduto TipoProduto { get; private set; }
-        public Guid TipoProdutoId { get; private set; }
-        public virtual ICollection<Reserva> ListaDeReserva { get; private set; } = new HashSet<Reserva>();
+        public string Nome { get; set; }
+        public decimal ValorCompra { get; set; }
+        public decimal ValorVenda { get; set; }
+        public int Prazo { get; set; }
+        public int TicketMinimo { get; set; }
+        public decimal ValorUnitario { get; set; }
+        public int Quantidade { get; set; }
+        public int QuantidadeTotalDisponivel { get; set; }
+        public TipoProduto TipoProduto { get; set; }
+        public Guid TipoProdutoId { get; set; }
+        public virtual ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
 
     }
     

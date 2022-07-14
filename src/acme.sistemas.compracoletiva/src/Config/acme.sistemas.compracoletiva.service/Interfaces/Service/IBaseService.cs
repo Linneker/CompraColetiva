@@ -8,7 +8,7 @@ using acme.sistemas.compracoletiva.core.Base;
 
 namespace acme.sistemas.compracoletiva.service.Interfaces.Service
 {
-    public interface IBaseService<TEntity> where TEntity : IAggregateRoot
+    public interface IBaseService<TEntity> where TEntity : BaseEntity
     {
         Task<bool> UnitOfWork { get; }
         Task AddAsync(TEntity entity);

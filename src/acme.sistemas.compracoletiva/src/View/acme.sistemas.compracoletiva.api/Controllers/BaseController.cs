@@ -7,7 +7,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController<TEntity> : ControllerBase where TEntity : IAggregateRoot
+    public class BaseController<TEntity> : ControllerBase where TEntity : BaseEntity
     {
         private readonly IBaseService<TEntity> _baseService;
 
@@ -48,6 +48,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, e);
             }
         }
+
         [UnitOfWorkFilter]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, TEntity entity)
@@ -60,7 +61,24 @@ namespace acme.sistemas.compracoletiva.api.Controllers
             catch (Exception e)
             {
 
-                return StatusCode(StatusCodes.Status500InternalServerError, e); ;
+                return StatusCode(StatusCodes.Status500InternalServerError, e); 
+            }
+        }
+
+        
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                
+              var objeto = await  _baseService.GetAllAsync<TEntity, TEntity>();
+                return Ok(objeto);
+            }
+            catch (Exception e)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, e);
             }
         }
     }

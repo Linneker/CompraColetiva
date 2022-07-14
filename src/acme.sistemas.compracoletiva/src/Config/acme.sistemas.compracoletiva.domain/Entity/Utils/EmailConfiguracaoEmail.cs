@@ -18,15 +18,15 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         {
         }
 
-        public string Senha { get; private set; }
-        public Guid EmailEnvioId { get; private set; }
-        public Guid EmailRemetenteId { get; private set; }
-        public Guid ConfiguracaoEmailId { get; private set; }
+        public string Senha { get; set; }
+        public Guid EmailEnvioId { get; set; }
+        public Guid EmailRemetenteId { get; set; }
+        public Guid ConfiguracaoEmailId { get; set; }
        
-        public Email EmailEnvio { get; private set; }
+        public Email EmailEnvio { get; set; }
         
-        public Email EmailRemetente { get; private set; }
+        public Email EmailRemetente { get; set; }
 
-        public ConfiguracaoEmail ConfiguracaoEmail { get; private set; }
+        public ConfiguracaoEmail ConfiguracaoEmail { get; set; }
     }
 }

@@ -21,8 +21,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             ProdutoId = produtoId; 
         }
 
-        public Guid PessoaId { get; private set; }
-        public Guid CompraId { get; private set; }
-        public Guid ProdutoId { get; private set; }
+        public Guid PessoaId { get; set; }
+        public Guid CompraId { get; set; }
+        public Guid ProdutoId { get; set; }
     }
 }
