@@ -35,34 +35,42 @@ namespace acme.sistemas.compracoletiva.service.Service.Users
                 EmailConfirmed = true,
                 TipoUsuarioId = registroUsuario.TipoUsuarioId
             };
+            IdentityResult result = null;
+            try
+            {
+                result = await _userManager.CreateAsync(userIdentity, registroUsuario.Senha);
 
-            var result = await _userManager.CreateAsync(userIdentity, registroUsuario.Senha);
-
-            if (!result.Succeeded)
-                return result;
-
-
-            var resultPermissao = await _userManager.AddToRoleAsync(userIdentity, registroUsuario.Permissao.Nome);
-            if (resultPermissao.Succeeded)
+                if (!result.Succeeded)
+                    return result;
+            }
+            catch (Exception e)
             {
 
-                var resultClaim = await _userManager.AddClaimAsync(userIdentity, new Claim("Permissao", registroUsuario.Permissao.Nome));
+            }
 
-                registroUsuario.Claim.ForEach(t =>
-                    _userManager.AddClaimAsync(userIdentity, new Claim(t.Nome, t.Valor))
-                );
-
-                if (resultClaim.Succeeded)
+            try
+            {
+                var resultPermissao = await _userManager.AddToRoleAsync(userIdentity, registroUsuario.Permissao.Nome);
+                if (resultPermissao.Succeeded)
                 {
+                    foreach (var t in registroUsuario.Claim)
+                    {
+                        var resultado = await _userManager.AddClaimAsync(userIdentity, new Claim(t.Nome, t.Valor.Replace("All", "Read,Add,Update,Delete")));
+                        if (!resultado.Succeeded)
+                            return resultado;
+                    }
+
                     await _signInManager.SignInAsync(userIdentity, false);
                     return result;
                 }
                 else
-                    return resultClaim;
+                    return resultPermissao;
             }
-            else
-                return resultPermissao;
+            catch (Exception e)
+            {
+                return result;
 
+            }
         }
         public async Task<IQueryable<Usuario>> GetUsuariosJoinPessoaEndereco()
         {

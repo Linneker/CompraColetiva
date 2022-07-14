@@ -55,6 +55,9 @@ namespace acme.sistemas.compracoletiva.api
                 Configuration.GetSection("ConfiguracaoToken"))
                     .Configure(tokenConfigurations);
             services.AddSingleton(tokenConfigurations);
+            services.ConfigurarToken(tokenConfigurations);
+
+
 
             services.AddDefaultIdentity<Usuario>(t =>
             {

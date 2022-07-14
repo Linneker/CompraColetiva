@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.config.Security;
+using acme.sistemas.compracoletiva.core.Helpers;
 using acme.sistemas.compracoletiva.di;
 using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
@@ -56,12 +57,14 @@ namespace acme.sistemas.compracoletiva.api
             //{
             //    options.UseSqlServer(Configuration.GetConnectionString("CompraColetiva"), _ => _.MigrationsAssembly("acme.sistemas.compracoletiva.infra"));
             //});
-            services.InstallDependencies();
             var tokenConfigurations = new ConfiguracaoToken();
-            new ConfigureFromConfigurationOptions<ConfiguracaoToken>(
-                Configuration.GetSection("ConfiguracaoToken"))
-                    .Configure(tokenConfigurations);
             services.AddSingleton(tokenConfigurations);
+            new ConfigureFromConfigurationOptions<ConfiguracaoToken>(Configuration.GetSection("ConfiguracaoToken")).Configure(tokenConfigurations);
+            services.ConfigurarToken(tokenConfigurations);
+
+            services.InstallDependencies();
+            
+
 
             services.AddDefaultIdentity<Usuario>(t =>
             {
