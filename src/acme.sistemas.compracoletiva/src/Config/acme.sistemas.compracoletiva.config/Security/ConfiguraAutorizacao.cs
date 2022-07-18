@@ -36,6 +36,16 @@ namespace acme.sistemas.compracoletiva.config.Security
                     ClockSkew = TimeSpan.FromHours(configuracaoToken.Expiracao.HasValue ? configuracaoToken.Expiracao.Value : 2)
                 };
                 t.Validate();
+
+                t.Authority = "https://securetoken.google.com/compra-297d1";
+                t.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = "https://securetoken.google.com/compra-297d1",
+                    ValidateAudience = true,
+                    ValidAudience = "compra-297d1",
+                    ValidateLifetime = true
+                };
             });
 
             services.AddAuthorization(auth =>

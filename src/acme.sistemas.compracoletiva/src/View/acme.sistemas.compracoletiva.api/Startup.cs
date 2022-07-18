@@ -5,9 +5,11 @@ using acme.sistemas.compracoletiva.domain.Entity.Security;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using acme.sistemas.compracoletiva.infra.Config;
 using acme.sistemas.compracoletiva.service.Works.Util;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
 using System.IO.Compression;
@@ -25,6 +27,7 @@ namespace acme.sistemas.compracoletiva.api
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddRouting(_ => _.LowercaseUrls = true);
 
             services.AddResponseCompression();
@@ -44,6 +47,8 @@ namespace acme.sistemas.compracoletiva.api
             .UseLoggerFactory(loggerFactory)
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors());
+
+            
 
             /*services.AddDbContext<Context>(options =>
             {

@@ -24,6 +24,8 @@ namespace acme.sistemas.compracoletiva.infra.Map.Sales
             builder.Property(t => t.UsuarioCriacaoId);
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
+
+
         }
     }
 }
