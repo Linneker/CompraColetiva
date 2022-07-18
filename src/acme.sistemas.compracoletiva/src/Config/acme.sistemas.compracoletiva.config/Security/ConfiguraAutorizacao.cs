@@ -25,6 +25,7 @@ namespace acme.sistemas.compracoletiva.config.Security
             {
                 t.RequireHttpsMetadata = true;
                 t.SaveToken = true;
+                t.Authority = "https://securetoken.google.com/compra-297d1";
                 t.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
@@ -33,19 +34,20 @@ namespace acme.sistemas.compracoletiva.config.Security
                     ValidateAudience = true,
                     ValidAudiences = configuracaoToken.AutenticacoesSistemas.Select(t => t.ValidoEm).ToList(),
                     ValidIssuers = configuracaoToken.AutenticacoesSistemas.Select(t => t.SistemaEmissao).ToList(),
-                    ClockSkew = TimeSpan.FromHours(configuracaoToken.Expiracao.HasValue ? configuracaoToken.Expiracao.Value : 2)
+                    ClockSkew = TimeSpan.FromHours(configuracaoToken.Expiracao.HasValue ? configuracaoToken.Expiracao.Value : 2),
+                    ValidateLifetime = true
                 };
                 t.Validate();
 
-                t.Authority = "https://securetoken.google.com/compra-297d1";
-                t.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidIssuer = "https://securetoken.google.com/compra-297d1",
-                    ValidateAudience = true,
-                    ValidAudience = "compra-297d1",
-                    ValidateLifetime = true
-                };
+                //t.Authority = "https://securetoken.google.com/compra-297d1";
+                //t.TokenValidationParameters = new TokenValidationParameters
+                //{
+                //    ValidateIssuer = true,
+                //    ValidIssuer = "https://securetoken.google.com/compra-297d1",
+                //    ValidateAudience = true,
+                //    ValidAudience = "compra-297d1",
+                //    ValidateLifetime = true
+                //};
             });
 
             services.AddAuthorization(auth =>
