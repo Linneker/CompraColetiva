@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Base;
+using acme.sistemas.compracoletiva.domain.Entity.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,17 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 
         }
 
-        public Compra(int quantitdade, int valor, string produto)
+        public Compra(int quantitdade, int valor)
         {
             Quantidade = quantitdade;
             Valor = valor;
-            Produto = produto;
+
         }
 
         public int Quantidade { get; set; }
         public int Valor { get; set; }
-        public string Produto { get; set; }
+        public virtual ICollection<CompraProduto> CompraProduto { get; set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<Encomenda> Encomendas { get; set; } = new HashSet<Encomenda>();
+        
     }
 }

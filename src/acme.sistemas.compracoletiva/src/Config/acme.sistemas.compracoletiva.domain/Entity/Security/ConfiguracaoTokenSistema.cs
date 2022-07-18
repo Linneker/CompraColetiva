@@ -8,6 +8,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Security
         public string ValidoEm { get; set; }
 
         public Guid AutenticacaoId { get; set; }
-        public ConfiguracaoToken Autorizacao { get; set; }
+        public virtual ConfiguracaoToken Autorizacao { get; set; }
     }
 }

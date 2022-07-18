@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Product
 {
@@ -37,10 +38,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public decimal ValorUnitario { get; set; }
         public int Quantidade { get; set; }
         public int QuantidadeTotalDisponivel { get; set; }
-        public TipoProduto TipoProduto { get; set; }
         public Guid TipoProdutoId { get; set; }
-        public virtual ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
 
+        public TipoProduto TipoProduto { get; set; }
+        public virtual ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
+        public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
+        public virtual ICollection<CompraProduto> CompraProduto { get; set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<Encomenda> Encomendas { get; set; } = new HashSet<Encomenda>();
     }
-    
+
 }

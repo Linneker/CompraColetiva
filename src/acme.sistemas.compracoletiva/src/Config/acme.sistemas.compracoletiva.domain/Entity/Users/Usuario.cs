@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
@@ -18,16 +19,23 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public bool Ativo { get; set; }
         public Guid? UsuarioCriacaoId { get; set; }
         public Guid? UsuarioModificacaoId { get; set; }
-        public ICollection<Oferta> ListaDeOferta { get; set; } = new HashSet<Oferta>();
-        public ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
 
         public Guid PessoaId { get; set; }
         public Guid TipoUsuarioId { get; set; }
 
-        public Pessoa Pessoa { get; set; }
-        public TipoUsuario TipoUsuario { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
+        public virtual TipoUsuario TipoUsuario { get; set; }
 
-
+        public virtual ICollection<Oferta> ListaDeOferta { get; set; } = new HashSet<Oferta>();
+        public virtual ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
+        public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
+        public virtual ICollection<CompraProduto> UsuariosVendas { get; set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<CompraProduto> UsuariosCompras { get; set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<Pagamento> Pagamentos { get; set; } = new HashSet<Pagamento>();
+        public virtual ICollection<Notificacao> Notificacoes { get; set; } = new HashSet<Notificacao>();
+        public virtual ICollection<Encomenda> RealizaEncomendas { get; set; } = new HashSet<Encomenda>();
+        public virtual ICollection<Encomenda> ForneceEncomendas { get; set; } = new HashSet<Encomenda>();
+        
         protected Usuario() { }
 
         public Usuario(Pessoa pessoa) : base()

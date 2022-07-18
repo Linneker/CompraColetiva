@@ -11,7 +11,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
     {
         public string Nome { get; set; }
         public string NomeFantasia { get; set; }
-        public Guid EmailId { get; set; }
         public string Celular { get; set; }
         public string Telefone { get; set; }
         public DateTime? DataNascimento { get; set; }
@@ -19,6 +18,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public string CPF { get; set; }
         public string CNPJ { get; set; }
         public string InscricaoMunicipal { get; set; }
+        public Guid EmailId { get; set; }
+
         public virtual Email Email { get; set; }
 
 

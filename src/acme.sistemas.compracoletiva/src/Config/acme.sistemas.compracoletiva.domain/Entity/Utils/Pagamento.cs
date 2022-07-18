@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Base;
+using acme.sistemas.compracoletiva.domain.Entity.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         public DateTime DataPrevistaPagamento { get; set; }
         public DateTime DataVencimento { get; set; }
         public Guid? UsuarioId { get; set; }
+
+        public Usuario? Usuario { get; set; }
     }
 }
