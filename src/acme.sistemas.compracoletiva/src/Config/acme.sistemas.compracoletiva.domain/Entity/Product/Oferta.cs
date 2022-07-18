@@ -16,7 +16,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         }
 
         public string Titulo { get; set; }
-        public Usuario Usuario { get; set; }
         public Guid UsuarioId { get; set; }
         public string Descricao { get; set; }
         public string Condicao { get; set; }
@@ -28,5 +27,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public int QuantidadeOfertaDisponivel { get; set; }
         public bool Fornecedor { get; set; }
         public bool Comprador { get; set; }
+
+        public Usuario Usuario { get; set; }
     }
 }

@@ -29,7 +29,6 @@ namespace acme.sistemas.compracoletiva.infra.Map.Sales
 
             builder.Property(_ => _.Quantidade).HasPrecision(20).IsRequired();
             builder.Property(_ => _.Valor).HasPrecision(20).IsRequired();
-            builder.Property(_ => _.Produto).HasPrecision(20).IsRequired();
         }
     }
 }
