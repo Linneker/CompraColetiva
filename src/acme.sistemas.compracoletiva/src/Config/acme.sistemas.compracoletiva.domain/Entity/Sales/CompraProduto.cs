@@ -13,7 +13,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
     {
         public decimal ValorUnitario { get; set; }
         public decimal Quantidade { get; set; }
-        public decimal ValorTotal { get => ValorUnitario * Quantidade;  }
+        public decimal ValorTotal { get => ValorUnitario * Quantidade; set { } }
+        
 
         public Guid ProdutoId { get; set; }
         public Guid CompraId { get; set; }

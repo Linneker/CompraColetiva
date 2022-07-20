@@ -36,7 +36,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
             builder.Property(t => t.ValorProduto).IsRequired().HasPrecision(20,2);
             builder.Property(t => t.ValorComDesconto).IsRequired().HasPrecision(20,2);
             builder.Property(t => t.QuantidadeOfertaDisponivel).IsRequired();
-            builder.HasOne(t => t.Usuario).WithMany(t => t.ListaDeOferta).HasForeignKey(t => t.UsuarioId);
+            builder.HasOne(t => t.Usuario).WithMany(t => t.Ofertas).HasForeignKey(t => t.UsuarioId);
         }
     }
 }

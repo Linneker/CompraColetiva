@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.infra.Map.Sales
 {
-    internal class EncomendaMap : IEntityTypeConfiguration<Encomenda>
+    public class EncomendaMap : IEntityTypeConfiguration<Encomenda>
     {
         public void Configure(EntityTypeBuilder<Encomenda> builder)
         {
@@ -24,6 +24,13 @@ namespace acme.sistemas.compracoletiva.infra.Map.Sales
             builder.Property(t => t.UsuarioCriacaoId);
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
+
+            
+
+            builder.HasOne(t => t.UsuarioCliente).WithMany(t => t.RealizaEncomendas).HasForeignKey(t => t.UsuarioClienteId);
+            builder.HasOne(t => t.UsuarioFornecedor).WithMany(t => t.ForneceEncomendas).HasForeignKey(t => t.UsuarioFornecedorId);
+            builder.HasOne(t => t.Produto).WithMany(t => t.Encomendas).HasForeignKey(t => t.ProdutoId);
+            
         }
     }
 }

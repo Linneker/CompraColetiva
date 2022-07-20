@@ -34,6 +34,7 @@ namespace acme.sistemas.compracoletiva.infra.Config
 
 
         public DbSet<Compra> Compras { get; private set; }
+        public DbSet<CompraProduto> CompraProdutos { get; private set; }
         public DbSet<Encomenda> Encomendas { get; private set; }
         public DbSet<UnidadeMedidaCompra> UnidadeMedidaCompra { get; set; }
 

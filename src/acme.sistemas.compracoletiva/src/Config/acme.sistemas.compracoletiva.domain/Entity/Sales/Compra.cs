@@ -25,7 +25,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
         public int Quantidade { get; set; }
         public int Valor { get; set; }
         public virtual ICollection<CompraProduto> CompraProduto { get; set; } = new HashSet<CompraProduto>();
-        public virtual ICollection<Encomenda> Encomendas { get; set; } = new HashSet<Encomenda>();
-        
+    
     }
 }

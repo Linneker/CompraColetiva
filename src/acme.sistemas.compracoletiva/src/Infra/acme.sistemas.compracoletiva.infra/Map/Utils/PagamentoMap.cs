@@ -31,7 +31,8 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.ValorAReceber).IsRequired();
             builder.Property(t => t.DataPrevistaPagamento).IsRequired();
             builder.Property(t => t.DataVencimento).IsRequired();
-            builder.Property(t => t.UsuarioId).IsRequired();
+
+            builder.HasOne(t => t.Usuario).WithMany(t => t.Pagamentos).HasForeignKey(t => t.UsuarioId);
 
         }
     }

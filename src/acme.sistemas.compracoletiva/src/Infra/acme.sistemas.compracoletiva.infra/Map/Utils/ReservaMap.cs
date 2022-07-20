@@ -27,7 +27,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.Prazo).IsRequired();
             builder.Property(t => t.Quantidade).HasPrecision(20).IsRequired();
             builder.Property(t => t.Expiracao).IsRequired();
-            builder.HasOne(t => t.Usuario).WithMany(t => t.ListaDeReserva).HasForeignKey(t => t.UsuarioId);
+            builder.HasOne(t => t.Usuario).WithMany(t => t.Reservas).HasForeignKey(t => t.UsuarioId);
             builder.HasOne(t => t.Produto).WithMany(t => t.ListaDeReserva).HasForeignKey(t => t.ProdutoId);
         }
     }

@@ -43,7 +43,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public TipoProduto TipoProduto { get; set; }
         public virtual ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
         public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
-        public virtual ICollection<CompraProduto> CompraProduto { get; set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<CompraProduto> CompraProdutos { get; set; } = new HashSet<CompraProduto>();
         public virtual ICollection<Encomenda> Encomendas { get; set; } = new HashSet<Encomenda>();
     }
 
