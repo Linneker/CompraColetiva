@@ -13,6 +13,9 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
         public EncomendaController(IEncomendaService encomendaService) : base(encomendaService)
         {
             _encomendaService = encomendaService;
+
         }
+
+        
     }
 }

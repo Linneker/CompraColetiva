@@ -82,5 +82,6 @@ namespace acme.sistemas.compracoletiva.service.Service.Users
             return _baseRepository.GetUsuariosJoinPessoaEnderecoJoinPermissaoByLogin(login);
         }
 
+
     }
 }

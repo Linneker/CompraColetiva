@@ -46,6 +46,7 @@ namespace acme.sistemas.compracoletiva.infra.Config
 
         public DbSet<Seguro> Seguros { get; private set; }
         public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<EncomendaUsuario> ReservasUsuarios { get; set; }
         public DbSet<Notificacao> Notificacaos { get; private set; }
         public DbSet<Pagamento> Pagamentos { get; private set; }
         public DbSet<Arquivo> Arquivos { get; set; }

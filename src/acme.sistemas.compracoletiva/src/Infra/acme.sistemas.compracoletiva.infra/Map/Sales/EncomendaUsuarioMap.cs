@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace acme.sistemas.compracoletiva.infra.Map.Utils
+namespace acme.sistemas.compracoletiva.infra.Map.Sales
 {
-    public class ReservaMap : IEntityTypeConfiguration<Reserva>
+    public class EncomendaUsuarioMap : IEntityTypeConfiguration<EncomendaUsuario>
     {
-        public void Configure(EntityTypeBuilder<Reserva> builder)
+        public void Configure(EntityTypeBuilder<EncomendaUsuario> builder)
         {
-            builder.ToTable("Reserva");
+            builder.ToTable("EncomendaUsuario");
             builder.HasKey(t => t.Id);
 
             builder.Property(t => t.DataCriacao).IsRequired();
@@ -24,11 +24,8 @@ namespace acme.sistemas.compracoletiva.infra.Map.Utils
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
-            builder.Property(t => t.Prazo).IsRequired();
-            builder.Property(t => t.Quantidade).HasPrecision(20).IsRequired();
-            builder.Property(t => t.Expiracao).IsRequired();
-            builder.HasOne(t => t.ForncedorUsuario).WithMany(t => t.Reservas).HasForeignKey(t => t.UsuarioId);
-            builder.HasOne(t => t.Produto).WithMany(t => t.ListaDeReserva).HasForeignKey(t => t.ProdutoId);
+            builder.HasOne(t => t.Usuarios).WithMany(t => t.IndvUsuarios).HasForeignKey(t => t.IdUsuario);
+            builder.HasOne(t => t.Reservas).WithMany(t => t.IndvReservas).HasForeignKey(t => t.IdReserva);
         }
     }
 }
