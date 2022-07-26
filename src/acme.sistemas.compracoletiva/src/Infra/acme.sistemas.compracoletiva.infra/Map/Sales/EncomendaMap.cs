@@ -25,7 +25,8 @@ namespace acme.sistemas.compracoletiva.infra.Map.Sales
             builder.Property(t => t.UsuarioModificacaoId);
             builder.Property(t => t.Ativo).HasDefaultValue(true);
 
-            
+
+            builder.Property(t => t.Validade);
 
             builder.HasOne(t => t.UsuarioCliente).WithMany(t => t.RealizaEncomendas).HasForeignKey(t => t.UsuarioClienteId);
             builder.HasOne(t => t.UsuarioFornecedor).WithMany(t => t.ForneceEncomendas).HasForeignKey(t => t.UsuarioFornecedorId);

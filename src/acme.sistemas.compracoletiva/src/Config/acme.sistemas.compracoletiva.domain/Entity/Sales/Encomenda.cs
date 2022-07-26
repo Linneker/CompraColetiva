@@ -25,6 +25,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
         public Guid UsuarioClienteId { get; set; }
         public Guid UsuarioFornecedorId { get; set; }
         public Guid ProdutoId { get; set; }
+        public DateTime Validade { get; private set; }
 
         public virtual Usuario UsuarioCliente { get; set; }
         public virtual Usuario UsuarioFornecedor { get; set; }

@@ -22,8 +22,7 @@ namespace acme.sistemas.compracoletiva.infra.Map.Products
 
 
             builder.Property(_ => _.Nome).HasPrecision(500).IsRequired();
-            builder.Property(_ => _.ValorCompra).HasPrecision(20, 2).IsRequired();
-            builder.Property(_ => _.ValorVenda).HasPrecision(20, 2).IsRequired();
+            builder.Property(_ => _.Valor).HasPrecision(20, 2).IsRequired();
             builder.Property(_ => _.ValorUnitario).HasPrecision(20, 2).IsRequired();
             builder.Property(_ => _.TicketMinimo).HasPrecision(20).IsRequired();
             builder.Property(_ => _.Prazo).HasPrecision(20).IsRequired();

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.service.Interfaces.Service.Sales
 {
-    public interface IEncomendaUsuarioService : IBaseService<EncomendaUsuario>
+    public interface IReservaService : IBaseService<Reserva>
     {
+        Task CriarReserva(DateTime prazo, int quantidade, DateTime expiracao,Guid produtoId, Guid clienteUsuarioId, Guid fornecedorUsuarioId);
     }
 }

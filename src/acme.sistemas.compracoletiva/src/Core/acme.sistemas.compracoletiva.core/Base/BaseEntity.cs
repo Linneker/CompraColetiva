@@ -13,6 +13,7 @@ namespace acme.sistemas.compracoletiva.core.Base
         public Guid? UsuarioCriacaoId { get; set; }
         public Guid? UsuarioModificacaoId { get; set; }
 
+
         protected BaseEntity()
         {
             Id = Guid.NewGuid();
@@ -30,9 +31,22 @@ namespace acme.sistemas.compracoletiva.core.Base
             UsuarioModificacaoId = usuarioModificacaoId;
         }
 
-        public virtual void Ativar() => SetAtivo(true);
-        public virtual void Inativar() => SetAtivo(false);
+        public virtual void Desativar(Guid? usuarioModificacaoId)
+        {
+            SetAtivo(false);
+            Atualizar(usuarioModificacaoId);
+        }
+        public virtual void Ativar(Guid? usuarioModificacaoId)
+        {
+            SetAtivo(true);
+            Atualizar(usuarioModificacaoId);
+        }
 
+        public void Atualizar(Guid? usuarioModificacaoId)
+        {
+            DataModificacao = DateTime.Now;
+            UsuarioModificacaoId = usuarioModificacaoId;
+        }
         private void SetAtivo(bool ativo) => Ativo = ativo;
     }
 }

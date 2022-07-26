@@ -1,5 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.core.Base;
+﻿using acme.sistemas.compracoletiva.core.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +14,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         {
 
         }
-        public Produto(string nome, decimal valorCompra, decimal valorVenda, int prazo, int ticketMinimo, decimal valorUnitario,
+        public Produto(string nome, decimal valorCompra, int prazo, int ticketMinimo, decimal valorUnitario,
             int quantidade, int quantidadeTotalDisponivel)
         {
             Nome = nome;
-            ValorCompra = valorCompra;
-            ValorVenda = valorVenda;
+            Valor = valorCompra;
             TicketMinimo = ticketMinimo;
             Prazo = prazo;
             ValorUnitario = valorUnitario;
@@ -31,8 +29,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
 
 
         public string Nome { get; set; }
-        public decimal ValorCompra { get; set; }
-        public decimal ValorVenda { get; set; }
+        public decimal Valor { get; set; }
         public int Prazo { get; set; }
         public int TicketMinimo { get; set; }
         public decimal ValorUnitario { get; set; }

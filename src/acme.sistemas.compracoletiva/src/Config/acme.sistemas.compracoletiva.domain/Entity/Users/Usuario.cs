@@ -27,7 +27,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public virtual TipoUsuario TipoUsuario { get; set; }
 
         public virtual ICollection<Oferta> Ofertas { get; set; } = new HashSet<Oferta>();
-        public virtual ICollection<Reserva> Reservas { get; set; } = new HashSet<Reserva>();
+        public virtual ICollection<Reserva> ReservasClientes { get; set; } = new HashSet<Reserva>();
         public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
         public virtual ICollection<CompraProduto> UsuariosVendas { get; set; } = new HashSet<CompraProduto>();
         public virtual ICollection<CompraProduto> UsuariosCompras { get; set; } = new HashSet<CompraProduto>();
@@ -35,8 +35,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public virtual ICollection<Notificacao> Notificacoes { get; set; } = new HashSet<Notificacao>();
         public virtual ICollection<Encomenda> RealizaEncomendas { get; set; } = new HashSet<Encomenda>();
         public virtual ICollection<Encomenda> ForneceEncomendas { get; set; } = new HashSet<Encomenda>();
-        public virtual ICollection<EncomendaUsuario> IndvReservas { get; set; } = new HashSet<EncomendaUsuario>();
-        public virtual ICollection<EncomendaUsuario> IndvUsuarios { get; set; } = new HashSet<EncomendaUsuario>();
+        public virtual ICollection<Reserva> ReservasFornecedores { get; set; } = new HashSet<Reserva>();
         
         protected Usuario() { }
 

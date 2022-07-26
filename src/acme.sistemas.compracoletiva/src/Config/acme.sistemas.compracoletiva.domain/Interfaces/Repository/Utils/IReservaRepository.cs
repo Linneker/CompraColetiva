@@ -1,4 +1,4 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;

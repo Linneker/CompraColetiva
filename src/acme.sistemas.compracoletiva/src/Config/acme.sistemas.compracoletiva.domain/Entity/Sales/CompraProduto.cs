@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 {
-    public class CompraProduto: BaseEntity
+    public class CompraProduto : BaseEntity
     {
         public decimal ValorUnitario { get; set; }
         public decimal Quantidade { get; set; }
         public decimal ValorTotal { get => ValorUnitario * Quantidade; set { } }
-        
+
 
         public Guid ProdutoId { get; set; }
         public Guid CompraId { get; set; }
@@ -27,5 +27,12 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
         public Usuario UsuarioVenda { get; set; }
         public Usuario UsuarioCompra { get; set; }
 
+        public void Comprar(Reserva reserva)
+        {
+            ProdutoId = reserva.ProdutoId;
+            ValorUnitario = reserva.Produto.ValorUnitario;
+
+
+        }
     }
 }

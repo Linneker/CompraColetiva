@@ -1,12 +1,12 @@
-﻿using acme.sistemas.compracoletiva.service.Interfaces.Service.Utils;
-using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Utils;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Sales;
 
 namespace acme.sistemas.compracoletiva.service.Service.Utils
 {
@@ -19,6 +19,11 @@ namespace acme.sistemas.compracoletiva.service.Service.Utils
         {
             _reservaRepository = reservaRepository;
             this.mapper = mapper;
+        }
+
+        public Task CriarReserva(DateTime prazo, int quantidade, DateTime expiracao, Guid produtoId, Guid clienteUsuarioId, Guid fornecedorUsuarioId)
+        {
+            CriarReserva C
         }
     }
 }

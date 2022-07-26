@@ -1,5 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Utils;
-using acme.sistemas.compracoletiva.service.Interfaces.Service.Utils;
+﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
+using acme.sistemas.compracoletiva.service.Interfaces.Service.Sales;
 using Microsoft.AspNetCore.Mvc;
 
 namespace acme.sistemas.compracoletiva.api.Controllers.Utils
