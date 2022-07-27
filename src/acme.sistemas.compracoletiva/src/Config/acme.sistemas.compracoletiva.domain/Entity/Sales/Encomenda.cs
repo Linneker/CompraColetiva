@@ -30,5 +30,28 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
         public virtual Usuario UsuarioCliente { get; set; }
         public virtual Usuario UsuarioFornecedor { get; set; }
         public virtual Produto Produto { get; set; }
+
+        public void Atualizar(Encomenda encomenda)
+        {
+            if (this.UsuarioClienteId != encomenda.UsuarioClienteId)
+                UsuarioClienteId = encomenda.UsuarioClienteId;
+
+            if (this.UsuarioFornecedorId != encomenda.UsuarioFornecedorId)
+                UsuarioFornecedorId = encomenda.UsuarioFornecedorId;
+
+            if (this.ProdutoId != encomenda.ProdutoId)
+                ProdutoId = this.ProdutoId;
+
+            if (this.Validade != encomenda.Validade)
+                Validade = encomenda.Validade;
+
+            base.Atualizar(encomenda.UsuarioModificacaoId);
+        }
+
+        public void Encomendar(Guid usuarioFornecedorId, Guid produtoId)
+        {
+            UsuarioFornecedorId = usuarioFornecedorId;
+            ProdutoId = produtoId;
+        }
     }
 }

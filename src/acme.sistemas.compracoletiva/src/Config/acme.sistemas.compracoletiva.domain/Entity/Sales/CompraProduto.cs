@@ -27,12 +27,42 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
         public Usuario UsuarioVenda { get; set; }
         public Usuario UsuarioCompra { get; set; }
 
+
+
         public void Comprar(Reserva reserva)
         {
             ProdutoId = reserva.ProdutoId;
             ValorUnitario = reserva.Produto.ValorUnitario;
+            Quantidade = reserva.Quantidade;
+            UsuarioCompraId = reserva.ClienteUsuarioId;
+            UsuarioVendaId = reserva.FornecedorUsuarioId;
+            Compra = new Compra(Quantidade, ValorTotal);
+        }
 
+        public void Atulizar(CompraProduto compraProduto)
+        {
+            if(this.ValorUnitario != compraProduto.ValorUnitario)
+                ValorUnitario = compraProduto.ValorUnitario;
 
+            if (this.Quantidade != compraProduto.Quantidade)
+                Quantidade = compraProduto.Quantidade;
+
+            if (this.ValorTotal != compraProduto.ValorTotal)
+                ValorTotal = compraProduto.ValorTotal;
+
+            if (this.ProdutoId != compraProduto.ProdutoId)
+                ProdutoId = compraProduto.ProdutoId;
+
+            if (this.CompraId != compraProduto.CompraId)
+                CompraId = compraProduto.CompraId;
+
+            if (this.UsuarioVendaId != compraProduto.UsuarioVendaId)
+                UsuarioVendaId = compraProduto.UsuarioVendaId;
+
+            if (this.UsuarioCompraId != compraProduto.UsuarioCompraId)
+                UsuarioCompraId = compraProduto.UsuarioCompraId;
+
+            base.Atualizar(compraProduto.UsuarioModificacaoId);
         }
     }
 }

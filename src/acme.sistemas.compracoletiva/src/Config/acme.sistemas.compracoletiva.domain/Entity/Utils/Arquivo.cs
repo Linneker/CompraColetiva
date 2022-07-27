@@ -21,5 +21,25 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
             Extensao = extensao;
             Hash = hash;
         }
+
+        public void Atualizar(Arquivo arquivo)
+        {
+            if (this.NomeExibicao != arquivo.NomeExibicao)
+                NomeExibicao = arquivo.NomeExibicao;
+
+            if (this.NomeSalvo != arquivo.NomeSalvo)
+                NomeSalvo = arquivo.NomeSalvo;
+
+            if (this.Caminho != arquivo.Caminho)
+                Caminho = arquivo.Caminho;
+
+            if(this.Extensao != arquivo.Extensao)
+                Extensao = arquivo.Extensao;
+
+            if (this.Hash != arquivo.Hash)
+                Hash = arquivo.Hash;
+
+            base.Atualizar(arquivo.UsuarioModificacaoId);
+        }
     }
 }

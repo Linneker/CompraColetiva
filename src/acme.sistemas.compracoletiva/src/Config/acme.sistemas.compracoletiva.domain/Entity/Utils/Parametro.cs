@@ -18,5 +18,19 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
             Valor = valor;
             Descricao = descricao;
         }
+
+        public void Atualizar(Parametro parametro)
+        {
+            if (this.Nome != parametro.Nome)
+                Nome = parametro.Nome;
+
+            if(this.Valor != parametro.Valor)
+                Valor = parametro.Valor;
+
+            if (this.Descricao != parametro.Descricao)
+                Descricao = parametro.Descricao;
+
+            base.Atualizar(parametro.UsuarioModificacaoId);
+        }
     }
 }

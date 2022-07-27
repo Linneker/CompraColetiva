@@ -53,6 +53,5 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         {
             TipoUsuarioId = tipoUsuarioId;
         }
-
     }
 }

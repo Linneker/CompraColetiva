@@ -15,5 +15,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         {
             Nome = nome;
         }
+
+        public void Atualizar(TipoUsuario tipoUsuario)
+        {
+            if(this.Nome != tipoUsuario.Nome)
+                Nome = tipoUsuario.Nome;
+
+            base.Atualizar(tipoUsuario.UsuarioModificacaoId);
+        }
     }
 }

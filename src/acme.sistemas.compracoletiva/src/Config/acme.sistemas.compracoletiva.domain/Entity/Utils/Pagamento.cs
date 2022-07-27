@@ -25,5 +25,47 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
         public Guid? UsuarioId { get; set; }
 
         public Usuario? Usuario { get; set; }
+
+
+        public void Atualizar(Pagamento pagamento)
+        {
+            if (this.DataPagamento != pagamento.DataPagamento)
+                DataPagamento = pagamento.DataPagamento;
+
+            if (this.DataEmQueDinheiroCaiNaConta != pagamento.DataEmQueDinheiroCaiNaConta)
+                DataEmQueDinheiroCaiNaConta = pagamento.DataEmQueDinheiroCaiNaConta;
+
+            if (this.NomePagador != pagamento.NomePagador)
+                NomePagador = pagamento.NomePagador;
+
+            if (this.ValorRecebido != pagamento.ValorRecebido)
+                ValorRecebido = pagamento.ValorRecebido;
+
+            if (this.ValorAReceber != pagamento.ValorAReceber)
+                ValorAReceber = pagamento.ValorAReceber;
+
+            if (this.DataPrevistaPagamento != pagamento.DataPrevistaPagamento)
+                DataPrevistaPagamento = pagamento.DataPrevistaPagamento;
+
+            if (this.DataVencimento != pagamento.DataVencimento)
+                DataVencimento = pagamento.DataVencimento;
+
+            if (this.UsuarioId != pagamento.UsuarioId)
+                UsuarioId = pagamento.UsuarioId;
+
+
+            base.Atualizar(pagamento.UsuarioModificacaoId);
+        }
+
+        public void Pagar(DateTime dataPagamento, decimal valorRecebido, string nomePagador,
+                  decimal valorAReceber, DateTime dataVencimento, Guid usuarioId)
+        {
+            DataPagamento = dataPagamento;
+            ValorRecebido = valorRecebido;
+            ValorAReceber = valorAReceber;
+            NomePagador = nomePagador;
+            DataVencimento = dataVencimento;
+            UsuarioId = usuarioId;
+        }
     }
 }

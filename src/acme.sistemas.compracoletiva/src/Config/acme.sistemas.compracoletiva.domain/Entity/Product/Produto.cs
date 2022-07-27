@@ -42,6 +42,21 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
         public virtual ICollection<CompraProduto> CompraProdutos { get; set; } = new HashSet<CompraProduto>();
         public virtual ICollection<Encomenda> Encomendas { get; set; } = new HashSet<Encomenda>();
+
+
+        public void Atualizar(Produto produto)
+        {
+            if (this.Nome != produto.Nome)
+                Nome = produto.Nome;
+
+            if(this.Valor != produto.Valor)
+                Valor = produto.Valor;
+
+            if (this.Prazo != produto.Prazo)
+                Prazo = produto.Prazo;
+
+            base.Atualizar(produto.UsuarioModificacaoId);
+        }
     }
 
 }

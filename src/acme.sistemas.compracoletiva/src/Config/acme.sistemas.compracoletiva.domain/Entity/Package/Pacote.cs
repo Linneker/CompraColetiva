@@ -28,5 +28,22 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Package
         public string Descricao { get; set; }
         public Guid Codigo { get; set; }
         public int Preco { get; set; }
+
+        public void Atualizar(Pacote pacote)
+        {
+            if(this.Nome != pacote.Nome)
+                Nome = pacote.Nome;
+
+            if (this.Descricao != pacote.Descricao)
+                Descricao = pacote.Descricao;
+
+            if (this.Codigo != pacote.Codigo)
+                Codigo = pacote.Codigo;
+
+            if (this.Preco != pacote.Preco)
+                Preco = pacote.Preco;
+
+            base.Atualizar(pacote.UsuarioModificacaoId);
+        }
     }
 }

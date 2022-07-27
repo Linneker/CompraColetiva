@@ -15,16 +15,26 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 
         }
 
-        public Compra(int quantitdade, int valor)
+        public Compra(decimal quantitdade, decimal valor)
         {
             Quantidade = quantitdade;
             Valor = valor;
 
         }
 
-        public int Quantidade { get; set; }
-        public int Valor { get; set; }
+        public decimal Quantidade { get; set; }
+        public decimal Valor { get; set; }
         public virtual ICollection<CompraProduto> CompraProduto { get; set; } = new HashSet<CompraProduto>();
-    
+
+        public void Atualizar(Compra compra)
+        {
+            if (this.Quantidade != compra.Quantidade)
+                Quantidade = compra.Quantidade;
+
+            if(this.Valor != compra.Valor)
+                Valor = compra.Valor;
+
+            base.Atualizar(compra.UsuarioModificacaoId);
+        }
     }
 }

@@ -58,5 +58,52 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         {
         }
 
+
+        public void Atualizar(Pessoa pessoa)
+        {
+            if (this.Nome != pessoa.Nome)
+                Nome = pessoa.Nome;
+
+            if (this.NomeFantasia != pessoa.NomeFantasia)
+                NomeFantasia = pessoa.NomeFantasia;
+
+            if (this.Celular != pessoa.Celular)
+                Celular = pessoa.Celular;
+
+            if (this.Telefone != pessoa.Telefone)
+                Telefone = pessoa.Telefone;
+
+            if (this.DataNascimento != pessoa.DataNascimento)
+                DataNascimento = pessoa.DataNascimento;
+
+            if (this.TipoPessoa != pessoa.TipoPessoa)
+                TipoPessoa = pessoa.TipoPessoa;
+
+            if (this.Celular != pessoa.Celular)
+                Celular = pessoa.Celular;
+
+            if (this.EmailId != pessoa.EmailId)
+                EmailId = pessoa.EmailId;
+
+
+            base.Atualizar(pessoa.UsuarioModificacaoId);
+        }
+
+        public void AtualizarCPF(string cpf, Guid usuarioModificacaoId)
+        {
+            if (this.CPF != cpf)
+                CPF = cpf;
+
+            base.Atualizar(usuarioModificacaoId);
+        }
+
+        public void AtualizarCNPJ(string cnpj, Guid usuarioModificacaoId)
+        {
+            if(this.CNPJ != cnpj)
+                CNPJ = cnpj;
+
+            base.Atualizar(usuarioModificacaoId);
+        }
+
     }
 }

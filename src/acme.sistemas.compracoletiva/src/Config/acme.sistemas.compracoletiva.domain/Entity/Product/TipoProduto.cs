@@ -25,5 +25,16 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public ICollection<Produto> Produtos { get; set; } = new HashSet<Produto>();
+
+        public void Atualizar(TipoProduto tipoProduto)
+        {
+            if(this.Nome != tipoProduto.Nome)
+                Nome = tipoProduto.Nome;
+
+            if (this.Descricao != tipoProduto.Descricao)
+                Descricao = tipoProduto.Descricao;
+
+            base.Atualizar(tipoProduto.UsuarioModificacaoId);
+        }
     }
 }

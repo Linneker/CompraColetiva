@@ -27,5 +27,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         public void SetEnvioEmail(ICollection<EnvioEmail> envioEmails) => EnvioEmailsCopias = envioEmails;
         public void AddEnvioEmail(EnvioEmail envioEmail) => EnvioEmailsCopias.Add(envioEmail);
+
+        public void Ataulizar(Email email)
+        {
+            if (this.Nome != email.Nome)
+                Nome = email.Nome;
+
+            base.Atualizar(email.UsuarioModificacaoId);
+        }
     }
 }

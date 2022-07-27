@@ -17,5 +17,18 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
+
+
+        public void Atualizar(UnidadeMedidaCompra unidadeMedidaCompra)
+        {
+            if(this.Nome != unidadeMedidaCompra.Nome)
+                Nome = unidadeMedidaCompra.Nome;
+
+            if (this.Descricao != unidadeMedidaCompra.Descricao)
+                Descricao = unidadeMedidaCompra.Descricao;
+
+            base.Atualizar(unidadeMedidaCompra.UsuarioModificacaoId);
+        }
+
     }
 }

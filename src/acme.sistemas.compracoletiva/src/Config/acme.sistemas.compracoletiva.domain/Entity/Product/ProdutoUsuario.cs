@@ -23,5 +23,22 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         public Produto Produto { get; set; }
         public Usuario Usuario { get; set; }
 
+
+        public void Atualizar(ProdutoUsuario produtoUsuario)
+        {
+            if (this.Nome != produtoUsuario.Nome)
+                Nome = produtoUsuario.Nome;
+
+            if (this.ProdutoId != produtoUsuario.ProdutoId)
+                ProdutoId = produtoUsuario.ProdutoId;
+
+            if (this.UsuarioId != produtoUsuario.UsuarioId)
+                UsuarioId = produtoUsuario.UsuarioId;
+
+            if (this.Prazo != produtoUsuario.Prazo)
+                Prazo = produtoUsuario.Prazo;
+
+            base.Atualizar(produtoUsuario.UsuarioModificacaoId);
+        }
     }
 }
