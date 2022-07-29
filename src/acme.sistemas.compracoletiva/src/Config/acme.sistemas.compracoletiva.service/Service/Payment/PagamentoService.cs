@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using acme.sistemas.compracoletiva.core.Dtos.Utils;
 
 namespace acme.sistemas.compracoletiva.service.Service.Utils
 {
@@ -19,6 +20,13 @@ namespace acme.sistemas.compracoletiva.service.Service.Utils
         {
             _pagamentoRepository = pagamentoRepository;
             this.mapper = mapper;
+        }
+
+        public void RealizarPagamento(PagamentoDto pagamentoDto)
+        {
+            Pagamento pagamento = new Pagamento(pagamentoDto);
+            pagamento.Pagar(pagamentoDto);
+            _pagamentoRepository.Add(pagamento);
         }
     }
 }

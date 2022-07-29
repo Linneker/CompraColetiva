@@ -37,6 +37,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public virtual ICollection<Encomenda> ForneceEncomendas { get; set; } = new HashSet<Encomenda>();
         public virtual ICollection<Reserva> ReservasFornecedores { get; set; } = new HashSet<Reserva>();
         
+        
         protected Usuario() { }
 
         public Usuario(Pessoa pessoa) : base()

@@ -18,7 +18,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
 
         [UnitOfWorkFilter]
         [HttpPost]
-        public async Task<IActionResult> AddAsync(TEntity baseService)
+        public virtual async Task<IActionResult> AddAsync(TEntity baseService)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
 
         [UnitOfWorkFilter]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Remove(TEntity entity)
+        public virtual async Task<IActionResult> Remove(TEntity entity)
         {
 
             try
@@ -51,7 +51,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers
 
         [UnitOfWorkFilter]
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, TEntity entity)
+        public virtual async Task<IActionResult> Update(Guid id, TEntity entity)
         {
             try
             {
@@ -67,10 +67,11 @@ namespace acme.sistemas.compracoletiva.api.Controllers
 
         
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public virtual async Task<IActionResult> GetAll()
         {
             try
             {
+               
                 
               var objeto = await  _baseService.GetAllAsync<TEntity, TEntity>();
                 return Ok(objeto);

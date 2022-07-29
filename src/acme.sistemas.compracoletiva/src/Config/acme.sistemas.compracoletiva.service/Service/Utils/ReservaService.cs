@@ -21,9 +21,13 @@ namespace acme.sistemas.compracoletiva.service.Service.Utils
             this.mapper = mapper;
         }
 
-        public Task CriarReserva(DateTime prazo, int quantidade, DateTime expiracao, Guid produtoId, Guid clienteUsuarioId, Guid fornecedorUsuarioId)
+
+
+        public void Reservar(Guid produtoId, Guid clienteUsuarioId, Guid fornecedorUsuarioId)
         {
-            CriarReserva C
+            Reserva reserva = new Reserva(fornecedorUsuarioId, produtoId, clienteUsuarioId);
+            reserva.ReservarProduto(produtoId, clienteUsuarioId, fornecedorUsuarioId);
+            _reservaRepository.Add(reserva);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Base;
+using acme.sistemas.compracoletiva.core.Dtos.Utils;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,17 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class Pagamento : BaseEntity, IAggregateRoot
     {
+        public Pagamento(PagamentoDto pagamentoDto)
+        {
+            pagamentoDto.DataPagamento = DataPagamento;
+            pagamentoDto.DataEmQueDinheiroCaiNaConta = DataEmQueDinheiroCaiNaConta;
+            pagamentoDto.NomePagador = NomePagador;
+            pagamentoDto.ValorRecebido = ValorRecebido;
+            pagamentoDto.ValorAReceber = ValorAReceber;
+            pagamentoDto.DataPrevistaPagamento = DataPrevistaPagamento;
+            pagamentoDto.DataVencimento = DataVencimento;
+        }
+
         protected Pagamento()
         {
 
@@ -57,15 +69,14 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
             base.Atualizar(pagamento.UsuarioModificacaoId);
         }
 
-        public void Pagar(DateTime dataPagamento, decimal valorRecebido, string nomePagador,
-                  decimal valorAReceber, DateTime dataVencimento, Guid usuarioId)
+        public void Pagar(PagamentoDto pagamentoDto)
         {
-            DataPagamento = dataPagamento;
-            ValorRecebido = valorRecebido;
-            ValorAReceber = valorAReceber;
-            NomePagador = nomePagador;
-            DataVencimento = dataVencimento;
-            UsuarioId = usuarioId;
+            pagamentoDto.DataPagamento = DataPagamento;
+            pagamentoDto.ValorRecebido = ValorRecebido;
+            pagamentoDto.ValorAReceber = ValorAReceber;
+            pagamentoDto.NomePagador = NomePagador;
+            pagamentoDto.DataVencimento = DataVencimento;
+            pagamentoDto.UsuarioId = UsuarioId;
         }
     }
 }

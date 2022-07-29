@@ -22,6 +22,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             Expiracao = expiracao;
         }
 
+        public Reserva(   Guid fornecedorUsuarioId, Guid produtoId, Guid clienteUsuarioId) 
+        {
+            FornecedorUsuarioId = fornecedorUsuarioId;
+            ProdutoId = produtoId;
+            ClienteUsuarioId = clienteUsuarioId;
+        }
+
         public DateTime Prazo { get; set; }
         public int Quantidade { get; set; }
         public DateTime Expiracao { get; set; }

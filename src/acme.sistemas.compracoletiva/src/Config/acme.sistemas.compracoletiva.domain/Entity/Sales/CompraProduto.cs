@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 {
-    public class CompraProduto : BaseEntity
+    public class CompraProduto : BaseEntity, IAggregateRoot
     {
         public decimal ValorUnitario { get; set; }
         public decimal Quantidade { get; set; }

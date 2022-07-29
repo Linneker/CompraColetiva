@@ -17,5 +17,12 @@ namespace acme.sistemas.compracoletiva.service.Service.Sales
             _encomendaRepository = encomendaRepository;
             _mapper = mapper;
         }
+
+        public void Encomendar(Guid usuarioFornecedorId, Guid produtoId)
+        {
+            Encomenda encomenda = new Encomenda(usuarioFornecedorId, produtoId);
+            encomenda.Encomendar(usuarioFornecedorId, produtoId);
+            _encomendaRepository.Add(encomenda);
+        }
     }
 }

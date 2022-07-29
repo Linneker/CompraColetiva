@@ -4,5 +4,7 @@ namespace acme.sistemas.compracoletiva.service.Interfaces.Service.Sales
 {
     public interface IEncomendaService : IBaseService<Encomenda>
     {
+        void Encomendar(Guid usuarioFornecedorId, Guid produtoId);
+        
     }
 }

@@ -6,55 +6,57 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EncomendaController : BaseController<Encomenda>
+    public class ReservaController : BaseController<Reserva>
     {
-        private readonly IEncomendaService _encomendaService;
-       
+        private readonly IReservaService _reservaService;
 
-        public EncomendaController(IEncomendaService encomendaService ) : base(encomendaService)
+        public ReservaController(IReservaService reservaService) : base(reservaService)
         {
-            _encomendaService = encomendaService;
+            _reservaService = reservaService;
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> AddAsync(Encomenda encomenda)
+        public async Task<IActionResult> AddAsync(Reserva reserva)
         {
             try
             {
-                await _encomendaService.AddAsync(encomenda);
+                await _reservaService.AddAsync(reserva);
                 return Ok();
             }
             catch (Exception e)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, e);
+
             }
         }
-
 
         [HttpGet]
-        public async Task<IActionResult> GetAllAsync() 
+        public async Task<IActionResult> GetAllAsync()
         {
             try
             {
-                var encomenda = _encomendaService.GetAll<Encomenda, Encomenda>();
+                var reservas = _reservaService.GetAll<Reserva, Reserva>();
                 return Ok();
             }
             catch (Exception e)
             {
 
                 return StatusCode(StatusCodes.Status500InternalServerError, e);
+
             }
         }
+
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             try
             {
-                
-                var encomenda = await _encomendaService.GetByIdAsync<Encomenda, Encomenda>(id);
+
+                var reserva = await _reservaService.GetByIdAsync<Reserva, Reserva>(id);
                 return Ok(id);
             }
             catch (Exception e)
@@ -64,13 +66,14 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
             }
         }
 
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(Encomenda encomenda, Guid id)
+        public async Task<IActionResult> PutAsync(Reserva reserva, Guid id)
         {
             try
             {
 
-                _encomendaService.Update(encomenda);
+                _reservaService.Update(reserva);
                 return Ok();
             }
             catch (Exception e)
@@ -80,15 +83,16 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
             }
         }
 
+
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {
             try
             {
+                var reserva = await _reservaService.GetByIdAsync<Reserva, Reserva>(id);
 
-                var encomenda = await _encomendaService.GetByIdAsync<Encomenda, Encomenda>(id);
-                
-                _encomendaService.Remove(encomenda);
+                _reservaService.Remove(reserva);
                 return Ok();
             }
             catch (Exception e)
@@ -99,3 +103,5 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
         }
     }
 }
+
+

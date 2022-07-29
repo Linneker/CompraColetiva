@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using acme.sistemas.compracoletiva.core.Dtos.Product;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Product
 {
@@ -73,18 +74,16 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         }
 
 
-        public void Ofertar(string titulo, string descricao, string condicao, DateTime dataInicio,
-                            DateTime dataTermino, decimal valorProduto, decimal valorComDesconto,
-                            int quantidadeOfertaDisponivel)
+        public void Ofertar(OfertaDto ofertaDto)
         {
-            Titulo = titulo;
-            Descricao = descricao;
-            Condicao = condicao;
-            DataInicio = dataInicio;
-            DataTermino = dataTermino;
-            ValorProduto = valorProduto;
-            ValorComDesconto = valorComDesconto;
-            QuantidadeOfertaDisponivel = quantidadeOfertaDisponivel;
+            ofertaDto.Titulo = Titulo;
+            ofertaDto.Descricao = Descricao;
+            ofertaDto.Condicao = Condicao;
+            ofertaDto.DataInicio = DataInicio;
+            ofertaDto.DataTermino = DataTermino;
+            ofertaDto.ValorProduto = ValorProduto;
+            ofertaDto.ValorComDesconto = ValorComDesconto;
+            ofertaDto.QuantidadeOfertaDisponivel = QuantidadeOfertaDisponivel;
         }
     }
 }
