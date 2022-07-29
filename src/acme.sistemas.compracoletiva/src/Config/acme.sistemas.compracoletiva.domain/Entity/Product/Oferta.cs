@@ -76,14 +76,14 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
 
         public void Ofertar(OfertaDto ofertaDto)
         {
-            ofertaDto.Titulo = Titulo;
-            ofertaDto.Descricao = Descricao;
-            ofertaDto.Condicao = Condicao;
-            ofertaDto.DataInicio = DataInicio;
-            ofertaDto.DataTermino = DataTermino;
-            ofertaDto.ValorProduto = ValorProduto;
-            ofertaDto.ValorComDesconto = ValorComDesconto;
-            ofertaDto.QuantidadeOfertaDisponivel = QuantidadeOfertaDisponivel;
+          Titulo = ofertaDto.Titulo;
+            Descricao = ofertaDto.Descricao;
+            Condicao = ofertaDto.Condicao;
+            DataInicio = ofertaDto.DataInicio;
+            DataTermino = ofertaDto.DataTermino;
+            ValorProduto = ofertaDto.ValorProduto;
+            ValorComDesconto = ofertaDto.ValorComDesconto;
+            QuantidadeOfertaDisponivel = ofertaDto.QuantidadeOfertaDisponivel;
         }
     }
 }

@@ -13,13 +13,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
     {
         public Pagamento(PagamentoDto pagamentoDto)
         {
-            pagamentoDto.DataPagamento = DataPagamento;
-            pagamentoDto.DataEmQueDinheiroCaiNaConta = DataEmQueDinheiroCaiNaConta;
-            pagamentoDto.NomePagador = NomePagador;
-            pagamentoDto.ValorRecebido = ValorRecebido;
-            pagamentoDto.ValorAReceber = ValorAReceber;
-            pagamentoDto.DataPrevistaPagamento = DataPrevistaPagamento;
-            pagamentoDto.DataVencimento = DataVencimento;
+            DataPagamento = pagamentoDto.DataPagamento;
+            DataEmQueDinheiroCaiNaConta = pagamentoDto.DataEmQueDinheiroCaiNaConta;
+            NomePagador = pagamentoDto.NomePagador;
+            ValorRecebido = pagamentoDto.ValorRecebido;
+            ValorAReceber = pagamentoDto.ValorAReceber;
+            DataPrevistaPagamento = pagamentoDto.DataPrevistaPagamento;
+            DataVencimento = pagamentoDto.DataVencimento;
         }
 
         protected Pagamento()
@@ -71,12 +71,12 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         public void Pagar(PagamentoDto pagamentoDto)
         {
-            pagamentoDto.DataPagamento = DataPagamento;
-            pagamentoDto.ValorRecebido = ValorRecebido;
-            pagamentoDto.ValorAReceber = ValorAReceber;
-            pagamentoDto.NomePagador = NomePagador;
-            pagamentoDto.DataVencimento = DataVencimento;
-            pagamentoDto.UsuarioId = UsuarioId;
+            DataPagamento = pagamentoDto.DataPagamento;
+            ValorRecebido = pagamentoDto.ValorRecebido;
+            ValorAReceber = pagamentoDto.ValorAReceber;
+            NomePagador = pagamentoDto.NomePagador;
+            DataVencimento = pagamentoDto.DataVencimento;
+            UsuarioId = pagamentoDto.UsuarioId;
         }
     }
 }
