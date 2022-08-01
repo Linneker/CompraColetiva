@@ -5,7 +5,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Security
     [NotMapped]
     public class ChaveCriptofrafia
     {
-        public string ChavePublica { get; set; }
+        public string ChavePublica { get;  set; }
         public string ChavePrivada { get; set; }
 
     }

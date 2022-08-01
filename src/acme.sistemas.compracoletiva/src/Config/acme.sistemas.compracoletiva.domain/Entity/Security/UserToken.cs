@@ -4,11 +4,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Security
 {
     public class UserToken : IdentityUserToken<Guid>
     {
-        public Guid Id { get; set; }
-        public DateTime DataCriacao { get; set; }
-        public DateTime DataModificacao { get; set; }
-        public bool Ativo { get; set; }
-        public Guid? UsuarioCriacaoId { get; set; }
-        public Guid? UsuarioModificacaoId { get; set; }
+        public Guid Id { get; private set; }
+        public DateTime DataCriacao { get; private set; }
+        public DateTime DataModificacao { get; private set; }
+        public bool Ativo { get; private set; }
+        public Guid? UsuarioCriacaoId { get; private set; }
+        public Guid? UsuarioModificacaoId { get; private set; }
     }
 }

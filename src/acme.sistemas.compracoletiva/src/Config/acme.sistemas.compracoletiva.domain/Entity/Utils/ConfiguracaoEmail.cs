@@ -9,11 +9,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class ConfiguracaoEmail: BaseEntity, IAggregateRoot
     {
-        public string ConfigSet { get; set; }
-        public string Host { get; set; }
-        public int Porta { get; set; }
-        public bool Ssl { get; set; }
-        public virtual ICollection<EmailConfiguracaoEmail> EmailConfiguracaoEmail { get; set; }
+        public string ConfigSet { get; private set; }
+        public string Host { get; private set; }
+        public int Porta { get; private set; }
+        public bool Ssl { get; private set; }
+        public virtual ICollection<EmailConfiguracaoEmail> EmailConfiguracaoEmail { get; private set; }
 
         public void Atualizar(ConfiguracaoEmail configuracaoEmail)
         {

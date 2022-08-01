@@ -14,28 +14,28 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
     public class Usuario : IdentityUser<Guid>, IAggregateRoot
     {
         
-        public DateTime DataCriacao { get; set; }
-        public DateTime DataModificacao { get; set; }
-        public bool Ativo { get; set; }
-        public Guid? UsuarioCriacaoId { get; set; }
-        public Guid? UsuarioModificacaoId { get; set; }
+        public DateTime DataCriacao { get; private set; }
+        public DateTime DataModificacao { get; private set; }
+        public bool Ativo { get; private set; }
+        public Guid? UsuarioCriacaoId { get; private set; }
+        public Guid? UsuarioModificacaoId { get; private set; }
 
-        public Guid PessoaId { get; set; }
-        public Guid TipoUsuarioId { get; set; }
+        public Guid PessoaId { get; private set; }
+        public Guid TipoUsuarioId { get; private set; }
 
-        public virtual Pessoa Pessoa { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
+        public virtual Pessoa Pessoa { get; private set; }
+        public virtual TipoUsuario TipoUsuario { get; private set; }
 
-        public virtual ICollection<Oferta> Ofertas { get; set; } = new HashSet<Oferta>();
-        public virtual ICollection<Reserva> ReservasClientes { get; set; } = new HashSet<Reserva>();
-        public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
-        public virtual ICollection<CompraProduto> UsuariosVendas { get; set; } = new HashSet<CompraProduto>();
-        public virtual ICollection<CompraProduto> UsuariosCompras { get; set; } = new HashSet<CompraProduto>();
-        public virtual ICollection<Pagamento> Pagamentos { get; set; } = new HashSet<Pagamento>();
-        public virtual ICollection<Notificacao> Notificacoes { get; set; } = new HashSet<Notificacao>();
-        public virtual ICollection<Encomenda> RealizaEncomendas { get; set; } = new HashSet<Encomenda>();
-        public virtual ICollection<Encomenda> ForneceEncomendas { get; set; } = new HashSet<Encomenda>();
-        public virtual ICollection<Reserva> ReservasFornecedores { get; set; } = new HashSet<Reserva>();
+        public virtual ICollection<Oferta> Ofertas { get; private set; } = new HashSet<Oferta>();
+        public virtual ICollection<Reserva> ReservasClientes { get; private set; } = new HashSet<Reserva>();
+        public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; private set; } = new HashSet<ProdutoUsuario>();
+        public virtual ICollection<CompraProduto> UsuariosVendas { get; private set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<CompraProduto> UsuariosCompras { get; private set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<Pagamento> Pagamentos { get; private set; } = new HashSet<Pagamento>();
+        public virtual ICollection<Notificacao> Notificacoes { get; private set; } = new HashSet<Notificacao>();
+        public virtual ICollection<Encomenda> RealizaEncomendas { get; private set; } = new HashSet<Encomenda>();
+        public virtual ICollection<Encomenda> ForneceEncomendas { get; private set; } = new HashSet<Encomenda>();
+        public virtual ICollection<Reserva> ReservasFornecedores { get; private set; } = new HashSet<Reserva>();
         
         
         protected Usuario() { }

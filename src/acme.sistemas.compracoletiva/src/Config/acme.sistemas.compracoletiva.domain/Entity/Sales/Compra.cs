@@ -10,28 +10,24 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 {
     public class Compra : BaseEntity, IAggregateRoot
     {
-        protected Compra()
-        {
-
-        }
+        protected Compra() { }
 
         public Compra(decimal quantitdade, decimal valor)
         {
             Quantidade = quantitdade;
             Valor = valor;
-
         }
 
-        public decimal Quantidade { get; set; }
-        public decimal Valor { get; set; }
-        public virtual ICollection<CompraProduto> CompraProduto { get; set; } = new HashSet<CompraProduto>();
+        public decimal Quantidade { get; private set; }
+        public decimal Valor { get; private set; }
+        public virtual ICollection<CompraProduto> CompraProduto { get; private set; } = new HashSet<CompraProduto>();
 
         public void Atualizar(Compra compra)
         {
             if (this.Quantidade != compra.Quantidade)
                 Quantidade = compra.Quantidade;
 
-            if(this.Valor != compra.Valor)
+            if (this.Valor != compra.Valor)
                 Valor = compra.Valor;
 
             base.Atualizar(compra.UsuarioModificacaoId);

@@ -6,11 +6,11 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReservaController : BaseController<Reserva>
+    public class ReservaController : ControllerBase
     {
         private readonly IReservaService _reservaService;
 
-        public ReservaController(IReservaService reservaService) : base(reservaService)
+        public ReservaController(IReservaService reservaService) 
         {
             _reservaService = reservaService;
         }

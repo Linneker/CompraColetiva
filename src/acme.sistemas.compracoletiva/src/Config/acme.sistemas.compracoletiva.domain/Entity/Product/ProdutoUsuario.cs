@@ -15,13 +15,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
 
         }
 
-        public string Nome { get; set; }
-        public Guid ProdutoId { get; set; }
-        public Guid UsuarioId { get; set; }
+        public string Nome { get; private set; }
+        public Guid ProdutoId { get; private set; }
+        public Guid UsuarioId { get; private set; }
 
-        public DateTime Prazo { get; set; }
-        public Produto Produto { get; set; }
-        public Usuario Usuario { get; set; }
+        public DateTime Prazo { get; private set; }
+        public Produto Produto { get; private set; }
+        public Usuario Usuario { get; private set; }
 
 
         public void Atualizar(ProdutoUsuario produtoUsuario)

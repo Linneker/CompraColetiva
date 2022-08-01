@@ -28,9 +28,9 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
             Value = value;
         }
 
-        public string Key { get; set; }
-        public string Value { get; set; }
-        public virtual ICollection<Usuario> Usuarios { get; set; } = new HashSet<Usuario>();
+        public string Key { get; private set; }
+        public string Value { get; private set; }
+        public virtual ICollection<Usuario> Usuarios { get; private set; } = new HashSet<Usuario>();
 
 
         public void SetUsuarios(ICollection<Usuario> usuarios) => Usuarios = usuarios;

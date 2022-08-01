@@ -15,7 +15,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Notifications
             Key = key;
         }
 
-        public string Key { get; set; }
-        public string Message { get; set; }
+        public string Key { get; private set; }
+        public string Message { get; private set; }
     }
 }

@@ -6,16 +6,27 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Location
 {
     public class Endereco : BaseEntity, IAggregateRoot
     {
-        public Endereco()
+        protected Endereco()
         {
         }
-        public string Cep { get; set; }
-        public string Pais { get; set; }
-        public string Estado { get; set; }
-        public string Cidade { get; set; }
-        public string Bairro { get; set; }
-        public string Rua { get; set; }
-        public virtual ICollection<EnderecoPessoa> EnderecoPessoas { get; set; } = new HashSet<EnderecoPessoa>();
+
+        public Endereco(string cep, string pais, string estado, string cidade, string bairro, string rua)
+        {
+            Cep = cep;
+            Pais = pais;
+            Estado = estado;
+            Cidade = cidade;
+            Bairro = bairro;
+            Rua = rua;
+        }
+
+        public string Cep { get; private set; }
+        public string Pais { get; private set; }
+        public string Estado { get; private set; }
+        public string Cidade { get; private set; }
+        public string Bairro { get; private set; }
+        public string Rua { get; private set; }
+        public virtual ICollection<EnderecoPessoa> EnderecoPessoas { get; private set; } = new HashSet<EnderecoPessoa>();
 
 
         public void Atualizar(Endereco endereco)

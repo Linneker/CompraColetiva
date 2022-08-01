@@ -22,14 +22,14 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             ProdutoId = produtoId; 
         }
 
-        public Guid UsuarioClienteId { get; set; }
-        public Guid UsuarioFornecedorId { get; set; }
-        public Guid ProdutoId { get; set; }
+        public Guid UsuarioClienteId { get; private set; }
+        public Guid UsuarioFornecedorId { get; private set; }
+        public Guid ProdutoId { get; private set; }
         public DateTime Validade { get; private set; }
 
-        public virtual Usuario UsuarioCliente { get; set; }
-        public virtual Usuario UsuarioFornecedor { get; set; }
-        public virtual Produto Produto { get; set; }
+        public virtual Usuario UsuarioCliente { get; private set; }
+        public virtual Usuario UsuarioFornecedor { get; private set; }
+        public virtual Produto Produto { get; private set; }
 
         public void Atualizar(Encomenda encomenda)
         {

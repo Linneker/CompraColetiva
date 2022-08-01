@@ -27,16 +27,16 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         }
 
-        public DateTime DataPagamento { get; set; }
-        public DateTime DataEmQueDinheiroCaiNaConta { get; set; }
-        public string NomePagador { get; set; }
-        public decimal ValorRecebido { get; set; }
-        public decimal ValorAReceber { get; set; }
-        public DateTime DataPrevistaPagamento { get; set; }
-        public DateTime DataVencimento { get; set; }
-        public Guid? UsuarioId { get; set; }
+        public DateTime DataPagamento { get; private set; }
+        public DateTime DataEmQueDinheiroCaiNaConta { get; private set; }
+        public string NomePagador { get; private set; }
+        public decimal ValorRecebido { get; private set; }
+        public decimal ValorAReceber { get; private set; }
+        public DateTime DataPrevistaPagamento { get; private set; }
+        public DateTime DataVencimento { get; private set; }
+        public Guid? UsuarioId { get; private set; }
 
-        public Usuario? Usuario { get; set; }
+        public Usuario? Usuario { get; private set; }
 
 
         public void Atualizar(Pagamento pagamento)

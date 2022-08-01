@@ -6,9 +6,9 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class Parametro : BaseEntity, IAggregateRoot
     {
-        public string Nome { get; set; }
-        public string Valor { get; set; }
-        public string Descricao { get; set; }
+        public string Nome { get; private set; }
+        public string Valor { get; private set; }
+        public string Descricao { get; private set; }
 
         protected Parametro() { }
 

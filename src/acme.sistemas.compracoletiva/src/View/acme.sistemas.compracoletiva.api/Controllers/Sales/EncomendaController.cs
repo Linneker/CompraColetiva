@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Sales;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,17 +7,17 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EncomendaController : BaseController<Encomenda>
+    public class EncomendaController : ControllerBase
     {
         private readonly IEncomendaService _encomendaService;
        
 
-        public EncomendaController(IEncomendaService encomendaService ) : base(encomendaService)
+        public EncomendaController(IEncomendaService encomendaService ) 
         {
             _encomendaService = encomendaService;
         }
 
-
+        [UnitOfWorkFilter]
         [HttpPost]
         public async Task<IActionResult> AddAsync(Encomenda encomenda)
         {

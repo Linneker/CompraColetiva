@@ -7,11 +7,11 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CompraProdutoController : BaseController<CompraProduto>
+    public class CompraProdutoController : ControllerBase
     {
         private readonly ICompraProdutoService _compraProdutoService;
 
-        public CompraProdutoController(ICompraProdutoService compraProdutoService) : base(compraProdutoService)
+        public CompraProdutoController(ICompraProdutoService compraProdutoService) 
         {
             _compraProdutoService = compraProdutoService;
         }

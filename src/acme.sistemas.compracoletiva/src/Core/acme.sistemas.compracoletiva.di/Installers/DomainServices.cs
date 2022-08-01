@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.service.Interfaces.Service;
+﻿using acme.sistemas.compracoletiva.service.Handlers.Reserva.Handler;
+using acme.sistemas.compracoletiva.service.Interfaces.Service;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Location;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Package;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Product;
@@ -31,7 +32,7 @@ namespace acme.sistemas.compracoletiva.di.Installers
             serviceCollection.AddTransient<INotificacaoService, NotificacaoService>();
             serviceCollection.AddTransient<IPagamentoService, PagamentoService>();
             serviceCollection.AddTransient<IParametroService, ParametroService>();
-            serviceCollection.AddTransient<IReservaService, ReservaService>();
+            serviceCollection.AddTransient<CriaReservaHandle>();
             serviceCollection.AddTransient<ISeguroService, SeguroService>();
 
 

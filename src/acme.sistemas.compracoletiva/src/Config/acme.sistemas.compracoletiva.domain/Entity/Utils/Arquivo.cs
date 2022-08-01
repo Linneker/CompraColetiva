@@ -5,11 +5,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 {
     public class Arquivo : BaseEntity, IAggregateRoot
     {
-        public string NomeExibicao { get; set; }
-        public string NomeSalvo { get; set; }
-        public string Caminho { get; set; }
-        public string Extensao { get; set; }
-        public string Hash { get; set; }
+        public string NomeExibicao { get; private set; }
+        public string NomeSalvo { get; private set; }
+        public string Caminho { get; private set; }
+        public string Extensao { get; private set; }
+        public string Hash { get; private set; }
 
         protected Arquivo() { }
 

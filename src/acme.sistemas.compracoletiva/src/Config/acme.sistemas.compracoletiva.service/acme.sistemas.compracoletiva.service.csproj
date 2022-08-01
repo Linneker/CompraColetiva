@@ -15,4 +15,10 @@
     <ProjectReference Include="..\..\Infra\acme.sistemas.compracoletiva.repository\acme.sistemas.compracoletiva.repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\SalesCompraProduto\Commands\Outputs\" />
+    <Folder Include="Handlers\SalesCompraProduto\Handler\" />
+    <Folder Include="Handlers\SalesCompraProduto\Querys\" />
+  </ItemGroup>
+
 </Project>

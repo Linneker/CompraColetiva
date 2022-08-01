@@ -7,11 +7,11 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OfertaController : BaseController<Oferta>
+    public class OfertaController : ControllerBase
     {
         private readonly IOfertaService _ofertaService;
 
-        public OfertaController(IOfertaService ofertaService) : base(ofertaService)
+        public OfertaController(IOfertaService ofertaService)
         {
             _ofertaService = ofertaService;
         }
@@ -36,7 +36,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
 
 
         [HttpPost]
-        public  override async Task<IActionResult> AddAsync(Oferta oferta)
+        public  async Task<IActionResult> AddAsync(Oferta oferta)
         {
             try
             {

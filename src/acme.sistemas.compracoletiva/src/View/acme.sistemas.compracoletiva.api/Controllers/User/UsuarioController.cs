@@ -127,7 +127,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.User
                     return new
                     {
                         authenticated = false,
-                        message = "Falha na autenticação"
+                        message = "Falha na autenticação 2"
                     };
                 }
 
@@ -157,7 +157,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.User
                 return new
                 {
                     authenticated = false,
-                    message = "Falha na autenticacao"
+                    message = "Falha na autenticacao 3"
                 };
             }
         }

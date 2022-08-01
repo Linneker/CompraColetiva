@@ -1,4 +1,6 @@
-﻿using acme.sistemas.compracoletiva.core.Dtos.Utils;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.config.Security;
+using acme.sistemas.compracoletiva.core.Dtos.Utils;
 using acme.sistemas.compracoletiva.domain.Entity.Utils;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Utils;
 using Microsoft.AspNetCore.Mvc;
@@ -7,16 +9,16 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PagamentoController : BaseController<Pagamento>
+    public class PagamentoController : ControllerBase
     {
         private readonly IPagamentoService _pagamentoService;
 
-        public PagamentoController(IPagamentoService pagamentoService) : base(pagamentoService)
+        public PagamentoController(IPagamentoService pagamentoService) 
         {
             _pagamentoService = pagamentoService;
         }
-
-
+        [ClaimsAuthorize("Pagamento", "Add")]
+        [UnitOfWorkFilter]
         [HttpPost("Pagar")]
         public IActionResult Pagar(PagamentoDto PagamentoDto)
         {
@@ -32,9 +34,10 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
             }
         }
 
-
+        [ClaimsAuthorize("Pagamento", "Add")]
+        [UnitOfWorkFilter]
         [HttpPost]
-        public  override async Task<IActionResult> AddAsync(Pagamento pagamento)
+        public  async Task<IActionResult> AddAsync(Pagamento pagamento)
         {
             try
             {
@@ -48,7 +51,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
             }
         }
 
-
+        [ClaimsAuthorize("Pagamento", "Read")]
+        [UnitOfWorkFilter]
         [HttpGet]
         public  async Task<IActionResult> GetAllAsync()
         {
@@ -64,7 +68,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
             }
         }
 
-
+        [ClaimsAuthorize("Pagamento", "Read")]
         [HttpGet("{id}")]
         public  async Task<IActionResult> GetByIdAsync(Guid id)
         {
@@ -81,7 +85,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
             }
         }
 
-
+        [ClaimsAuthorize("Pagamento", "Update")]
+        [UnitOfWorkFilter]
         [HttpPut("{id}")]
         public  IActionResult Update(Pagamento pagamento, Guid id)
         {
@@ -99,7 +104,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
             }
         }
 
-
+        [ClaimsAuthorize("Pagamento", "Delete")]
+        [UnitOfWorkFilter]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {

@@ -28,20 +28,20 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Product
         }
 
 
-        public string Nome { get; set; }
-        public decimal Valor { get; set; }
-        public int Prazo { get; set; }
-        public int TicketMinimo { get; set; }
-        public decimal ValorUnitario { get; set; }
-        public int Quantidade { get; set; }
-        public int QuantidadeTotalDisponivel { get; set; }
-        public Guid TipoProdutoId { get; set; }
+        public string Nome { get; private set; }
+        public decimal Valor { get; private set; }
+        public int Prazo { get; private set; }
+        public int TicketMinimo { get; private set; }
+        public decimal ValorUnitario { get; private set; }
+        public int Quantidade { get; private set; }
+        public int QuantidadeTotalDisponivel { get; private set; }
+        public Guid TipoProdutoId { get; private set; }
 
-        public TipoProduto TipoProduto { get; set; }
-        public virtual ICollection<Reserva> ListaDeReserva { get; set; } = new HashSet<Reserva>();
-        public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; set; } = new HashSet<ProdutoUsuario>();
-        public virtual ICollection<CompraProduto> CompraProdutos { get; set; } = new HashSet<CompraProduto>();
-        public virtual ICollection<Encomenda> Encomendas { get; set; } = new HashSet<Encomenda>();
+        public TipoProduto TipoProduto { get; private set; }
+        public virtual ICollection<Reserva> ListaDeReserva { get; private set; } = new HashSet<Reserva>();
+        public virtual ICollection<ProdutoUsuario> ProdutoUsuarios { get; private set; } = new HashSet<ProdutoUsuario>();
+        public virtual ICollection<CompraProduto> CompraProdutos { get; private set; } = new HashSet<CompraProduto>();
+        public virtual ICollection<Encomenda> Encomendas { get; private set; } = new HashSet<Encomenda>();
 
 
         public void Atualizar(Produto produto)

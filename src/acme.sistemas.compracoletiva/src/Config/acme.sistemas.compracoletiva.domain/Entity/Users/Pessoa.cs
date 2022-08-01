@@ -9,30 +9,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
     public class Pessoa : BaseEntity, IAggregateRoot
     {
-        public string Nome { get; set; }
-        public string NomeFantasia { get; set; }
-        public string Celular { get; set; }
-        public string Telefone { get; set; }
-        public DateTime? DataNascimento { get; set; }
-        public EnumTipoPessoa TipoPessoa { get; set; }
-        public string CPF { get; set; }
-        public string CNPJ { get; set; }
-        public string InscricaoMunicipal { get; set; }
-        public Guid EmailId { get; set; }
-
-        public virtual Email Email { get; set; }
-
-
-        public virtual ICollection<Usuario> Usuarios { get; set; }
-        public virtual ICollection<EnderecoPessoa> EnderecoPessoas { get; set; } = new HashSet<EnderecoPessoa>();
-
-        public void SetEnderecoPessoas(ICollection<EnderecoPessoa> enderecosPessoas) =>
-            EnderecoPessoas = enderecosPessoas;
-        public void SetEmailId(Guid emailId) => EmailId = emailId;
-        public void SetEmail(Email email) => Email = email;
-
-        public void AddEnderecoPessoa(EnderecoPessoa enderecosPessoa) =>
-            EnderecoPessoas.Add(enderecosPessoa);
         protected Pessoa() { }
         public Pessoa(string nome, string nomeFantasia, string celular, string telefone, DateTime? dataNascimento, EnumTipoPessoa tipoPessoa, string cpf, string cnpj, string inscricaoMunicipal)
         {
@@ -47,17 +23,42 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
             InscricaoMunicipal = inscricaoMunicipal;
         }
 
-        public Pessoa(string nome, string email, string celular, string telefone, string cpf, DateTime? dataNascimento = null)
+        public Pessoa(string nome, string celular, string telefone, string cpf, DateTime? dataNascimento = null)
             : this(nome, null, celular, telefone, dataNascimento, EnumTipoPessoa.Fisica, cpf, null, null)
         {
         }
 
-        public Pessoa(string nome, string nomeFantasia, string email, string celular, string telefone, string cnpj, 
+        public Pessoa(string nome, string nomeFantasia,  string celular, string telefone, string cnpj,
             string inscricaoMunicipal, DateTime? dataNascimento = null)
             : this(nome, nomeFantasia, celular, telefone, dataNascimento, EnumTipoPessoa.Juridica, null, cnpj, inscricaoMunicipal)
         {
         }
 
+        public string Nome { get; private set; }
+        public string NomeFantasia { get; private set; }
+        public string Celular { get; private set; }
+        public string Telefone { get; private set; }
+        public DateTime? DataNascimento { get; private set; }
+        public EnumTipoPessoa TipoPessoa { get; private set; }
+        public string CPF { get; private set; }
+        public string CNPJ { get; private set; }
+        public string InscricaoMunicipal { get; private set; }
+        public Guid EmailId { get; private set; }
+
+        public virtual Email Email { get; private set; }
+
+
+        public virtual ICollection<Usuario> Usuarios { get; private set; }
+        public virtual ICollection<EnderecoPessoa> EnderecoPessoas { get; private set; } = new HashSet<EnderecoPessoa>();
+
+        public void SetEnderecoPessoas(ICollection<EnderecoPessoa> enderecosPessoas) =>
+            EnderecoPessoas = enderecosPessoas;
+        public void SetEmailId(Guid emailId) => EmailId = emailId;
+        public void SetEmail(Email email) => Email = email;
+
+        public void AddEnderecoPessoa(EnderecoPessoa enderecosPessoa) =>
+            EnderecoPessoas.Add(enderecosPessoa);
+        
 
         public void Atualizar(Pessoa pessoa)
         {

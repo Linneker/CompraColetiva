@@ -5,9 +5,9 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
 {
     public class TipoUsuario : BaseEntity, IAggregateRoot
     {
-        public string Nome { get; set; }
+        public string Nome { get; private set; }
 
-        public virtual ICollection<Usuario> Usuarios { get; set; } = new HashSet<Usuario>();
+        public virtual ICollection<Usuario> Usuarios { get; private set; } = new HashSet<Usuario>();
 
         protected TipoUsuario() { }
 

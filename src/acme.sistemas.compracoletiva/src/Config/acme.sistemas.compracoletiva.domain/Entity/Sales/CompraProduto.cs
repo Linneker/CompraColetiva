@@ -11,21 +11,28 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 {
     public class CompraProduto : BaseEntity, IAggregateRoot
     {
-        public decimal ValorUnitario { get; set; }
-        public decimal Quantidade { get; set; }
-        public decimal ValorTotal { get => ValorUnitario * Quantidade; set { } }
+        protected CompraProduto() { }
+        public CompraProduto(decimal valorUnitario, decimal quantidade)
+        {
+            ValorUnitario = valorUnitario;
+            Quantidade = quantidade;
+        }
+
+        public decimal ValorUnitario { get; private set; }
+        public decimal Quantidade { get; private set; }
+        public decimal ValorTotal { get => ValorUnitario * Quantidade;}
 
 
-        public Guid ProdutoId { get; set; }
-        public Guid CompraId { get; set; }
-        public Guid UsuarioVendaId { get; set; }
-        public Guid UsuarioCompraId { get; set; }
+        public Guid ProdutoId { get; private set; }
+        public Guid CompraId { get; private set; }
+        public Guid UsuarioVendaId { get; private set; }
+        public Guid UsuarioCompraId { get; private set; }
 
 
-        public Produto Produto { get; set; }
-        public Compra Compra { get; set; }
-        public Usuario UsuarioVenda { get; set; }
-        public Usuario UsuarioCompra { get; set; }
+        public Produto Produto { get; private set; }
+        public Compra Compra { get; private set; }
+        public Usuario UsuarioVenda { get; private set; }
+        public Usuario UsuarioCompra { get; private set; }
 
 
 
@@ -39,7 +46,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             Compra = new Compra(Quantidade, ValorTotal);
         }
 
-        public void Atulizar(CompraProduto compraProduto)
+        public void Atualizar(CompraProduto compraProduto)
         {
             if(this.ValorUnitario != compraProduto.ValorUnitario)
                 ValorUnitario = compraProduto.ValorUnitario;
@@ -47,10 +54,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             if (this.Quantidade != compraProduto.Quantidade)
                 Quantidade = compraProduto.Quantidade;
 
-            if (this.ValorTotal != compraProduto.ValorTotal)
-                ValorTotal = compraProduto.ValorTotal;
-
-            if (this.ProdutoId != compraProduto.ProdutoId)
+        if (this.ProdutoId != compraProduto.ProdutoId)
                 ProdutoId = compraProduto.ProdutoId;
 
             if (this.CompraId != compraProduto.CompraId)

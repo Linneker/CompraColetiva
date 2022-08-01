@@ -14,11 +14,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Utils
 
         }
 
-        public string Titulo { get; set; }
-        public string Corpo { get; set; }
-        public Guid DestinatarioId { get; set; }
-        public Email Destinatario { get; set; }
+        public string Titulo { get; private set; }
+        public string Corpo { get; private set; }
+        public Guid DestinatarioId { get; private set; }
+        public Email Destinatario { get; private set; }
 
-        public virtual ICollection<Email> EmailsCopias { get; set; } = new HashSet<Email>();
+        public virtual ICollection<Email> EmailsCopias { get; private set; } = new HashSet<Email>();
     }
 }

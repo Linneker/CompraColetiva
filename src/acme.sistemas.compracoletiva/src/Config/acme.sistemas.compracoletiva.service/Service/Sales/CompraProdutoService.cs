@@ -23,11 +23,11 @@ namespace acme.sistemas.compracoletiva.service.Service.Sales
         }
 
 
-        public void Comprar(Reserva reserva) 
+        public async Task Comprar(Reserva reserva) 
         {
             CompraProduto compraProduto = new CompraProduto();
             compraProduto.Comprar(reserva);
-            _compraRepository.Add(compraProduto);
+            await _compraRepository.AddAsync(compraProduto);
         }
     }
 }

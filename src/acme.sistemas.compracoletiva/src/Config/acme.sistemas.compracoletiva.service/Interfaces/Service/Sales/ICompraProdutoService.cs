@@ -9,6 +9,6 @@ namespace acme.sistemas.compracoletiva.service.Interfaces.Service.Sales
 {
     public interface ICompraProdutoService : IBaseService<CompraProduto>
     {
-        void Comprar(Reserva reserva);
+        Task Comprar(Reserva reserva);
     }
 }
