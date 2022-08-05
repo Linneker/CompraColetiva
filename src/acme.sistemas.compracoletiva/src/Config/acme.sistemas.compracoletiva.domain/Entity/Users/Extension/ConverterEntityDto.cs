@@ -60,14 +60,8 @@ namespace acme.sistemas.compracoletiva.core.Helpers
         public static EnderecoPessoa ParaEnderecoPessoa(this EnderecoPessoaDto enderecoPessoa)
         {
 
-            EnderecoPessoa enderecoPes = new EnderecoPessoa()
-            {
-                Complemento = enderecoPessoa.Complemento,
-                Endereco = enderecoPessoa.Endereco.ParaEndereco(),
-                Latitude = enderecoPessoa.Latitude,
-                Longitude = enderecoPessoa.Longitude,
-                Numero = enderecoPessoa.Numero
-            };
+            EnderecoPessoa enderecoPes = new EnderecoPessoa(enderecoPessoa.Numero, enderecoPessoa.Complemento, enderecoPessoa.Latitude, enderecoPessoa.Longitude);
+            
             return enderecoPes;
         }
 
@@ -105,15 +99,8 @@ namespace acme.sistemas.compracoletiva.core.Helpers
         }
         public static Endereco ParaEndereco(this EnderecoDto endereco)
         {
-            Endereco end = new Endereco()
-            {
-                Bairro = endereco.Bairro,
-                Cep = endereco.Cep,
-                Cidade = endereco.Cidade,
-                Estado = endereco.Estado,
-                Pais = endereco.Pais,
-                Rua = endereco.Rua
-            };
+            Endereco end = new Endereco(endereco.Cep, endereco.Pais, endereco.Estado, endereco.Cidade, endereco.Bairro, endereco.Rua);
+            
             return end;
         }
 

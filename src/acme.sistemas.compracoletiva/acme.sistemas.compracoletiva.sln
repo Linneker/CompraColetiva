@@ -43,9 +43,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "acme.sistemas.compracoletiv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Teste", "Teste", "{9059F890-C456-4221-ABC6-8C2320C70724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acme.sistemas.compracoletiva.api.teste", "test\View\acme.sistemas.compracoletiva.api.teste\acme.sistemas.compracoletiva.api.teste.csproj", "{0AD70B42-E63C-44A0-8ED5-7AE701C603C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "acme.sistemas.compracoletiva.api.teste", "test\View\acme.sistemas.compracoletiva.api.teste\acme.sistemas.compracoletiva.api.teste.csproj", "{0AD70B42-E63C-44A0-8ED5-7AE701C603C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acme.sistemas.compracoletiva.config", "src\Config\acme.sistemas.compracoletiva.config\acme.sistemas.compracoletiva.config.csproj", "{5F3F4F48-0B1B-4EAB-924E-ADD61F8F5202}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "acme.sistemas.compracoletiva.config", "src\Config\acme.sistemas.compracoletiva.config\acme.sistemas.compracoletiva.config.csproj", "{5F3F4F48-0B1B-4EAB-924E-ADD61F8F5202}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acme.sistemas.compracoletiva.site", "acme.sistemas.compracoletiva.site\acme.sistemas.compracoletiva.site.csproj", "{EA0E41DD-42F6-4F36-963A-7006C00018A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{5F3F4F48-0B1B-4EAB-924E-ADD61F8F5202}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3F4F48-0B1B-4EAB-924E-ADD61F8F5202}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3F4F48-0B1B-4EAB-924E-ADD61F8F5202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA0E41DD-42F6-4F36-963A-7006C00018A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA0E41DD-42F6-4F36-963A-7006C00018A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA0E41DD-42F6-4F36-963A-7006C00018A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA0E41DD-42F6-4F36-963A-7006C00018A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +138,7 @@ Global
 		{9059F890-C456-4221-ABC6-8C2320C70724} = {15C94FCB-F9EF-4879-B46A-2F41D6BF59DE}
 		{0AD70B42-E63C-44A0-8ED5-7AE701C603C8} = {9059F890-C456-4221-ABC6-8C2320C70724}
 		{5F3F4F48-0B1B-4EAB-924E-ADD61F8F5202} = {9F9FC51C-5F11-4C35-8C42-DC4DD55ECD95}
+		{EA0E41DD-42F6-4F36-963A-7006C00018A6} = {15C94FCB-F9EF-4879-B46A-2F41D6BF59DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5481008A-6942-4933-AF28-FB8FE46310F9}

@@ -17,11 +17,11 @@ namespace acme.sistemas.compracoletiva.service.Handlers.Reserva.Handler
             _reservaRepository = reservaRepository;
         }
 
-        public async Task Handle(CriaReservaCommand criaReservaCommand)
+        /*public async Task Handle(CriaReservaCommand criaReservaCommand)
         {
             domain.Entity.Sales.Reserva reserva = new domain.Entity.Sales.Reserva(criaReservaCommand.Prazo, criaReservaCommand.Quantidade, criaReservaCommand.Expiracao);
             reserva.ReservarProduto(criaReservaCommand.ProdutoId, criaReservaCommand.ClienteUsuarioId, criaReservaCommand.FornecedorUsuarioId);
             await _reservaRepository.AddAsync(reserva);
-        }
+        }*/
     }
 }

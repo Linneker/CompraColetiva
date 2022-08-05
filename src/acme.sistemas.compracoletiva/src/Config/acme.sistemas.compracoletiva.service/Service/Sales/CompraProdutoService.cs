@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
+﻿using acme.sistemas.compracoletiva.core.Dtos.Sales;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Sales;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Sales;
 using AutoMapper;
@@ -23,9 +24,10 @@ namespace acme.sistemas.compracoletiva.service.Service.Sales
         }
 
 
-        public async Task Comprar(Reserva reserva) 
+        public async Task Comprar(CompraProdutoDto compraProdutoDto) 
         {
-            CompraProduto compraProduto = new CompraProduto();
+            Reserva reserva = new Reserva(compraProdutoDto.Prazo, compraProdutoDto.Quantidade, compraProdutoDto.Expiracao);
+            CompraProduto compraProduto = new CompraProduto(compraProdutoDto.ValorUnitario, compraProdutoDto.Quantidade);
             compraProduto.Comprar(reserva);
             await _compraRepository.AddAsync(compraProduto);
         }

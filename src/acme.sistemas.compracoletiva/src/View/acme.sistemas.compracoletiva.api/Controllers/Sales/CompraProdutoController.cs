@@ -1,4 +1,7 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.config.Security;
+using acme.sistemas.compracoletiva.core.Dtos.Sales;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Sales;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +14,31 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
     {
         private readonly ICompraProdutoService _compraProdutoService;
 
-        public CompraProdutoController(ICompraProdutoService compraProdutoService) 
+        public CompraProdutoController(ICompraProdutoService compraProdutoService)
         {
             _compraProdutoService = compraProdutoService;
         }
 
 
+        [ClaimsAuthorize("CompraProduto", "Add")]
+        [UnitOfWorkFilter]
+        [HttpPost("CompraProduto")]
+        public IActionResult Pagar(CompraProdutoDto compraProdutoDto)
+        {
+            try
+            {
+                _compraProdutoService.Comprar(compraProdutoDto);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, e);
+            }
+        }
+
+        [ClaimsAuthorize("CompraProduto", "Add")]
+        [UnitOfWorkFilter]
         [HttpPost]
         public async Task<IActionResult> AddAsync(CompraProduto compraProduto)
         {
@@ -33,6 +55,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
         }
 
 
+        [ClaimsAuthorize("CompraProduto", "Read")]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -49,6 +72,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
         }
 
 
+
+        [ClaimsAuthorize("CompraProduto", "Read")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
@@ -66,6 +91,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
         }
 
 
+        [ClaimsAuthorize("CompraProduto", "Update")]
+        [UnitOfWorkFilter]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(CompraProduto compraProduto, Guid id)
         {
@@ -83,6 +110,9 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Sales
         }
 
 
+
+        [ClaimsAuthorize("CompraProduto", "Delete")]
+        [UnitOfWorkFilter]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {

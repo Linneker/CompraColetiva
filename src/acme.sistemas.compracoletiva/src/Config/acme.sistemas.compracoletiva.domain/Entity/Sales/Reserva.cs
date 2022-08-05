@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using acme.sistemas.compracoletiva.core.Dtos.Sales;
 
 namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 {
@@ -22,12 +23,6 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             Expiracao = expiracao;
         }
 
-        public Reserva(   Guid fornecedorUsuarioId, Guid produtoId, Guid clienteUsuarioId) 
-        {
-            FornecedorUsuarioId = fornecedorUsuarioId;
-            ProdutoId = produtoId;
-            ClienteUsuarioId = clienteUsuarioId;
-        }
 
         public DateTime Prazo { get; private set; }
         public int Quantidade { get; private set; }
@@ -57,11 +52,11 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 
             base.Atualizar(reserva.UsuarioModificacaoId);
         }
-        public void ReservarProduto(Guid produtoId, Guid clienteUsuarioId,Guid fornecedorUsuarioId)
+        public void ReservarProduto(ReservaDto reservaDto)
         {
-            ProdutoId = produtoId;
-            ClienteUsuarioId = clienteUsuarioId;
-            FornecedorUsuarioId = fornecedorUsuarioId;
+            ProdutoId = reservaDto.ProdutoId;
+            ClienteUsuarioId = reservaDto.ClienteUsuarioId;
+            FornecedorUsuarioId = reservaDto.FornecedorUsuarioId;
         }
     }
     

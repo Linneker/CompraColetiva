@@ -17,14 +17,16 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
         {
             _pagamentoService = pagamentoService;
         }
+
+
         [ClaimsAuthorize("Pagamento", "Add")]
         [UnitOfWorkFilter]
         [HttpPost("Pagar")]
-        public IActionResult Pagar(PagamentoDto PagamentoDto)
+        public IActionResult Pagar(PagamentoDto pagamentoDto)
         {
             try
             {
-                _pagamentoService.RealizarPagamento(PagamentoDto);
+                _pagamentoService.RealizarPagamento(pagamentoDto);
                 return Ok();
             }
             catch (Exception e)
@@ -52,7 +54,6 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Utils
         }
 
         [ClaimsAuthorize("Pagamento", "Read")]
-        [UnitOfWorkFilter]
         [HttpGet]
         public  async Task<IActionResult> GetAllAsync()
         {

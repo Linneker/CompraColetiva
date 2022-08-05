@@ -4,11 +4,13 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Security
 {
     public class ConfiguracaoToken : BaseEntity
     {
-        public ConfiguracaoToken(string accessKey, int? expiracao)
+        
+        public ConfiguracaoToken (string accessKey, int? expiracao)
         {
             AccessKey = accessKey;
             Expiracao = expiracao;
         }
+
 
         public string AccessKey { get; private set; }
         public int? Expiracao { get; private set; }

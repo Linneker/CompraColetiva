@@ -10,7 +10,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Location
         {
         }
 
-        public Endereco(string cep, string pais, string estado, string cidade, string bairro, string rua)
+        public  Endereco(string cep, string pais, string estado, string cidade, string bairro, string rua)
         {
             Cep = cep;
             Pais = pais;

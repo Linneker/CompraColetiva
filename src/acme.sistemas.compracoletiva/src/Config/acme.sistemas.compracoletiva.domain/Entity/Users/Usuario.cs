@@ -21,7 +21,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Users
         public Guid? UsuarioModificacaoId { get; private set; }
 
         public Guid PessoaId { get; private set; }
-        public Guid TipoUsuarioId { get; private set; }
+        public Guid TipoUsuarioId { get;  set; }
 
         public virtual Pessoa Pessoa { get; private set; }
         public virtual TipoUsuario TipoUsuario { get; private set; }

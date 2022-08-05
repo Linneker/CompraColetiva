@@ -2,6 +2,7 @@
 using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Sales;
 using AutoMapper;
+using acme.sistemas.compracoletiva.core.Dtos.Sales;
 
 namespace acme.sistemas.compracoletiva.service.Service.Sales
 {
@@ -18,10 +19,10 @@ namespace acme.sistemas.compracoletiva.service.Service.Sales
             _mapper = mapper;
         }
 
-        public void Encomendar(Guid usuarioFornecedorId, Guid produtoId)
+        public void Encomendar(EncomendaDto encomendaDto)
         {
-            Encomenda encomenda = new Encomenda(usuarioFornecedorId, produtoId);
-            encomenda.Encomendar(usuarioFornecedorId, produtoId);
+            Encomenda encomenda = new Encomenda(encomendaDto);
+            encomenda.Encomendar(encomendaDto);
             _encomendaRepository.Add(encomenda);
         }
     }

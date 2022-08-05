@@ -1,4 +1,6 @@
-﻿using acme.sistemas.compracoletiva.core.Dtos.Product;
+﻿using acme.sistemas.compracoletiva.api.Configurations.Filtler;
+using acme.sistemas.compracoletiva.config.Security;
+using acme.sistemas.compracoletiva.core.Dtos.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
 using acme.sistemas.compracoletiva.service.Interfaces.Service.Product;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +19,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
         }
 
 
-
+        [ClaimsAuthorize("Oferta", "Add")]
+        [UnitOfWorkFilter]
         [HttpPost("Ofertar")]
         public  IActionResult Ofertar(OfertaDto ofertaDto)
         {
@@ -34,7 +37,9 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
         }
 
 
-
+        [ClaimsAuthorize("Oferta", "Add")]
+        [UnitOfWorkFilter]
+        [HttpPost("Pagar")]
         [HttpPost]
         public  async Task<IActionResult> AddAsync(Oferta oferta)
         {
@@ -50,7 +55,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
             }
         }
 
-
+        [ClaimsAuthorize("Oferta", "Read")]
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -67,7 +72,7 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
         }
 
 
-
+        [ClaimsAuthorize("Oferta", "Read")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
@@ -84,7 +89,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
             }
         }
 
-
+        [ClaimsAuthorize("Oferta", "Update")]
+        [UnitOfWorkFilter]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(Oferta oferta, Guid id)
         {
@@ -101,7 +107,8 @@ namespace acme.sistemas.compracoletiva.api.Controllers.Product
             }
         }
 
-
+        [ClaimsAuthorize("Oferta", "Delete")]
+        [UnitOfWorkFilter]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(Guid id)
         {

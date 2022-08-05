@@ -1,4 +1,5 @@
-﻿using acme.sistemas.compracoletiva.domain.Entity.Sales;
+﻿using acme.sistemas.compracoletiva.core.Dtos.Sales;
+using acme.sistemas.compracoletiva.domain.Entity.Sales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace acme.sistemas.compracoletiva.service.Interfaces.Service.Sales
 {
     public interface ICompraProdutoService : IBaseService<CompraProduto>
     {
-        Task Comprar(Reserva reserva);
+        Task Comprar(CompraProdutoDto compraProdutoDto);
     }
 }

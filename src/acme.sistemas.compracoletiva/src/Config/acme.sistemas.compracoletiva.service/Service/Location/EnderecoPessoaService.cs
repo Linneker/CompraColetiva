@@ -2,6 +2,7 @@
 using acme.sistemas.compracoletiva.domain.Entity.Location;
 using acme.sistemas.compracoletiva.domain.Interfaces.Repository.Location;
 using AutoMapper;
+using acme.sistemas.compracoletiva.core.Dtos.Users;
 
 namespace acme.sistemas.compracoletiva.service.Service.Location
 {

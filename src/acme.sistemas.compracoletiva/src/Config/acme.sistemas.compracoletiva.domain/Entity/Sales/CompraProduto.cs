@@ -11,12 +11,14 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 {
     public class CompraProduto : BaseEntity, IAggregateRoot
     {
-        protected CompraProduto() { }
         public CompraProduto(decimal valorUnitario, decimal quantidade)
         {
             ValorUnitario = valorUnitario;
             Quantidade = quantidade;
         }
+
+        protected CompraProduto() { }
+        
 
         public decimal ValorUnitario { get; private set; }
         public decimal Quantidade { get; private set; }

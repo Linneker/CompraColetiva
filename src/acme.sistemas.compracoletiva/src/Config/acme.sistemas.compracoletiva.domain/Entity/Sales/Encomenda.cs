@@ -1,4 +1,5 @@
 ﻿using acme.sistemas.compracoletiva.core.Base;
+using acme.sistemas.compracoletiva.core.Dtos.Sales;
 using acme.sistemas.compracoletiva.domain.Entity.Product;
 using acme.sistemas.compracoletiva.domain.Entity.Users;
 using System;
@@ -16,10 +17,10 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
 
         }
 
-        public Encomenda(Guid usuarioClienteId, Guid produtoId)
+        public Encomenda(EncomendaDto encomendaDto)
         {
-            UsuarioClienteId = usuarioClienteId;
-            ProdutoId = produtoId; 
+            UsuarioClienteId = encomendaDto.UsuarioClienteId;
+            ProdutoId = encomendaDto.ProdutoId;
         }
 
         public Guid UsuarioClienteId { get; private set; }
@@ -48,10 +49,10 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Sales
             base.Atualizar(encomenda.UsuarioModificacaoId);
         }
 
-        public void Encomendar(Guid usuarioFornecedorId, Guid produtoId)
+        public void Encomendar(EncomendaDto encomendaDto)
         {
-            UsuarioFornecedorId = usuarioFornecedorId;
-            ProdutoId = produtoId;
+            UsuarioFornecedorId = encomendaDto.UsuarioFornecedorId;
+            ProdutoId = encomendaDto.ProdutoId;
         }
     }
 }
