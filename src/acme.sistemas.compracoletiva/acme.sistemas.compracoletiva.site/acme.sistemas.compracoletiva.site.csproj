@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Produtos\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\src\Config\acme.sistemas.compracoletiva.domain\acme.sistemas.compracoletiva.domain.csproj" />
   </ItemGroup>
 
