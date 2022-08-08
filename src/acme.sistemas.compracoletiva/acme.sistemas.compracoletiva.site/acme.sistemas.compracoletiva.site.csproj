@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\Config\acme.sistemas.compracoletiva.domain\acme.sistemas.compracoletiva.domain.csproj" />
+    <ProjectReference Include="..\src\Core\acme.sistemas.compracoletiva.di\acme.sistemas.compracoletiva.di.csproj" />
   </ItemGroup>
 
 </Project>

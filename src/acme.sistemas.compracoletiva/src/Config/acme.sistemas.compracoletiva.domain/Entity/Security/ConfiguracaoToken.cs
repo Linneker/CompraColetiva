@@ -4,7 +4,7 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Security
 {
     public class ConfiguracaoToken : BaseEntity
     {
-        
+        public ConfiguracaoToken(){}
         public ConfiguracaoToken (string accessKey, int? expiracao)
         {
             AccessKey = accessKey;
@@ -12,8 +12,8 @@ namespace acme.sistemas.compracoletiva.domain.Entity.Security
         }
 
 
-        public string AccessKey { get; private set; }
-        public int? Expiracao { get; private set; }
-        public virtual ICollection<ConfiguracaoTokenSistema> AutenticacoesSistemas { get; private set; }
+        public string AccessKey { get;  set; }
+        public int? Expiracao { get; set; }
+        public virtual ICollection<ConfiguracaoTokenSistema> AutenticacoesSistemas { get;  set; }
     }
 }
